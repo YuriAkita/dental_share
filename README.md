@@ -7,8 +7,8 @@
 就業Tarmの技術
 ---
 ・devise
-・Nginx
-・Unicorn
+・コメント機能
+・お気に入り機能
 
 カリキュラム外の技術
 ---
@@ -39,8 +39,8 @@ https://cacoo.com/diagrams/ncMTuovoDhmQfhGm/C7213
 
 ER図
 ---
-[ER 図.pdf](https://github.com/YuriAkita/dental_share/files/6842905/ER.pdf)
+<img width="723" alt="ER図" src="https://user-images.githubusercontent.com/80203224/126339289-bed701ad-94a8-49f0-8ca8-66ed96b908e4.png">
 
 画面遷移図
 ---
-[画面遷移図.pdf](https://github.com/YuriAkita/dental_share/files/6842904/default.pdf)
+<img width="650" alt="遷移図" src="https://user-images.githubusercontent.com/80203224/126339295-40f69e54-ed4f-4a29-a34d-b3dd92dbb31f.png">
