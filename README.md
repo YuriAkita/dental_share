@@ -39,8 +39,8 @@ https://cacoo.com/diagrams/ncMTuovoDhmQfhGm/C7213
 
 ER図
 ---
-<img width="723" alt="ER図" src="https://user-images.githubusercontent.com/80203224/126339289-bed701ad-94a8-49f0-8ca8-66ed96b908e4.png">
+![ER 図 (1)](https://user-images.githubusercontent.com/80203224/126349159-e09502e9-ce93-474c-b335-989ffec5204d.png)
 
 画面遷移図
 ---
-<img width="650" alt="遷移図" src="https://user-images.githubusercontent.com/80203224/126339295-40f69e54-ed4f-4a29-a34d-b3dd92dbb31f.png">
+![画面遷移図 (1)](https://user-images.githubusercontent.com/80203224/126349067-0e9b6902-9896-4f05-870b-8a95f55160ba.png)
