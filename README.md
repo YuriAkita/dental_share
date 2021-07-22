@@ -39,7 +39,7 @@ https://cacoo.com/diagrams/ncMTuovoDhmQfhGm/C7213
 
 ER図
 ---
-![ER図](https://user-images.githubusercontent.com/80203224/126604016-81163ce7-7fa7-401a-a5e9-ccdcfcf075df.png)
+![ER図](https://user-images.githubusercontent.com/80203224/126668814-0f181af7-ee4b-4754-b690-80a520090910.png)
 
 画面遷移図
 ---
