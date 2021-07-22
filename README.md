@@ -39,7 +39,7 @@ https://cacoo.com/diagrams/ncMTuovoDhmQfhGm/C7213
 
 ER図
 ---
-![ER 図 (1)](https://user-images.githubusercontent.com/80203224/126349159-e09502e9-ce93-474c-b335-989ffec5204d.png)
+[ER図.pdf](https://github.com/YuriAkita/dental_share/files/6860332/ER.pdf)
 
 画面遷移図
 ---
