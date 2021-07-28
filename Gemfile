@@ -25,6 +25,19 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+
+  # コード解析
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require:false
+  gem 'rails_best_practices'
+  gem 'bullet'
+  gem 'reek'
+
+  # デバック
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :test do
