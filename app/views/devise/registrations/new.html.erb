@@ -4,8 +4,28 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "user" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.select :address, User.addresses.keys, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teeth_type %><br />
+    <%= f.select :teeth_type, User.teeth_types.keys,autofocus: true, autocomplete: "teeth_type" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :orthodontics_type %><br />
+    <%= f.select :orthodontics_type, User.orthodontics_types.keys, autofocus: true, autocomplete: "orthodontics_type" %>
   </div>
 
   <div class="field">
