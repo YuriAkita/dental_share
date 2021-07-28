@@ -38,6 +38,13 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
+
+  #Rspec
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'launchy'
 end
 
 group :test do
