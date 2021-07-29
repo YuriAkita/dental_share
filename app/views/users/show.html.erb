@@ -1,0 +1,6 @@
+<h1>user#show</h1>
+<p><%= @user.name %></p>
+<p><%= @user.address %></p>
+<p><%= @user.teeth_type %></p>
+<p><%= @user.orthodontics_type %></p>
+<%= link_to "プロフィールを編集する", edit_user_registration_path(@user.id) %>

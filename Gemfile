@@ -10,6 +10,9 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
+gem 'devise'
+gem 'devise-i18n'
+gem 'rails_admin'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -25,6 +28,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'letter_opener_web'
 
   # コード解析
   gem 'rubocop', require: false
