@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'top#index'
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
