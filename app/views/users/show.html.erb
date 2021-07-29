@@ -1,4 +1,6 @@
 <h1>user#show</h1>
 <p><%= @user.name %></p>
-<%= link_to "編集する", edit_user_registration_path(@user.id, exclusion_password: "true") %>
-<%= link_to "パスワードを編集する", edit_user_registration_path(@user.id, exclusion_password: "false" ) %>
+<p><%= @user.address %></p>
+<p><%= @user.teeth_type %></p>
+<p><%= @user.orthodontics_type %></p>
+<%= link_to "プロフィールを編集する", edit_user_registration_path(@user.id) %>
