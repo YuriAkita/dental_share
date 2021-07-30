@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
+  get 'blogs/new'
+  get 'blogs/create'
+  get 'blogs/edit'
+  get 'blogs/update'
+  get 'blogs/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     registrations: "users/registrations",
