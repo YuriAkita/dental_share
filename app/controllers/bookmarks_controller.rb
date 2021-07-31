@@ -8,4 +8,8 @@ class BookmarksController < ApplicationController
     bookmark = current_user.bookmarks.find_by(id: params[:id]).destroy
     redirect_to blogs_path, notice: "#{bookmark.blog.user.name}さんのブログをお気に入り解除しました"
   end
+
+  def show
+    @bookmarks = current_user.bookmarks
+  end
 end

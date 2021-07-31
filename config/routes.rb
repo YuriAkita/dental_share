@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :reviews
   resources :blogs
-  resources :bookmarks, only: [:create, :destroy]
+  resources :bookmarks, only: %i[create destroy show]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
