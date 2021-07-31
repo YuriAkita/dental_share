@@ -7,6 +7,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_many :blogs, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_one_attached :profile_image
 
   enum address: { 東京24区内: 1, 東京近郊: 2, 八王子市: 3,立川市: 4,武蔵野市: 5,三鷹市: 6,青梅市: 7,府中市: 8,昭島市: 9,調布市: 10,町田市: 11,小金井市: 12,小平市: 13,日野市: 14,東村山市: 15,国分寺市: 16,国立市: 17,福生市: 18,狛江市: 19,東大和市: 20,清瀬市: 21,東久留米市: 22,武蔵村山市: 23,多摩市: 24,稲城市: 25,羽村市: 26, あきる野市: 27, 西東京市: 28 }
 
