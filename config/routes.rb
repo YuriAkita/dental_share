@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
+  resources :reviews
   end
 
   if Rails.env.development?
