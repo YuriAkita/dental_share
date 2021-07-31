@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @like = current_user.likes.find_by(review_id: @review.id)
   end
 
   def update
