@@ -1,0 +1,19 @@
+<h1>いいね一覧</h1>
+  <div class="form_area">
+    <% @likes.each do |like| %>
+      <div>
+        <% if like.review.images.attached? %>
+          <% like.review.images.each do |image| %>
+          <%= image_tag image, size: "200x200" %>
+          <% end %>
+        <% end %>
+      <br><br>
+      <p>カウンセリング日:<%= like.review.reservation_at %></p>
+      <p>見積もり金額:<%= like.review.quote_price %>万円</p>
+      <p>歯科矯正方法:<%= like.review.orthodontics_type %></p>
+      <p>レビュー内容:<%= like.review.content %></p>
+      <p>スター:<%= like.review.star %></p>
+      <p>ユーザーネーム:<%= like.review.user.name %></p>
+      </div>
+    <% end %>
+  </div>
