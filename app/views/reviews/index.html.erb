@@ -1,0 +1,33 @@
+<h1>Reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>カウンセリング日</th>
+      <th>見積もり金額</th>
+      <th>カウンセリング内容</th>
+      <th>スター</th>
+      <th>歯科矯正方法（カテゴリー）</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= l review.reservation_at %></td>
+        <td><%= review.quote_price %>万円</td>
+        <td><%= review.content %></td>
+        <td><%= review.star %></td>
+        <td><%= review.orthodontics_type %></td>
+        <td><%= link_to '詳細', review %></td>
+        <td><%= link_to '編集', edit_review_path(review) %></td>
+        <td><%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_review_path %>
