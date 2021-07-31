@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :password, presence: true, length: { minimum: 6 }, on: :create
-  validates :name, presence: true, uniqueness: true, length { in: 1..30 }
+  validates :name, presence: true, uniqueness: true, length: { in: 1..30 }
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   has_many :blogs, dependent: :destroy
@@ -12,5 +12,5 @@ class User < ApplicationRecord
 
   enum teeth_type: { 前歯のガタガタやねじれ: 1, すきっ歯: 2, 出っ歯: 3, 一部クロスバイト: 4, 上下の歯の中心ズレ: 5, 上下の歯の噛み合わせ: 6, 全体: 7, その他: 8 }
 
-  enum orthodontics_type: { マウスピース矯正: 1, ワイヤー矯正: 2, ワイヤー裏側矯正: 3, ハーフリンガル矯正（上顎側に裏側矯正、下顎側にワイヤー矯正を施す矯正方法）: 4, コンビネーション矯正（治療の前半をワイヤー矯正、治療の後半をマウスピース矯正）: 5 }
+  enum orthodontics_type: { マウスピース矯正: 1, ワイヤー矯正: 2, ワイヤー裏側矯正: 3, ハーフリンガル矯正（上顎側に裏側矯正、下顎側にワイヤー矯正を施す矯正方法）: 4, コンビネーション矯正（治療の前半をワイヤー矯正、治療の後半をマウスピース矯正）: 5, アソアライナー: 6, インビザライン: 7, インビザラインiGO: 8, インビザラインティーン: 9, インビザライン・エクスプレスパッケージ: 10, インビザライン・ライトパッケージ: 11, イークライナー: 12, アクアシステム: 13, DENマウスピース: 14 }
 end
