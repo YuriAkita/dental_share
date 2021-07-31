@@ -1,0 +1,46 @@
+<%= form_with(model: @review, local: true, url: choose_new_or_edit ) do |form| %>
+
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @review.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="field">
+    <%= form.label :カウンセリング日 %>
+    <%= form.date_field :reservation_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :見積もり金額 %>
+    <%= form.number_field :quote_price %>万円
+  </div>
+
+  <div class="field">
+    <%= form.label :歯科矯正方法 %>
+    <%= form.select :orthodontics_type, Review.orthodontics_types.keys, :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :カウンセリング内容 %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :スター %>
+    <%= form.select :star, Review.stars.keys, :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
