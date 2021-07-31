@@ -14,6 +14,11 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
 
+#画像関係
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'mimemagic', '0.3.7'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
