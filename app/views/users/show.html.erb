@@ -1,4 +1,7 @@
 <h1>user#show</h1>
+<% if @blog.images.attached? %>
+  <p><%= image_tag @user.profile_image, class:"rounded-circle", size: "200x200" %></p>
+<% end %>
 <p><%= @user.name %></p>
 <p><%= @user.address %></p>
 <p><%= @user.teeth_type %></p>

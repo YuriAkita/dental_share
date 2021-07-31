@@ -37,18 +37,13 @@ class ReviewsController < ApplicationController
     redirect_to reviews_path, notice: "口コミを削除しました！"
   end
 
-  def confirm
-    @review = current_user.reviews.build(review_params)
-    render :new if @review.invalid?
-  end
-
   private
   def set_review
     @review = Review.find(params[:id])
   end
 
   def review_params
-    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id)
+    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id, images: [])
   end
 
 end

@@ -41,11 +41,6 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end
 
-  def confirm
-    @blog = current_user.blogs.build(blog_params)
-    render :new if @blog.invalid?
-  end
-
   private
 
   def set_blog
@@ -53,7 +48,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:content, :user_id)
+    params.require(:blog).permit(:content, :user_id, images: [])
   end
 
 end
