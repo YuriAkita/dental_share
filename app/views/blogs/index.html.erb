@@ -1,0 +1,27 @@
+<br>
+<div class="">
+  <%= link_to '新しく日記を投稿する', new_blog_path %>
+</div>
+
+<h1>ブログ一覧</h1>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>アドレス</th>
+    <th>今後したい・現在している矯正方法</th>
+    <th>歯の悩みタイプ</th>
+    <th>内容</th>
+  </tr>
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.user.name %></td>
+    <td><%= blog.user.address %></td>
+    <td><%= blog.user.orthodontics_type %></td>
+    <td><%= blog.user.teeth_type %></td>
+    <td><%= blog.content %></td>
+    <td><%= link_to '詳細', blogs_path %></td>
+    <td><%= link_to '編集', edit_blog_path(blog.id) %></td>
+    <td><%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+  </tr>
+<% end %>
+</table>

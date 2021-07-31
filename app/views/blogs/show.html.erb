@@ -1,0 +1,11 @@
+<h1>ブログ詳細画面</h1>
+<div class="form_area">
+  <p><%= link_to "#{@blog.user.name}", user_path(@blog.user.id) %></p>
+  <p><%= @blog.user.address %></p>
+  <p>今後したい・現在している矯正方法: <%= @blog.user.orthodontics_type %></p>
+  <p>歯の悩みタイプ: <%= @blog.user.teeth_type %></p>
+  <p>内容: <%= @blog.user.content %></p>
+
+  <%= link_to 'Edit', edit_blog_path(@blog) %> |
+  <%= link_to 'Back', blogs_path %>
+</div>
