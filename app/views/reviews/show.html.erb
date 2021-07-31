@@ -1,12 +1,17 @@
+<% if @review.images.attached? %>
+  <% @review.images.each do |image| %>
+    <%= image_tag image %> <br>
+  <% end %>
+<% end %>
 
 <p>
-  <strong>Resevation at:</strong>
-  <%= @review.resevation_at %>
+  <strong>Reservation at:</strong>
+  <%= @review.reservation_at %>
 </p>
 
 <p>
   <strong>Quite price:</strong>
-  <%= @review.quite_price %>
+  <%= @review.quote_price %>
 </p>
 
 <p>
