@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   root to: 'top#index'
   resources :users, only: [:show]
-  resources :reviews 
+  resources :reviews
   resources :blogs
+  resources :bookmarks, only: %i[create destroy show]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
