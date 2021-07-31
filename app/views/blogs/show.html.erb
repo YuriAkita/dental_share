@@ -7,7 +7,7 @@
 
   <% if @blog.images.attached? %>
     <% @blog.images.each do |image| %>
-    <%= image_tag image %> <br>
+    <%= image_tag image, size: "200x200" %> <br>
     <% end %>
   <% end %>
   <p>内容: <%= @blog.content %></p>
