@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root to: 'top#index'
   resources :users, only: [:show]
-  resources :blogs
+  resources :blogs do
+    collection do
+      post :confirm
+    end
+  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
