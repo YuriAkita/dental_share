@@ -16,10 +16,11 @@ module DentalApp
     config.active_record.default_timezone = :local
 
     config.action_view.embed_authenticity_token_in_remote_forms = true
-    
+
     config.generators do |g|
       g.assets false
       g.helper false
+      g.skip_routes false
     end
 
     # Configuration for the application, engines, and railties goes here.
