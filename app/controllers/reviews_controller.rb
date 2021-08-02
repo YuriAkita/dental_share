@@ -25,6 +25,8 @@ class ReviewsController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(review_id: @review.id)
+    @review_comments = @review.review_comments.order(created_at: :desc)
+    @review_comment = @review.review_comments.build
   end
 
   def update
