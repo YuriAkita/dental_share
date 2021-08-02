@@ -22,12 +22,13 @@
     <% end %>
   <% end %>
 
-  <p>コメント一覧</p>
   <div id="blog_comments_area">
+    <p>コメント</p>
+    <%= @blog_comments.count %>件コメント
+    <%= render partial: 'blog_comments/form', locals: { blog_comment: @blog_comment, blog: @blog } %>
+    <p>コメント一覧</p>
     <%= render partial: 'blog_comments/index', locals: { blog_comments: @blog_comments, blog: @blog } %>
   </div>
-    <%= render partial: 'blog_comments/form', locals: { blog_comment: @blog_comment, blog: @blog } %>
-
 
   <%= link_to 'Edit', edit_blog_path(@blog) %> |
   <%= link_to 'Back', blogs_path %>
