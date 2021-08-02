@@ -37,6 +37,15 @@ class BlogCommentsController < ApplicationController
       end
   end
 
+  def destroy
+    @blog_comment = BlogComment.find(params[:id])
+    @blog_comment.destroy
+    respond_to do |format|
+      flash.now[:notice] = 'コメントが削除されました'
+      format.js { render :index }
+    end
+  end
+
   private
   def blog_comment_params
     params.require(:blog_comment).permit(:blog_id, :user_id, :content)
