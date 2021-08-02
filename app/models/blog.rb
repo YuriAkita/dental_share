@@ -5,5 +5,5 @@ class Blog < ApplicationRecord
   has_many_attached :images
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_users, through: :bookmarks, source: :user
-  has_many :comments, dependent: :destroy
+  has_many :blog_comments, dependent: :destroy
 end
