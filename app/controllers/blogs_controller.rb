@@ -29,6 +29,8 @@ class BlogsController < ApplicationController
 
   def show
     @bookmark = current_user.bookmarks.find_by(blog_id: @blog.id)
+    @blog_comments = @blog.blog_comments
+    @blog_comment = @blog.blog_comments.build
   end
 
   def update

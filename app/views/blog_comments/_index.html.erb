@@ -1,0 +1,11 @@
+<ul>
+  <% blog_comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <p><%= comment.user.name %></p>
+        <p><%= comment.content %></p>
+        <p><%= comment.updated_at %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
