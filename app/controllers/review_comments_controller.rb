@@ -5,7 +5,7 @@ class ReviewCommentsController < ApplicationController
     @review_comment.user_id = current_user.id
     respond_to do |format|
       if @review_comment.save
-        format.html { redirect_to review_path(@review) }
+        format.js { render :index }
       else
         format.html { redirect_to review_path(@review), notice: '投稿できませんでした...' }
       end

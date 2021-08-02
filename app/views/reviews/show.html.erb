@@ -37,12 +37,12 @@
   <% end %>
 <% end %>
 
-<div id="review_comments_area">
   <p>コメント</p>
   <%= @review_comments.count %>件コメント
   <%= render partial: 'review_comments/form', locals: { review_comment: @review_comment, review: @review } %>
-  <%= render partial: 'review_comments/index', locals: { review_comments: @review_comments, review: @review } %>
-</div>
+  <div id="review_comments_area">
+    <%= render partial: 'review_comments/index', locals: { review_comments: @review_comments, review: @review } %>
+  </div>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
