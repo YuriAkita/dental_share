@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'top#index'
+
   resources :users, only: [:show]
   resources :bookmarks, only: %i[create destroy show]
   resources :likes, only: %i[create destroy show]
@@ -21,6 +22,10 @@ Rails.application.routes.draw do
 
   resources :blogs do
     resources :blog_comments
+  end
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
 end
