@@ -1,0 +1,12 @@
+<ul>
+  <% review_comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <div class="review-comment-content" id ="this_review_comment_<%= comment.id %>"></div>
+        <p><%= comment.user.name %></p>
+        <p><%= comment.content %></p>
+        <p><%= comment.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
