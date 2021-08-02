@@ -6,9 +6,11 @@
         <p><%= comment.user.name %></p>
         <p><%= comment.content %></p>
         <p><%= comment.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+        <% if comment.user.id == current_user.id %>
         <p><%= link_to "編集", edit_review_review_comment_path(review, comment), remote: true %></p>
         <p><%= link_to "削除", review_review_comment_path(comment.review_id, comment.id), method: :delete, remote: true,
                                         data: { confirm: "本当に削除しますか?"} %></p>
+        <% end %>
       </li>
     <% end %>
   <% end %>

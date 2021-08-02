@@ -1,4 +1,6 @@
 class BlogCommentsController < ApplicationController
+  before_action :ensure_current_user, only: %i[ edit update destroy ]
+
   def create
     @blog = Blog.find(params[:blog_id])
     @blog_comment = @blog.blog_comments.build(blog_comment_params)
@@ -49,5 +51,12 @@ class BlogCommentsController < ApplicationController
   private
   def blog_comment_params
     params.require(:blog_comment).permit(:blog_id, :user_id, :content)
+  end
+
+  def ensure_current_user
+    if @current_user.id != @blog_comment.user.id
+      flash[:notice]="権限がありません"
+      redirect_to tasks_path
+    end
   end
 end
