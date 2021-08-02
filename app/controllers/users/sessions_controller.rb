@@ -3,6 +3,18 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  def current_sign_in_at
+  if params[:user][:email].downcase == 'guest@example.com'
+    redirect_to new_user_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
+  end
+end
+
   # GET /resource/sign_in
   # def new
   #   super
