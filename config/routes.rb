@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
+  get 'review_comments/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
   }
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   root to: 'top#index'
   resources :users, only: [:show]
-  resources :reviews
-  resources :blogs
   resources :bookmarks, only: %i[create destroy show]
   resources :likes, only: %i[create destroy show]
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  resources :reviews do
+    resources :review_comments
+  end
+
+  resources :blogs do
+    resources :blog_comments
   end
 
 end
