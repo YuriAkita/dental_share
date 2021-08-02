@@ -1,9 +1,8 @@
 class ReviewCommentsController < ApplicationController
   before_action :ensure_current_user, only: %i[ edit update destroy ]
-  
+
   def create
-    @review = Review.find(params[:review_id])
-    @review_comment = @review.review_comments.build(review_comment_params)
+    @review = Review.find(params[:review_id]) @review.review_comments.build(review_comment_params)
     @review_comment.user_id = current_user.id
     respond_to do |format|
       if @review_comment.save
