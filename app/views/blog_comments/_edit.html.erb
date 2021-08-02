@@ -10,10 +10,9 @@
     </div>
   <% end %>
   <div class="field">
+    <%= form.text_area :content, id: "blog_comment_content_#{blog.id}" %>
     <%= form.label :content %>
-    <%= form.text_area :content %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -2,9 +2,11 @@
   <% blog_comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
+        <div class="blog-comment-content" id ="this_blog_comment_<%= comment.id %>"></div>
         <p><%= comment.user.name %></p>
         <p><%= comment.content %></p>
         <p><%= comment.updated_at %></p>
+        <p><%= link_to "編集", edit_blog_blog_comment_path(blog, comment), remote: true %></p>
       </li>
     <% end %>
   <% end %>
