@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_055154) do
+ActiveRecord::Schema.define(version: 2021_08_03_060114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2021_08_03_055154) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "clinic_id", null: false
+    t.index ["clinic_id"], name: "index_reviews_on_clinic_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -141,5 +143,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_055154) do
   add_foreign_key "likes", "users"
   add_foreign_key "review_comments", "reviews"
   add_foreign_key "review_comments", "users"
+  add_foreign_key "reviews", "clinics"
   add_foreign_key "reviews", "users"
 end
