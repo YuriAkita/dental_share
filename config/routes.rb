@@ -14,15 +14,15 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   resources :users, only: [:show]
-  resources :bookmarks, only: %i[create destroy show]
-  resources :likes, only: %i[create destroy show]
+  resources :bookmarks, only: %i[create destroy index]
+  resources :likes, only: %i[create destroy index]
 
   resources :reviews do
-    resources :review_comments
+    resources :review_comments, except: %i[index new show]
   end
 
   resources :blogs do
-    resources :blog_comments
+    resources :blog_comments, except: %i[index new show]
   end
 
   devise_scope :user do

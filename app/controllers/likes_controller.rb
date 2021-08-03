@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     redirect_to reviews_path, notice: "#{like.review.user.name}さんのカウンセリング口コミ投稿をいいね解除しました"
   end
 
-  def show
+  def index
     @likes = current_user.likes
   end
 end
