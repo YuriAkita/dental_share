@@ -54,7 +54,8 @@ class BlogCommentsController < ApplicationController
   end
 
   def ensure_current_user
-    if @current_user.id != @blog_comment.user.id
+    @blog_comment = BlogComment.find(params[:id])
+    if current_user.id != @blog_comment.user.id
       flash[:notice]="権限がありません"
       redirect_to tasks_path
     end
