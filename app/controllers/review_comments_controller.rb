@@ -1,6 +1,6 @@
 class ReviewCommentsController < ApplicationController
   before_action :ensure_current_user, only: %i[ edit update destroy ]
-  
+
   def create
     @review = Review.find(params[:review_id])
     @review_comment = @review.review_comments.build(review_comment_params)
@@ -54,7 +54,8 @@ class ReviewCommentsController < ApplicationController
   end
 
   def ensure_current_user
-    if @current_user.id != @review_comment.user.id
+    @review_comment = ReviewComment.find(params[:id])
+    if current_user.id != @review_comment.user.id
       flash[:notice]="権限がありません"
       redirect_to tasks_path
     end

@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id, images: [])
+    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id, :clinic_id, images: [])
   end
 
 end
