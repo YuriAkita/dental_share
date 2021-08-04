@@ -19,6 +19,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
+gem 'select2-rails'
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'bootstrap'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
