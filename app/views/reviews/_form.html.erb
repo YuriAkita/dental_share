@@ -22,6 +22,12 @@
   </div>
 
   <div class="field">
+    <%= form.label :clinic_id %>
+    <%= javascript_pack_tag 'select2_controller' %>
+    <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {include_blank: 'クリニック名をフォームへ入力してください'},  class: 'mySelect2' %>
+  </div>
+
+  <div class="field">
     <%= form.label :見積もり金額 %>
     <%= form.number_field :quote_price %>万円
   </div>
