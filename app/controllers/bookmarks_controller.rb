@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
     redirect_to blogs_path, notice: "#{bookmark.blog.user.name}さんのブログをお気に入り解除しました"
   end
 
-  def show
+  def index
     @bookmarks = current_user.bookmarks
   end
 end
