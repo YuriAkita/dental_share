@@ -23,6 +23,8 @@ gem 'select2-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'ransack'
+gem 'enum_help'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

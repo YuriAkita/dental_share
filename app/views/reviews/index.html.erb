@@ -1,8 +1,24 @@
 <h1>Reviews</h1>
 
+<div class="search_field">
+  <%= search_form_for @q, url: reviews_path do |f| %>
+    <%= f.label :user_address_eq, "地域別" %>
+    <%= f.select :user_address_eq, User.addresses{|key,value| [User.addresses[key],value]}, include_blank: true  %>
+    <%= f.label :orthodontics_type_eq, "矯正方法別" %>
+    <%= f.select :orthodontics_type_eq, Review.orthodontics_types{|key,value| [Review.orthodontics_types[key],value]}, include_blank: true  %>
+    <%= f.label :user_teeth_type_eq, "歯の悩み別" %>
+    <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, include_blank: true  %>
+    <%= f.submit "検索" %>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
+      <th>プロフ画像</th>
+      <th>名前</th>
+      <th>地域</th>
+      <th>歯の悩みタイプ</th>
       <th>カウンセリング日</th>
       <th>見積もり金額</th>
       <th>カウンセリング内容</th>
@@ -15,6 +31,12 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
+        <% if review.user.profile_image.attached? %>
+        <td><%= image_tag review.user.profile_image, class:"rounded-circle", size: "100x100" %></td>
+        <% end %>
+        <td><%= review.user.name %></td>
+        <td><%= review.user.address %></td>
+        <td><%= review.user.teeth_type %></td>
         <td><%= l review.reservation_at %></td>
         <td><%= review.quote_price %>万円</td>
         <td><%= review.content %></td>

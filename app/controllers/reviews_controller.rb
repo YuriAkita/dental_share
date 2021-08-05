@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show update edit destroy]
   def index
-    @reviews = Review.all
-    @reviews = @reviews.order(created_at: :desc)
-    @reviews = @reviews.page(params[:page]).per(10)
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def new

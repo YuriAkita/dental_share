@@ -2,9 +2,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy]
 
   def index
-    @blogs = Blog.all
-    @blogs = @blogs.order(created_at: :desc)
-    @blogs = @blogs.page(params[:page]).per(10)
+    @q = Blog.ransack(params[:q])
+    @blogs = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def new
