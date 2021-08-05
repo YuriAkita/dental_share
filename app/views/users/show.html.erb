@@ -3,7 +3,36 @@
   <p><%= image_tag @user.profile_image, class:"rounded-circle", size: "200x200" %></p>
 <% end %>
 <p><%= @user.name %></p>
-<p><%= @user.address %></p>
-<p><%= @user.teeth_type %></p>
-<p><%= @user.orthodontics_type %></p>
-<%= link_to "プロフィールを編集する", edit_user_registration_path(@user.id) %>
+<ul>
+  <li>地域<br>
+    <%= @user.address %></li>
+  <li>歯の悩み<br>
+    <%= @user.teeth_type %></li>
+  <li>今後したい・現在している矯正方法<br>
+    <%= @user.orthodontics_type %></li>
+</ul>
+
+<%= link_to "プロフィールを編集", edit_user_registration_path(@user.id) %>
+
+<ul>
+  <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
+  <li>日記投稿数：<%= @user.blogs.length %>日間</li>
+</ul>
+
+<div class="image">
+  <% if @user.blogs.length < 30 %>
+    <%= image_tag 'tree1.png', class:"image_resize1" %>
+  <% elsif @user.blogs.length < 60 %>
+    <%= image_tag 'tree2.png', class:"image_resize2" %>
+  <% elsif @user.blogs.length < 90 %>
+    <%= image_tag 'tree3.png', class:"image_resize3" %>
+  <% elsif @user.blogs.length < 120 %>
+    <%= image_tag 'tree4.png', class:"image_resize4" %>
+  <% elsif @user.blogs.length < 150 %>
+    <%= image_tag 'tree5.png', class:"image_resize5" %>
+  <% elsif @user.blogs.length < 180 %>
+    <%= image_tag 'tree6.png', class:"image_resize6" %>
+  <% else @user.blogs.length < 210 %>
+    <%= image_tag 'tree7.png', class:"image_resize6" %>
+  <% end %>
+</div>
