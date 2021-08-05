@@ -120,6 +120,8 @@ GEM
     devise-i18n (1.10.0)
       devise (>= 4.8.0)
     diff-lcs (1.4.4)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
     execjs (2.8.1)
@@ -270,6 +272,10 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.6)
+    ransack (2.4.2)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -398,6 +404,7 @@ DEPENDENCIES
   carrierwave
   devise
   devise-i18n
+  enum_help
   factory_bot_rails
   faker
   jbuilder (~> 2.7)
@@ -416,6 +423,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rails_admin
   rails_best_practices
+  ransack
   reek
   rspec-rails
   rubocop
