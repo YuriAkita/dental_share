@@ -37,14 +37,9 @@
       color: #d44242;
     border-radius: 36px;
     background: #FF5050;
-    box-shadow: inset 12px 12px 24px #d44242,
-    inset -52px -12px 24px #ff5e5e;
+    box-shadow: inset 12px 12px 24px #d44242, inset -52px -12px 24px #ff5e5e;
     }
   }
-
-.segment {
-  padding: 50px 0 100px 0;
-}
 
 .user_info {
   width: 50%;
@@ -54,8 +49,7 @@
   margin: 40px;
   border-radius: 4px;
   background: #ebf5fc;
-  box-shadow:  6px 6px 12px #dfe9ef,
-               -6px -6px 12px #f7ffff;
+  box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
 }
 
 .user_profile_image {
@@ -70,8 +64,7 @@
   padding: 15px;
   border-radius: 50%;
   background: #ebf5fc;
-  box-shadow: inset 5px 5px 9px #dfe9ef,
-              inset -5px -5px 9px #f7ffff;
+  box-shadow: inset 5px 5px 9px #dfe9ef, inset -5px -5px 9px #f7ffff;
 }
 
 .red-btn {
@@ -79,8 +72,7 @@
   border-radius: 5px;
   padding: 20px 200px;
   background: #ff5656;
-  box-shadow:  6px 6px 17px #c5ced4,
-               -6px -6px 17px #ffffff;
+  box-shadow:  6px 6px 17px #c5ced4, -6px -6px 17px #ffffff;
   color: white;
   text-decoration: none;
 }

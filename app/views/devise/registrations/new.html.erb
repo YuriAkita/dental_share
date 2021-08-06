@@ -29,18 +29,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :address %>
-    <%= f.select :address, User.addresses.keys, autofocus: true, autocomplete: "address" %>
+    <%= f.label :address %><br>
+    <%= f.select :address, User.addresses.keys, {autofocus: true, autocomplete: "address", include_blank: "選択してください"}, class:"pulldown" %>
   </div>
 
   <div class="field">
-    <%= f.label :teeth_type %>
-    <%= f.select :teeth_type, User.teeth_types.keys,autofocus: true, autocomplete: "teeth_type" %>
+    <%= f.label :teeth_type %><br>
+    <%= f.select :teeth_type, User.teeth_types.keys,{autofocus: true, autocomplete: "teeth_type", include_blank: "選択してください"}, class:"pulldown" %>
   </div>
 
   <div class="field">
-    <%= f.label :orthodontics_type %>
-    <%= f.select :orthodontics_type, User.orthodontics_types.keys, autofocus: true, autocomplete: "orthodontics_type" %>
+    <%= f.label :orthodontics_type %><br>
+    <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type", include_blank: "選択してください"}, class:"pulldown" %>
   </div>
 
   <div class="actions">
