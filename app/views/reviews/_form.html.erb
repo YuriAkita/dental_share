@@ -23,27 +23,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :カウンセリング日 %>
+    <%= form.label :カウンセリング日 %><br>
     <%= form.date_field :reservation_at, class:"input-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :見積もり金額 %>
+    <%= form.label :見積もり金額 %><br>
     <%= form.number_field :quote_price, class:"input-field" %>万円
   </div>
 
   <div class="field">
-    <%= form.label :歯科矯正方法 %>
+    <%= form.label :歯科矯正方法 %><br>
     <%= form.select :orthodontics_type, Review.orthodontics_types.keys, {:include_blank => true}, class:"pulldown" %>
   </div>
 
   <div class="field">
-    <%= form.label :カウンセリング内容 %>
+    <%= form.label :カウンセリング内容 %><br>
     <%= form.text_area :content, class:"content-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :スター %>
+    <%= form.label :スター %><br>
     <%= form.select :star, Review.stars.keys, {:include_blank => true}, class:"pulldown" %>
   </div>
 
