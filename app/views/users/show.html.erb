@@ -1,21 +1,35 @@
 <h1>user#show</h1>
-<% if @user.profile_image.attached? %>
-  <p><%= image_tag @user.profile_image, class:"rounded-circle", size: "200x200" %></p>
-<% end %>
-<p><%= @user.name %></p>
-<ul>
-  <li>地域<br>
-    <%= @user.address %></li>
-  <li>歯の悩み<br>
-    <%= @user.teeth_type %></li>
-  <li>今後したい・現在している矯正方法<br>
-    <%= @user.orthodontics_type %></li>
-</ul>
+
+<div class="user_profile_image">
+  <% if @user.profile_image.attached? %>
+    <p><%= image_tag @user.profile_image, class:"rounded-circle", size: "200x200" %></p>
+  <% end %>
+</div>
+
+<div class="user_content">
+  <div class="user_name">
+    <p><%= @user.name %></p>
+  </div>
+  <div class="user_info">
+    <ul>
+      <li>地域<br>
+        <%= @user.address %></li>
+      <li>歯の悩み<br>
+        <%= @user.teeth_type %></li>
+      <li>今後したい・現在している矯正方法<br>
+        <%= @user.orthodontics_type %></li>
+    </ul>
+  </div>
+</div>
 
 <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id) %>
 
 <ul>
-  <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
+  <% if @user.blogs.nil? %>
+    <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
+  <% else %>
+    <li>日記開始日：投稿がありません。</li>
+  <% end %>
   <li>日記投稿数：<%= @user.blogs.length %>日間</li>
 </ul>
 

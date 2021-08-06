@@ -5,50 +5,46 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :profile_image %><br />
+    <%= f.label :profile_image %>
     <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "user" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "user", placeholder: "Your name", class:"input-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class:"input-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :address %><br />
+    <% if @minimum_password_length %>
+    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password（6文字以上）", class:"input-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用 Password", class:"input-field" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
     <%= f.select :address, User.addresses.keys, autofocus: true, autocomplete: "address" %>
   </div>
 
   <div class="field">
-    <%= f.label :teeth_type %><br />
+    <%= f.label :teeth_type %>
     <%= f.select :teeth_type, User.teeth_types.keys,autofocus: true, autocomplete: "teeth_type" %>
   </div>
 
   <div class="field">
-    <%= f.label :orthodontics_type %><br />
+    <%= f.label :orthodontics_type %>
     <%= f.select :orthodontics_type, User.orthodontics_types.keys, autofocus: true, autocomplete: "orthodontics_type" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
   <div class="actions">
-    <%= f.submit t('.sign_up') %>
+    <%= f.submit t('.sign_up'), class:"action-btn" %>
   </div>
 <% end %>
 
