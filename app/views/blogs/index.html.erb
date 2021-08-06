@@ -1,12 +1,12 @@
 <br>
 <div class="search_field">
   <%= search_form_for @q, url: blogs_path do |f| %>
-    <%= f.label :user_address_eq, "地域別" %><br>
-    <%= f.select :user_address_eq, User.addresses{|key,value| [User.addresses[key],value]}, {include_blank: true}, class:"pulldown"  %><br>
-    <%= f.label :user_orthodontics_type_eq, "矯正方法別" %><br>
-    <%= f.select :user_orthodontics_type_eq, User.orthodontics_types{|key,value| [User.orthodontics_types[key],value]}, {include_blank: true}, class:"pulldown" %><br>
-    <%= f.label :user_teeth_type_eq, "歯の悩み別" %><br>
-    <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown" %><br><br><br>
+    <%= f.label :user_address_eq, "地域別" %>
+    <%= f.select :user_address_eq, User.addresses{|key,value| [User.addresses[key],value]}, {include_blank: true}, class:"pulldown-search" %>
+    <%= f.label :user_orthodontics_type_eq, "矯正方法別" %>
+    <%= f.select :user_orthodontics_type_eq, User.orthodontics_types{|key,value| [User.orthodontics_types[key],value]}, {include_blank: true}, class:"pulldown-search" %>
+    <%= f.label :user_teeth_type_eq, "歯の悩み別" %>
+    <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown-search" %><br><br><br>
     <%= f.submit "検索", class:"action-btn" %>
   <% end %>
   <br><br>
