@@ -1,0 +1,57 @@
+.sign_in_field {
+  letter-spacing: -0.2px;
+  font-size: 1.5rem;
+}
+
+form {
+  padding: 16px;
+  width: 16px*2 0;
+  margin: 0 auto;
+}
+
+.input-field {
+  background: #ebf5fc;
+  border: 0;
+  outline: 0;
+  box-shadow: inset 7px 7px 14px #dfe9ef, inset -7px -7px 14px #f7ffff;
+  width: 50%;
+  padding: 13px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: all .3s;
+  appearance: none;
+  -webkit-appearance: none;
+  &:focus {
+    box-shadow:  inset 2px 2px 4px #BABECC, inset -2px -2px 4px #FFF;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 16px*1.5;
+  width: 100%;
+}
+
+.action-btn {
+  color: red;
+  border: 0;
+  outline: 0;
+  padding: 20px;
+  transition: .2s all;
+  border-radius: 20px;
+  background: #ebf5fc;
+  box-shadow:  15px 15px 30px #ccd5db,
+               -15px -15px 30px #ffffff;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  box-shadow:  5px 5px 15px #ccd5db,
+               -5px -5px 15px #ffffff;
+}
+
+.action-btn:active {
+  background: #ebf5fc;
+  box-shadow: inset 3px 3px 8px #ccd5db,
+              inset -3px -3px 8px #ffffff;
+}
