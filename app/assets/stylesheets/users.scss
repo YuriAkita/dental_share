@@ -45,3 +45,56 @@
 .segment {
   padding: 50px 0 100px 0;
 }
+
+.user_info {
+  width: 50%;
+  text-align: left;
+  font-size: 1.5rem;
+  padding: 40px;
+  margin: 40px;
+  border-radius: 4px;
+  background: #ebf5fc;
+  box-shadow:  6px 6px 12px #dfe9ef,
+               -6px -6px 12px #f7ffff;
+}
+
+.user_profile_image {
+  text-align: center;
+}
+
+.actions {
+  padding: 20px 0 80px 0;
+}
+
+.rounded-circle {
+  padding: 15px;
+  border-radius: 50%;
+  background: #ebf5fc;
+  box-shadow: inset 5px 5px 9px #dfe9ef,
+              inset -5px -5px 9px #f7ffff;
+}
+
+.profile-btn {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 20px 200px;
+  background: #ff5656;
+  box-shadow:  6px 6px 17px #c5ced4,
+               -6px -6px 17px #ffffff;
+  color: white;
+  text-decoration: none;
+}
+
+.profile-btn:hover {
+  text-decoration: none;
+  color: #e64848;
+  transition: all .3s;
+}
+
+.grow_tree {
+  text-align: center;
+}
+
+.user_name {
+  color: #ff5656;
+}
