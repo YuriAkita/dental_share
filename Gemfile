@@ -22,7 +22,7 @@ gem 'mimemagic', '0.3.7'
 gem 'select2-rails'
 gem 'uglifier'
 gem 'jquery-rails'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.3'
 gem 'ransack'
 gem 'enum_help'
 

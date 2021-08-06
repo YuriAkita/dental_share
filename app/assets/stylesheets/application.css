@@ -16,3 +16,61 @@
  *= require_tree .
  *= require_self
  */
+ html {
+   font-size: 62.5%;
+   min-height: 100%;
+   margin: 0 auto;
+   position: relative;
+ }
+
+ body {
+  text-align: center;
+  font-size: 1rem;
+  /* font-family: var(--bs-font-sans-serif); */
+  font-family: "筑紫A丸ゴシック";
+  margin: 0;
+  padding: 0;
+  background-image: url("/assets/background.png");
+  background-size: cover;
+}
+
+.header {
+  height: 50px;
+  font-size: 2rem;
+}
+
+.introduce {
+  width: 80%;
+}
+
+.logo {
+  float: left;
+  border-radius: 146px;
+  background: #FFFFFF;
+  box-shadow:  6px 6px 12px #ababab,
+}
+
+.top_menu li {
+  float: left;
+  padding: 15px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.menu {
+  text-decoration: none;
+  color: black;
+}
+
+.menu:hover {
+  text-decoration: none;
+  color: #ff5656;
+  transition: all .3s;
+}
