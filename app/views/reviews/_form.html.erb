@@ -17,34 +17,34 @@
   </div>
 
   <div class="field">
-    <%= form.label :カウンセリング日 %>
-    <%= form.date_field :reservation_at %>
-  </div>
-
-  <div class="field">
     <%= form.label :clinic_id %>
     <%= javascript_pack_tag 'select2_controller' %>
     <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {include_blank: 'クリニック名をフォームへ入力してください'},  class: 'mySelect2' %>
   </div>
 
   <div class="field">
+    <%= form.label :カウンセリング日 %>
+    <%= form.date_field :reservation_at, class:"input-field" %>
+  </div>
+
+  <div class="field">
     <%= form.label :見積もり金額 %>
-    <%= form.number_field :quote_price %>万円
+    <%= form.number_field :quote_price, class:"input-field" %>万円
   </div>
 
   <div class="field">
     <%= form.label :歯科矯正方法 %>
-    <%= form.select :orthodontics_type, Review.orthodontics_types.keys, :include_blank => true %>
+    <%= form.select :orthodontics_type, Review.orthodontics_types.keys, {:include_blank => true}, class:"pulldown" %>
   </div>
 
   <div class="field">
     <%= form.label :カウンセリング内容 %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class:"content-field" %>
   </div>
 
   <div class="field">
     <%= form.label :スター %>
-    <%= form.select :star, Review.stars.keys, :include_blank => true %>
+    <%= form.select :star, Review.stars.keys, {:include_blank => true}, class:"pulldown" %>
   </div>
 
   <div class="field">
@@ -52,6 +52,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "投稿する", class:"action-btn" %>
   </div>
 <% end %>
