@@ -22,3 +22,26 @@
 .image_resize6 {
   width: 20rem;
 }
+
+.top-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 25px 120px;
+  margin: 0 50px;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #e64848, #ff5656);
+  box-shadow:  12px 12px 24px #d4d4d4,
+               -12px -12px 24px #ffffff;
+    &:hover, &:focus {
+      color: #d44242;
+    border-radius: 36px;
+    background: #FF5050;
+    box-shadow: inset 12px 12px 24px #d44242,
+    inset -52px -12px 24px #ff5e5e;
+    }
+  }
+
+.segment {
+  padding: 50px 0 100px 0;
+}
