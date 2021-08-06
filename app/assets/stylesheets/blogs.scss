@@ -17,7 +17,7 @@
   }
 }
 
-.article {
+.article-area {
   text-align: center;
   font-size: 1.5rem;
   padding: 20px;
@@ -25,4 +25,31 @@
   border-radius: 4px;
   background: #ebf5fc;
   box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
+}
+
+.article {
+  padding-bottom: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.select-btn {
+  color: #ff5656;
+  padding: 5px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  background: #ebf5fc;
+  box-shadow:  5px 5px 10px #d8e1e8, -5px -5px 10px #feffff;
+}
+
+.select-btn:hover {
+  color: #ff5656;
+  text-decoration: none;
+  transition: all .6s;
+  box-shadow: inset 5px 5px 6px #dbe4ea,
+              inset -5px -5px 6px #fbffff;
+}
+
+.user_parts {
+  padding: 10px;
 }
