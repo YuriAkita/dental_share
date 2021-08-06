@@ -80,3 +80,15 @@ li {
   display: block;
   clear: both;
 }
+
+footer {
+  width: 100%;
+  background-color: black;
+  padding: 20px 0 10px 0;
+  color: white;
+  margin: auto;
+  padding-bottom: 10px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+}

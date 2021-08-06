@@ -55,3 +55,25 @@ label {
   box-shadow: inset 3px 3px 8px #ccd5db,
               inset -3px -3px 8px #ffffff;
 }
+
+.field {
+  padding: 10px;
+}
+
+.pulldown {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh 0;
+  margin: 2vh 0;
+}
+
+.pulldown>.form {
+  width: 300px;
+  padding: 2vh 0;
+}
+
+
+.test {
+  width: 300px;
+  padding: 100px;
+}
