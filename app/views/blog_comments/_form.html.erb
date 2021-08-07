@@ -11,10 +11,10 @@
   <% end %>
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class:"content-field" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "コメントを投稿", class:"action-btn" %>
   </div>
 <% end %>

@@ -69,19 +69,48 @@
 
 .red-btn {
   font-size: 1.5rem;
-  border-radius: 5px;
+  color: #ebf5fc;
+  border: 0;
+  outline: 0;
   padding: 20px 200px;
+  border-radius: 18px;
   background: #ff5656;
-  box-shadow:  6px 6px 17px #c5ced4, -6px -6px 17px #ffffff;
-  color: white;
-  text-decoration: none;
+  box-shadow:  15px 15px 30px #ccd5db,
+               -15px -15px 30px #ffffff;
+  cursor: pointer;
 }
 
 .red-btn:hover {
-  text-decoration: none;
   color: #e64848;
+  text-decoration: none;
+  background: #ebf5fc;
   transition: all .3s;
+  box-shadow:  5px 5px 15px #ccd5db,
+               -5px -5px 15px #ffffff;
 }
+
+.red-btn:active {
+  box-shadow: inset 3px 3px 8px #ccd5db,
+              inset -3px -3px 8px #ffffff;
+}
+
+  // font-size: 1.5rem;
+  // border-radius: 5px;
+  // padding: 20px 200px;
+  // background: #ff5656;
+  // box-shadow:  6px 6px 17px #c5ced4, -6px -6px 17px #ffffff;
+  // color: white;
+  // text-decoration: none;
+// }
+
+
+
+
+// .red-btn:hover {
+//   text-decoration: none;
+//   color: #e64848;
+//   transition: all .3s;
+// }
 
 .grow_tree {
   text-align: center;
