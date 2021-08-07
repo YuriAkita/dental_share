@@ -1,35 +1,51 @@
-<h1>ブログ詳細画面</h1>
-<div class="form_area">
-  <p><%= link_to "#{@blog.user.name}", user_path(@blog.user.id) %></p>
-  <p><%= @blog.user.address %></p>
-  <p><strong>今後したい・現在している矯正方法:</strong> <%= @blog.user.orthodontics_type %></p>
-  <p><strong>歯の悩みタイプ:</strong> <%= @blog.user.teeth_type %></p>
+<br><br><h1>ブログ詳細画面</h1>
+<div class="article">
+  <div class="article-area">
+    <div class="user_profile_image">
+      <% if @blog.user.profile_image.attached? %>
+        <p><%= image_tag @blog.user.profile_image, class:"rounded-circle", size: "200x200" %></p>
+      <% end %>
+    </div>
 
-  <p>
-    <% if @blog.images.attached? %>
-      <% @blog.images.each do |image| %>
-      <%= image_tag image, size: "200x200" %> <br>
+    <div class="user_parts">
+      <p><%= link_to "#{@blog.user.name}", user_path(@blog.user.id) %></p>
+      <p><%= @blog.user.address %></p>
+      <p><strong>今後したい・現在している矯正方法:</strong> <%= @blog.user.orthodontics_type %></p>
+      <p><strong>歯の悩みタイプ:</strong> <%= @blog.user.teeth_type %></p>
+    </div>
+
+    <div class="blog_content">
+      <p>
+        <% if @blog.images.attached? %>
+          <% @blog.images.each do |image| %>
+          <%= image_tag image, size: "200x200" %> <br>
+          <% end %>
+        <% end %>
+      </p>
+      <p><strong>内容:</strong> <%= @blog.content %></p>
+    </div>
+
+
+    <% unless @blog.user_id == current_user.id %>
+      <% if @bookmark.present? %>
+        <%= link_to 'ブックマーク解除する', bookmark_path(id: @bookmark.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'ブックマークする', bookmarks_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
       <% end %>
     <% end %>
-  </p>
-  <p><strong>内容:</strong> <%= @blog.content %></p>
 
-  <% unless @blog.user_id == current_user.id %>
-    <% if @bookmark.present? %>
-      <%= link_to 'ブックマーク解除する', bookmark_path(id: @bookmark.id), method: :delete, class: 'btn btn-danger' %>
-    <% else %>
-      <%= link_to 'ブックマークする', bookmarks_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
-
-  <p>コメント</p>
-  <%= @blog_comments.count %>件コメント
-  <%= render partial: 'blog_comments/form', locals: { blog_comment: @blog_comment, blog: @blog } %>
-  <p>コメント一覧</p>
-  <div id="blog_comments_area">
-    <%= render partial: 'blog_comments/index', locals: { blog_comments: @blog_comments, blog: @blog } %>
   </div>
 
-  <%= link_to 'Edit', edit_blog_path(@blog) %> |
-  <%= link_to 'Back', blogs_path %>
+  <div class="article-area">
+    <h1>コメント</h1>
+    <%= @blog_comments.count %>件コメント
+    <%= render partial: 'blog_comments/form', locals: { blog_comment: @blog_comment, blog: @blog } %>
+    <h1>コメント一覧</h1>
+    <div id="blog_comments_area">
+      <%= render partial: 'blog_comments/index', locals: { blog_comments: @blog_comments, blog: @blog } %>
+    </div>
+
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+    <%= link_to 'Back', blogs_path %>
+  </div>
 </div>
