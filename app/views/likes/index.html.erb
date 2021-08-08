@@ -4,10 +4,24 @@
   <div class="row">
     <% @likes.each do |like| %>
     <div class="article-area col-md-2">
+      <li>
+        <% if like.review.images.attached? %>
+          <% like.review.images.each do |image| %>
+          <%= image_tag image, size: "200x200" %>
+          <% end %>
+        <% end %>
+      </li>
+      <li>クリニック名：<%= like.review.clinic.name %></li>
+      <li>カウンセリング日:<%= l like.review.reservation_at %></li>
+      <li>見積もり金額:<%= like.review.quote_price %>万円</li>
+      <li>矯正方法:<%= like.review.orthodontics_type %></li>
+      <li>相談内容:<%= like.review.content %></li>
+      <li>スター:<%= like.review.star %></li>
+      <li><%= l like.review.updated_at %></li>
       <li class="user_image">
         <% if like.review.images.attached? %>
           <% like.review.images.each do |image| %>
-          <%= image_tag image, class:"rounded-circle", size: "200x200" %>
+          <%= image_tag image, class:"rounded-circle", size: "100x100" %>
           <% end %>
         <% end %>
       </li>
@@ -16,13 +30,6 @@
         <li><%= like.user.address %></li>
         <li><%= like.user.teeth_type %></li>
       </div>
-      <li>クリニック名：<%= like.review.clinic.name %></li>
-      <li>カウンセリング日:<%= l like.review.reservation_at %></li>
-      <li>見積もり金額:<%= like.review.quote_price %>万円</li>
-      <li>矯正方法:<%= like.review.orthodontics_type %></li>
-      <li>相談内容:<%= like.review.content %></li>
-      <li><%= l like.review.updated_at %></li>
-      <li>スター:<%= like.review.star %></li>
       <li>コメント数：<%= like.review.review_comments.length %>ブックマーク数<%= like.review.likes.length %></li><br>
       </div>
     <% end %>
