@@ -39,7 +39,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  gem 'spring'
+  # gem 'spring'
   gem 'letter_opener_web'
 
   # コード解析
@@ -57,7 +57,7 @@ group :development do
 
   #Rspec
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
+  # gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
