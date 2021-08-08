@@ -1,19 +1,31 @@
-<h1>いいね一覧</h1>
-  <div class="form_area">
+<br><br><h1>いいね一覧</h1>
+
+<div class="article">
+  <div class="row">
     <% @likes.each do |like| %>
-      <div>
+    <div class="article-area col-md-2">
+      <li class="user_image">
         <% if like.review.images.attached? %>
           <% like.review.images.each do |image| %>
-          <%= image_tag image, size: "200x200" %>
+          <%= image_tag image, class:"rounded-circle", size: "200x200" %>
           <% end %>
         <% end %>
-      <br><br>
-      <p>カウンセリング日:<%= like.review.reservation_at %></p>
-      <p>見積もり金額:<%= like.review.quote_price %>万円</p>
-      <p>歯科矯正方法:<%= like.review.orthodontics_type %></p>
-      <p>レビュー内容:<%= like.review.content %></p>
-      <p>スター:<%= like.review.star %></p>
-      <p>ユーザーネーム:<%= like.review.user.name %></p>
+      </li>
+      <div class="user_parts">
+        <li><%= like.user.name %></li>
+        <li><%= like.user.address %></li>
+        <li><%= like.user.teeth_type %></li>
+      </div>
+      <li>クリニック名：<%= like.review.clinic.name %></li>
+      <li>カウンセリング日:<%= l like.review.reservation_at %></li>
+      <li>見積もり金額:<%= like.review.quote_price %>万円</li>
+      <li>矯正方法:<%= like.review.orthodontics_type %></li>
+      <li>相談内容:<%= like.review.content %></li>
+      <li><%= l like.review.updated_at %></li>
+      <li>スター:<%= like.review.star %></li>
+      <li>コメント数：<%= like.review.review_comments.length %>ブックマーク数<%= like.review.likes.length %></li><br>
       </div>
     <% end %>
   </div>
+
+  <%= paginate @likes %>
