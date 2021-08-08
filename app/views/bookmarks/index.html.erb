@@ -1,18 +1,31 @@
-<br>
-<br>
-<h1>ブックマーク一覧</h1>
-  <div class="form_area">
+<br><br><h1>ブックマーク一覧</h1>
+
+
+<div class="article">
+  <div class="row">
     <% @bookmarks.each do |bookmark| %>
-      <div>
+    <div class="article-area col-md-2">
+      <li>
         <% if bookmark.blog.images.attached? %>
           <% bookmark.blog.images.each do |image| %>
-          <%= image_tag image, size: "200x200" %> <br>
+          <%= image_tag image, size: "200x200" %>
           <% end %>
         <% end %>
-      <br>
-      <%= "content:"%><%= bookmark.blog.content %>
-      <br>
-      <%= "user name:"%><%= bookmark.blog.user.name %>
+      </li>
+      <li><%= bookmark.blog.content %></li>
+      <li><%= l bookmark.blog.updated_at %></li>
+      <% if bookmark.blog.user.profile_image.attached? %>
+      <li class="user_image"><%= image_tag bookmark.blog.user.profile_image, class:"rounded-circle", size: "100x100" %>
+      <% end %>
+      </li>
+      <div class="user_parts">
+        <li><%= bookmark.blog.user.name %></li>
+        <li><%= bookmark.blog.user.address %></li>
+        <li><%= bookmark.blog.user.orthodontics_type %></li>
+        <li><%= bookmark.blog.user.teeth_type %></li>
       </div>
+    </div>
     <% end %>
   </div>
+  <%= paginate @bookmarks, class:"" %>
+</div>

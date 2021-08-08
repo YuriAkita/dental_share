@@ -29,10 +29,12 @@
         <li><%= review.user.teeth_type %></li>
       </div>
       <li>クリニック名：<%= review.clinic.name %></li>
+      <li>カウンセリング日:<%= l review.reservation_at %></li>
       <li>見積もり金額：<%= review.quote_price %>万円</li>
       <li>矯正方法：<%= review.orthodontics_type %></li>
       <li>相談内容：<%= review.content %></li>
-      <li><%= l review.reservation_at %></li><br>
+      <li>スター:<%= review.star %></li>
+      <li><%= l review.updated_at %></li><br>
       <li>コメント数：<%= review.review_comments.length %>ブックマーク数<%= review.likes.length %></li><br>
       <li>
         <%= link_to '詳細', review, class:"select-btn" %>
