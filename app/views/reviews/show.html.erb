@@ -1,48 +1,65 @@
-<% if @review.images.attached? %>
-  <% @review.images.each do |image| %>
-    <%= image_tag image %> <br>
-  <% end %>
-<% end %>
+<br><br><h1>カウンセリング口コミ詳細画面</h1>
+<div class="article">
+  <div class="article-area">
 
-<p>
-  <strong>Reservation at:</strong>
-  <%= @review.reservation_at %>
-</p>
+    <div class="user_profile_image">
+    <% if @review.images.attached? %>
+      <% @review.images.each do |image| %>
+        <%= image_tag image, class:"rounded-circle", size: "200x200" %> <br>
+      <% end %>
+    <% end %>
+    </div>
 
-<p>
-  <strong>Quite price:</strong>
-  <%= @review.quote_price %>
-</p>
+    <div class="user_parts">
+      <p><%= link_to "#{@review.user.name}", user_path(@review.user.id) %></p>
+      <p><%= @review.user.address %></p>
+      <p>
+        <strong>歯の悩みタイプ:</strong>
+        <%= @review.user.teeth_type %>
+      </p>
+    </div>
 
-<p>
-  <strong>orthodontics_type:</strong>
-  <%= @review.orthodontics_type %>
-</p>
+    <div class="review_content">
+      <p>
+        <strong>Reservation at:</strong>
+        <%= l @review.reservation_at %>
+      </p>
+      <p>
+        <strong>Quite price:</strong>
+        <%= @review.quote_price %>
+      </p>
+      <p>
+        <strong>orthodontics_type:</strong>
+        <%= @review.orthodontics_type %>
+      </p>
+      <p>
+        <strong>Content:</strong>
+        <%= @review.content %>
+      </p>
+      <p>
+        <strong>Star:</strong>
+        <%= @review.star %>
+      </p>
+    </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
+    <% unless @review.user_id == current_user.id %>
+      <% if @like.present? %>
+        <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'お気に入りする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Star:</strong>
-  <%= @review.star %>
-</p>
-
-<% unless @review.user_id == current_user.id %>
-  <% if @like.present? %>
-    <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-
-  <p>コメント</p>
+  <div class="article-area">
+  <h1>コメント</h1>
   <%= @review_comments.count %>件コメント
   <%= render partial: 'review_comments/form', locals: { review_comment: @review_comment, review: @review } %>
   <div id="review_comments_area">
     <%= render partial: 'review_comments/index', locals: { review_comments: @review_comments, review: @review } %>
   </div>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+  <%= link_to 'Back', reviews_path %>
+  </div>
+</div>

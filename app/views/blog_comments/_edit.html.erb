@@ -10,10 +10,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.text_area :content, id: "blog_comment_content_#{blog.id}" %>
+    <%= form.text_area :content, id: "blog_comment_content_#{blog.id}", class:"content-field" %>
     <%= form.label :content %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "コメントを更新する", class:"action-btn" %>
   </div>
 <% end %>
