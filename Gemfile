@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
+gem 'faker'
 
 #画像関係
 gem 'carrierwave'
