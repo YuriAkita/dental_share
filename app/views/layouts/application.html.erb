@@ -25,8 +25,10 @@
             <% end %>
               <li><%= link_to "マイページ", user_path(current_user.id), class:"menu" %></li>
               <li><%= link_to "日記を投稿する", new_blog_path, class:"menu" %></li>
+              <li><%= link_to "日記一覧", blogs_path, class:"menu" %></li>
               <li><%= link_to "日記ブックマーク一覧", bookmarks_path, class:"menu" %></li>
               <li><%= link_to "カウンセリング口コミを投稿する", new_review_path, class:"menu" %></li>
+              <li><%= link_to "カウンセリング口コミ一覧", reviews_path, class:"menu" %></li>
               <li><%= link_to "カウンセリング口コミいいね一覧", likes_path, class:"menu" %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"menu" %></li>
             <% else %>
