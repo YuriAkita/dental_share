@@ -10,9 +10,8 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'devise'
-gem 'devise-i18n'
-gem 'rails_admin'
+
+gem 'enum_help'
 gem 'faker'
 
 #画像関係
@@ -24,8 +23,6 @@ gem 'select2-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
-gem 'ransack'
-gem 'enum_help'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -72,3 +69,9 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
+gem 'ransack'
+
+gem 'devise'
+gem 'devise-i18n'
+gem 'rails_admin'
+gem 'cancancan'
