@@ -19,7 +19,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
-gem 'select2-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
@@ -70,9 +69,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'ransack'
+gem 'select2-rails'
 
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'cancancan'
+
 gem 'faker'

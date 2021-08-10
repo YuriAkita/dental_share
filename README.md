@@ -7,13 +7,17 @@
 就業Tarmの技術
 ---
 ・devise
+・rails_admin
+・cancancan
 ・コメント機能
 ・お気に入り機能
 
 カリキュラム外の技術
 ---
 ・Active Storage
-・Nokogiri
+・ransack
+・kaminari
+・rails_select2
 
 実行手順
 ---
