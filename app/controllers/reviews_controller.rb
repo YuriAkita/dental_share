@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_review, only: %i[show update edit destroy]
   def index
     @q = Review.ransack(params[:q])

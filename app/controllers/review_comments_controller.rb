@@ -1,4 +1,5 @@
 class ReviewCommentsController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index]
   before_action :ensure_current_user, only: %i[ edit update destroy ]
 
   def create

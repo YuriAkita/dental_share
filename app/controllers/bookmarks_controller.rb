@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index]
   def create
     bookmark = current_user.bookmarks.create(blog_id: params[:blog_id])
     redirect_to blogs_path, notice: "#{bookmark.blog.user.name}さんのブログをお気に入り登録しました"
