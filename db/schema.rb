@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_060114) do
+ActiveRecord::Schema.define(version: 2021_08_10_033328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_060114) do
   create_table "blog_comments", force: :cascade do |t|
     t.bigint "blog_id", null: false
     t.bigint "user_id", null: false
-    t.text "content"
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["blog_id"], name: "index_blog_comments_on_blog_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_060114) do
   end
 
   create_table "blogs", force: :cascade do |t|
-    t.text "content"
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2021_08_03_060114) do
   end
 
   create_table "clinics", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
+    t.string "name", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_08_03_060114) do
   create_table "review_comments", force: :cascade do |t|
     t.bigint "review_id", null: false
     t.bigint "user_id", null: false
-    t.text "content"
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_id"], name: "index_review_comments_on_review_id"
