@@ -31,6 +31,17 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # デバック
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+
+  #Rspec
+  gem 'rspec-rails'
+  # gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do
@@ -47,18 +58,6 @@ group :development do
   gem 'bullet'
   gem 'reek'
 
-  # デバック
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'pry-byebug'
-  gem 'pry-rails'
-
-  #Rspec
-  gem 'rspec-rails'
-  # gem 'spring-commands-rspec'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'launchy'
 end
 
 group :test do
@@ -75,3 +74,4 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'cancancan'
+gem 'faker'

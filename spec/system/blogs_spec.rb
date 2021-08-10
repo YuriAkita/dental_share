@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Blogs", type: :request do
+RSpec.describe "Blogs", type: :system do
   describe "GET /index" do
     it "returns http success" do
       get "/blogs/index"

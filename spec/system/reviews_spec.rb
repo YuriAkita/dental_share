@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Tops", type: :request do
+RSpec.describe "Reviews", type: :system do
   describe "GET /index" do
     it "returns http success" do
-      get "/top/index"
+      get "/reviews/index"
       expect(response).to have_http_status(:success)
     end
   end
