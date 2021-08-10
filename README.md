@@ -15,11 +15,19 @@
 
 カリキュラム外の技術
 ---
+<<<<<<< Updated upstream
 - Active Storage
 - ransack
 - kaminari
 - rails_select2
 - Nokogiri（データベース情報作成時に利用 ※db/dental_info.csv）
+=======
+・Active Storage
+・ransack
+・kaminari
+・rails_select2
+・Nokogiri（データベース情報作成時に利用 ※db/dental_info.csv）
+>>>>>>> Stashed changes
 
 実行手順
 ---
