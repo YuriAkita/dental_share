@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :blog_comments, dependent: :destroy
   has_many :review_comments, dependent: :destroy
-  has_one_attached :profile_image
+  has_one_attached :profile_image, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|

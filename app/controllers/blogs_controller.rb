@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_blog, only: %i[show edit update destroy]
+  before_action :ensure_current_user, only: %i[ edit update destroy ]
 
   def index
     @q = Blog.ransack(params[:q])
@@ -53,6 +55,14 @@ class BlogsController < ApplicationController
 
   def blog_params
     params.require(:blog).permit(:content, :user_id, images: [])
+  end
+
+  def ensure_current_user
+    @blog = Blog.find(params[:id])
+    if current_user.id != @blog.user.id
+      flash[:notice]="権限がありません"
+      redirect_to blogs_path
+    end
   end
 
 end

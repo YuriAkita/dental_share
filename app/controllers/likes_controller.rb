@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index]
   def create
     like = current_user.likes.create(review_id: params[:review_id])
     redirect_to reviews_path, notice: "#{like.review.user.name}さんのカウンセリング口コミ投稿をいいねしました"

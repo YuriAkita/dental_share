@@ -1,4 +1,5 @@
 class ReviewCommentsController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index]
   before_action :ensure_current_user, only: %i[ edit update destroy ]
 
   def create
@@ -57,7 +58,7 @@ class ReviewCommentsController < ApplicationController
     @review_comment = ReviewComment.find(params[:id])
     if current_user.id != @review_comment.user.id
       flash[:notice]="権限がありません"
-      redirect_to tasks_path
+      redirect_to reviews_path
     end
   end
 end

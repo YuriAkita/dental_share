@@ -1,4 +1,5 @@
 class BlogCommentsController < ApplicationController
+  before_action :authenticate_user!, expect: %i[index]
   before_action :ensure_current_user, only: %i[ edit update destroy ]
 
   def create
@@ -57,7 +58,7 @@ class BlogCommentsController < ApplicationController
     @blog_comment = BlogComment.find(params[:id])
     if current_user.id != @blog_comment.user.id
       flash[:notice]="権限がありません"
-      redirect_to tasks_path
+      redirect_to blogs_path
     end
   end
 end
