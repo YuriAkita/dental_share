@@ -11,6 +11,7 @@
 ・cancancan
 ・コメント機能
 ・お気に入り機能
+・非同期処理
 
 カリキュラム外の技術
 ---
@@ -18,6 +19,7 @@
 ・ransack
 ・kaminari
 ・rails_select2
+・Nokogiri（データベース情報作成時に利用 ※db/dental_info.csv）
 
 実行手順
 ---
