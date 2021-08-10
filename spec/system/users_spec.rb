@@ -34,6 +34,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
     context 'ユーザー登録を既にしている場合' do
       it 'ログインができる' do
+        click_link 'ログアウト'
         visit new_user_session_path
         fill_in 'user[email]', with: 'test1@email.com'
         fill_in 'user[password]', with: 'test123'
