@@ -55,6 +55,30 @@ RSpec.describe 'ログインとログアウト', type: :system do
         expect(page).to have_content 'test1のマイページ'
       end
     end
+
+    context 'ログインユーザーがログアウトした場合' do
+      it 'ログアウトができる' do
+        click_link 'ログアウト'
+        expect(page).to have_content 'ログアウトしました'
+      end
+    end
   end
+
+  describe '管理画面' do
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:second_user) { FactoryBot.create(:second_user) }
+
+    context '管理ユーザーがログインした場合' do
+      it '管理画面にアクセスができる' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'admin_user@mail.com'
+        fill_in 'user[password]', with: '9999999'
+        click_button 'commit'
+        visit rails_admin_path
+        expect(page).to have_content 'サイト管理'
+      end
+    end
+  end
+
 
 end
