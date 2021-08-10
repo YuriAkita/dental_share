@@ -1,25 +1,25 @@
 # README
 開発環境
 ---
-・Ruby 3.0.1
-・Rails 6.1.4
+- Ruby 3.0.1
+- Rails 6.1.4
 
 就業Tarmの技術
 ---
-・devise
-・rails_admin
-・cancancan
-・コメント機能
-・お気に入り機能
-・非同期処理
+- devise
+- rails_admin
+- cancancan
+- コメント機能
+- お気に入り機能
+- 非同期処理
 
 カリキュラム外の技術
 ---
-・Active Storage
-・ransack
-・kaminari
-・rails_select2
-・Nokogiri（データベース情報作成時に利用 ※db/dental_info.csv）
+- Active Storage
+- ransack
+- kaminari
+- rails_select2
+- Nokogiri（データベース情報作成時に利用 ※db/dental_info.csv）
 
 実行手順
 ---
