@@ -80,7 +80,7 @@ Blog.create!(
 Blog.create!(
   user_id: 2,
   content: "矯正2日目！毎回取り外した時の開放感。口内炎ができて痛い。",
-  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth4.jpg"), filename: "teeth4.jpg")
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth4.png"), filename: "teeth4.png")
 )
 
 Blog.create!(
