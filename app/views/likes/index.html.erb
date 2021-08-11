@@ -3,7 +3,7 @@
 <div class="article">
   <div class="row">
     <% @likes.each do |like| %>
-    <div class="article-area col-md-2">
+    <div class="article-area col-md-3">
       <li>
         <% if like.review.images.attached? %>
           <% like.review.images.each do |image| %>

@@ -17,7 +17,7 @@
 <div class="article">
   <div class="row">
   <% @reviews.each do |review| %>
-    <div class="article-area col-md-2">
+    <div class="article-area col-md-3">
       <li>
         <% if review.images.attached? %>
           <% review.images.each do |image| %>
@@ -25,12 +25,12 @@
           <% end %>
         <% end %>
       </li>
-      <li>クリニック名：<%= review.clinic.name %></li>
-      <li>カウンセリング日:<%= l review.reservation_at %></li>
-      <li>見積もり金額：<%= review.quote_price %>万円</li>
-      <li>矯正方法：<%= review.orthodontics_type %></li>
-      <li>カウンセリング内容：<%= review.content %></li>
-      <li>スター:<%= review.star %></li>
+      <li class="content_text">クリニック名：<%= review.clinic.name %></li>
+      <li class="content_text">カウンセリング日:<%= l review.reservation_at %></li>
+      <li class="content_text">見積もり金額：<%= review.quote_price %>万円</li>
+      <li class="content_text">矯正方法：<%= review.orthodontics_type %></li>
+      <li class="content_text">カウンセリング内容：<%= review.content %></li>
+      <li class="content_text">スター:<%= review.star %></li>
       <li><%= l review.updated_at %></li><br>
       <li class="user_image">
         <% if review.user.profile_image.attached? %>

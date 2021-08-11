@@ -20,8 +20,8 @@
 .article-area {
   text-align: center;
   font-size: 1.5rem;
-  padding: 20px;
-  margin: 50px;
+  padding: 30px;
+  margin: 20px;
   border-radius: 4px;
   background: #ebf5fc;
   box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
@@ -71,4 +71,8 @@
   border-radius: 200px;
   background: #ebf5fc;
   box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
+}
+
+.content_text {
+  text-align: left;
 }
