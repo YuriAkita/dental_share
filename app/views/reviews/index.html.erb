@@ -45,8 +45,10 @@
       <li>コメント数：<%= review.review_comments.length %>ブックマーク数<%= review.likes.length %></li><br>
       <li>
         <%= link_to '詳細', review, class:"select-btn" %>
+        <% if review.user.id == current_user.id %>
         <%= link_to '編集', edit_review_path(review), class:"select-btn" %>
         <%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"select-btn" %>
+        <% end %>
       </li>
     </div>
   <% end %>

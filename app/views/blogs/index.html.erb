@@ -1,4 +1,4 @@
-<br>
+<br><br>
 <div class="search_field">
   <%= search_form_for @q, url: blogs_path do |f| %>
     <%= f.label :user_address_eq, "地域別" %>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="article">
-<h1>ブログ一覧</h1>
+<h1>日記一覧</h1>
   <div class="row">
   <% @blogs.each do |blog| %>
       <div class="article-area col-md-2">
