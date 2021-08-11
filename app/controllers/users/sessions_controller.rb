@@ -15,6 +15,14 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  def self.admin_guest
+    find_or_create_by!(email: 'admin_guest@example.com') do |user|
+      admin_user = User.admin_guest
+      sign_in admin_user
+      redirect_to root_path, notice: 'ゲスト管理者ユーザーとしてログインしました。'
+    end
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
