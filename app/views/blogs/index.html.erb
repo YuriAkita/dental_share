@@ -28,7 +28,7 @@
             <% end %>
           <% end %>
         </li>
-        <li><%= blog.content %></li>
+        <li class="content_text"><%= blog.content %></li>
         <li><%= l blog.updated_at %></li>
         <% if blog.user.profile_image.attached? %>
         <li class="user_image"><%= image_tag blog.user.profile_image, class:"rounded-circle", size: "100x100" %></li>

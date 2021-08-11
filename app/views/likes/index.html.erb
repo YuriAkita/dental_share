@@ -11,12 +11,12 @@
           <% end %>
         <% end %>
       </li>
-      <li>クリニック名：<%= like.review.clinic.name %></li>
-      <li>カウンセリング日:<%= l like.review.reservation_at %></li>
-      <li>見積もり金額:<%= like.review.quote_price %>万円</li>
-      <li>矯正方法:<%= like.review.orthodontics_type %></li>
-      <li>相談内容:<%= like.review.content %></li>
-      <li>スター:<%= like.review.star %></li>
+      <li class="content_text">クリニック名：<%= like.review.clinic.name %></li>
+      <li class="content_text">カウンセリング日:<%= l like.review.reservation_at %></li>
+      <li class="content_text">見積もり金額:<%= like.review.quote_price %>万円</li>
+      <li class="content_text">矯正方法:<%= like.review.orthodontics_type %></li>
+      <li class="content_text">相談内容:<%= like.review.content %></li>
+      <li class="content_text">スター:<%= like.review.star %></li>
       <li><%= l like.review.updated_at %></li>
       <li class="user_image">
         <% if like.review.user.profile_image.attached? %>

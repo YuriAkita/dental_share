@@ -3,11 +3,9 @@
   <div class="article-area">
 
     <div class="user_profile_image">
-    <% if @review.images.attached? %>
-      <% @review.images.each do |image| %>
-        <%= image_tag image, class:"rounded-circle", size: "200x200" %> <br>
+    <% if @review.user.profile_image.attached? %>
+      <%= image_tag @review.user.profile_image, class:"rounded-circle", size: "200x200" %> <br>
       <% end %>
-    <% end %>
     </div>
 
     <div class="user_parts">
