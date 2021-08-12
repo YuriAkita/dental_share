@@ -31,7 +31,6 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    binding.irb
   end
 
   def update
