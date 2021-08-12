@@ -3,7 +3,7 @@
 <div class="article">
   <div class="row">
     <% @likes.each do |like| %>
-    <div class="article-area col-md-2">
+    <div class="article-area col-md-3">
       <li>
         <% if like.review.images.attached? %>
           <% like.review.images.each do |image| %>
@@ -11,26 +11,26 @@
           <% end %>
         <% end %>
       </li>
-      <li>クリニック名：<%= like.review.clinic.name %></li>
-      <li>カウンセリング日:<%= l like.review.reservation_at %></li>
-      <li>見積もり金額:<%= like.review.quote_price %>万円</li>
-      <li>矯正方法:<%= like.review.orthodontics_type %></li>
-      <li>相談内容:<%= like.review.content %></li>
-      <li>スター:<%= like.review.star %></li>
+      <li class="content_text">クリニック名：<%= like.review.clinic.name %></li>
+      <li class="content_text">カウンセリング日:<%= l like.review.reservation_at %></li>
+      <li class="content_text">見積もり金額:<%= like.review.quote_price %>万円</li>
+      <li class="content_text">矯正方法:<%= like.review.orthodontics_type %></li>
+      <li class="content_text">相談内容:<%= like.review.content %></li>
+      <li class="content_text">スター:<%= like.review.star %></li>
       <li><%= l like.review.updated_at %></li>
       <li class="user_image">
-        <% if like.review.images.attached? %>
-          <% like.review.images.each do |image| %>
-          <%= image_tag image, class:"rounded-circle", size: "100x100" %>
-          <% end %>
+        <% if like.review.user.profile_image.attached? %>
+          <li class="user_image">
+          <%= image_tag like.review.user.profile_image, class:"rounded-circle", size: "100x100" %>
         <% end %>
       </li>
       <div class="user_parts">
-        <li><%= like.user.name %></li>
+        <li><%= link_to like.user.name, user_path(like.review.user.id) %></li>
         <li><%= like.user.address %></li>
         <li><%= like.user.teeth_type %></li>
       </div>
       <li>コメント数：<%= like.review.review_comments.length %>ブックマーク数<%= like.review.likes.length %></li><br>
+      <%= link_to '詳細', blog_path(like.review.id), class:"select-btn" %>
       </div>
     <% end %>
   </div>

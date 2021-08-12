@@ -12,14 +12,14 @@
 <% end %>
 
   <div class="field">
-    <%= form.label :images %>
+    <%= form.label :今の歯の状態画像 %><br>
     <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="field">
-    <%= form.label :clinic_id %>
+    <%= form.label :クリニック名 %><br>
     <%= javascript_pack_tag 'select2_controller' %>
-    <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {include_blank: 'クリニック名をフォームへ入力してください'},  class: 'mySelect2' %>
+    <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {}, class: 'mySelect2' %>
   </div>
 
   <div class="field">
@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :見積もり金額 %><br>
-    <%= form.number_field :quote_price, class:"input-field" %>万円
+    <%= form.number_field :quote_price, class:"input-field", placeholder:"金額を入力してください（60万円だったら60と入力）" %>万円
   </div>
 
   <div class="field">
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :カウンセリング内容 %><br>
-    <%= form.text_area :content, class:"content-field" %>
+    <%= form.text_area :content, class:"content-field", placeholder:"カウンセリング内容：病院の対応・どうゆう治療を勧められたのか・不安に思っている点で医師に相談した内容など、ご自由にご記入ください。" %>
   </div>
 
   <div class="field">

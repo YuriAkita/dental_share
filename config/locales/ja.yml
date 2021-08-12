@@ -1,6 +1,17 @@
 ---
 ja:
   activerecord:
+    attributes:
+      blog:
+        content: 相談内容
+        images: 歯の画像
+      review:
+        content: カウンセリング内容
+        star: スター
+        orthodontics_type: 歯科矯正方法
+        quote_price: 見積もり金額
+        reservation_at: カウンセリング日
+        clinic: クリニック名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

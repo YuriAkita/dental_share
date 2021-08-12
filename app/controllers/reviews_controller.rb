@@ -30,8 +30,11 @@ class ReviewsController < ApplicationController
     @review_comment = @review.review_comments.build
   end
 
+  def edit
+  end
+
   def update
-    if @reviews.update(review_params)
+    if @review.update(review_params)
       redirect_to reviews_path, notice: "口コミを編集しました！"
     else
       render :edit

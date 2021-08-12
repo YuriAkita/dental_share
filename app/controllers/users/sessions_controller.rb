@@ -10,10 +10,16 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def current_sign_in_at
-  if params[:user][:email].downcase == 'guest@example.com'
-    redirect_to new_user_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
+    if params[:user][:email].downcase == 'guest@example.com'
+      redirect_to new_user_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
+    end
   end
-end
+
+  def admin_guest_sign_in
+    admin_user = User.admin_guest
+    sign_in admin_user
+    redirect_to root_path, notice: 'ゲスト管理者ユーザーとしてログインしました。'
+  end
 
   # GET /resource/sign_in
   # def new

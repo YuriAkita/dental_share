@@ -1,4 +1,4 @@
-<br>
+<br><br>
 <div class="search_field">
   <%= search_form_for @q, url: blogs_path do |f| %>
     <%= f.label :user_address_eq, "地域別" %>
@@ -17,10 +17,10 @@
 </div>
 
 <div class="article">
-<h1>ブログ一覧</h1>
+<h1>日記一覧</h1>
   <div class="row">
   <% @blogs.each do |blog| %>
-      <div class="article-area col-md-2">
+      <div class="article-area col-md-3">
         <li>
           <% if blog.images.attached? %>
             <% blog.images.each do |image| %>
@@ -28,7 +28,7 @@
             <% end %>
           <% end %>
         </li>
-        <li><%= blog.content %></li>
+        <li class="content_text"><%= blog.content %></li>
         <li><%= l blog.updated_at %></li>
         <% if blog.user.profile_image.attached? %>
         <li class="user_image"><%= image_tag blog.user.profile_image, class:"rounded-circle", size: "100x100" %></li>
@@ -48,5 +48,5 @@
       </div>
     <% end %>
   </div>
-  <%= paginate @blogs, class:"" %>
+  <%= paginate @blogs %>
 </div>

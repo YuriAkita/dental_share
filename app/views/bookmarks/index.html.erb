@@ -4,7 +4,7 @@
 <div class="article">
   <div class="row">
     <% @bookmarks.each do |bookmark| %>
-    <div class="article-area col-md-2">
+    <div class="article-area col-md-3">
       <li>
         <% if bookmark.blog.images.attached? %>
           <% bookmark.blog.images.each do |image| %>
@@ -12,18 +12,20 @@
           <% end %>
         <% end %>
       </li>
-      <li><%= bookmark.blog.content %></li>
+      <li class="content_text"><%= bookmark.blog.content %></li>
       <li><%= l bookmark.blog.updated_at %></li>
       <% if bookmark.blog.user.profile_image.attached? %>
-      <li class="user_image"><%= image_tag bookmark.blog.user.profile_image, class:"rounded-circle", size: "100x100" %>
+        <li class="user_image">
+        <%= image_tag bookmark.blog.user.profile_image, class:"rounded-circle", size: "100x100" %>
       <% end %>
       </li>
       <div class="user_parts">
-        <li><%= bookmark.blog.user.name %></li>
+        <li><%= link_to bookmark.blog.user.name, user_path(bookmark.blog.user.id) %></li>
         <li><%= bookmark.blog.user.address %></li>
         <li><%= bookmark.blog.user.orthodontics_type %></li>
         <li><%= bookmark.blog.user.teeth_type %></li>
       </div>
+      <%= link_to '詳細', blog_path(bookmark.blog.id), class:"select-btn" %>
     </div>
     <% end %>
   </div>

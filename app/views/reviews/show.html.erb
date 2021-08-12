@@ -3,11 +3,9 @@
   <div class="article-area">
 
     <div class="user_profile_image">
-    <% if @review.images.attached? %>
-      <% @review.images.each do |image| %>
-        <%= image_tag image, class:"rounded-circle", size: "200x200" %> <br>
+    <% if @review.user.profile_image.attached? %>
+      <%= image_tag @review.user.profile_image, class:"rounded-circle", size: "200x200" %> <br>
       <% end %>
-    <% end %>
     </div>
 
     <div class="user_parts">
@@ -21,23 +19,23 @@
 
     <div class="review_content">
       <p>
-        <strong>Reservation at:</strong>
+        <strong>カウンセリング日:</strong>
         <%= l @review.reservation_at %>
       </p>
       <p>
-        <strong>Quite price:</strong>
+        <strong>見積もり金額:</strong>
         <%= @review.quote_price %>
       </p>
       <p>
-        <strong>orthodontics_type:</strong>
+        <strong>矯正方法:</strong>
         <%= @review.orthodontics_type %>
       </p>
       <p>
-        <strong>Content:</strong>
+        <strong>カウンセリング内容:</strong>
         <%= @review.content %>
       </p>
       <p>
-        <strong>Star:</strong>
+        <strong>満足度:</strong>
         <%= @review.star %>
       </p>
     </div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
-    passwords: 'users/passwords'
+    passwords: 'users/passwords',
   }
 
   if Rails.env.development?
@@ -27,6 +27,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
+  end
+
+  namespace :admin do
+    resources :users
   end
 
 end

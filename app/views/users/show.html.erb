@@ -20,27 +20,27 @@
 
     <div class="user_info grow_tree col-md-4">
       <div class="image">
-        <% if @user.blogs.length < 30 %>
+        <% if @user.blogs.length < 10 %>
           <%= image_tag 'tree1.png', class:"image_resize1" %>
-        <% elsif @user.blogs.length < 60 %>
+        <% elsif @user.blogs.length < 20 %>
           <%= image_tag 'tree2.png', class:"image_resize2" %>
-        <% elsif @user.blogs.length < 90 %>
+        <% elsif @user.blogs.length < 40 %>
           <%= image_tag 'tree3.png', class:"image_resize3" %>
-        <% elsif @user.blogs.length < 120 %>
+        <% elsif @user.blogs.length < 60 %>
           <%= image_tag 'tree4.png', class:"image_resize4" %>
-        <% elsif @user.blogs.length < 150 %>
+        <% elsif @user.blogs.length < 70 %>
           <%= image_tag 'tree5.png', class:"image_resize5" %>
-        <% elsif @user.blogs.length < 180 %>
+        <% elsif @user.blogs.length < 90 %>
           <%= image_tag 'tree6.png', class:"image_resize6" %>
-        <% else @user.blogs.length < 210 %>
+        <% else @user.blogs.length < 120 %>
           <%= image_tag 'tree7.png', class:"image_resize6" %>
         <% end %>
       </div>
       <ul>
         <% if @user.blogs.nil? %>
-          <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
-        <% else %>
           <li>日記開始日：投稿がありません。</li>
+        <% else %>
+          <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
         <% end %>
         <li>日記投稿数：<%= @user.blogs.length %>日間</li>
       </ul>

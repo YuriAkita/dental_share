@@ -11,6 +11,8 @@ ja:
         current_sign_in_ip: 現在のログインIPアドレス
         email: Eメール
         name: 名前
+        profile_image: プロフィール画像
+        clinic: クニリック名
         address: 現在住んでいる場所
         teeth_type: 自分の歯の悩みタイプ
         orthodontics_type: 今後したい・今している矯正方法

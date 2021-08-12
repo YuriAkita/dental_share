@@ -20,19 +20,11 @@
 .article-area {
   text-align: center;
   font-size: 1.5rem;
-  padding: 20px;
-  margin: 50px;
+  padding: 30px;
+  margin: 20px;
   border-radius: 4px;
   background: #ebf5fc;
   box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
-  // padding: 50px;
-  // margin: 20px;
-  // background: rgba( 255, 255, 255, 0.25 );
-  // box-shadow: 0 8px 5px 0 rgba( 31, 38, 135, 0.37 );
-  // backdrop-filter: blur( 4px );
-  // -webkit-backdrop-filter: blur( 4px );
-  // border-radius: 10px;
-  // border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .article {
@@ -79,4 +71,8 @@
   border-radius: 200px;
   background: #ebf5fc;
   box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
+}
+
+.content_text {
+  text-align: left;
 }
