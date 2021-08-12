@@ -83,6 +83,14 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
   describe 'ゲストログイン機能' do
 
+    context 'ログインしていない状態で管理者ゲストログインをした場合' do
+      it 'ログインができる' do
+        visit new_user_session_path
+        click_link '管理者ゲストログイン(閲覧用)'
+        expect(page).to have_content 'ゲスト管理者ユーザーとしてログインしました。'
+      end
+    end
+
     context 'ログインしていない状態でゲストログインをした場合' do
       it 'ログインができる' do
         visit new_user_session_path
@@ -91,6 +99,4 @@ RSpec.describe 'ログインとログアウト', type: :system do
       end
     end
   end
-
-
 end
