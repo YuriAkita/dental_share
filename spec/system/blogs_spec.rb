@@ -22,7 +22,7 @@ RSpec.describe "Blogs", type: :system do
         click_button 'commit'
         expect(page).to have_content 'test_content'
         expect(page).to have_content '日記一覧'
-        expect(page).to have_selector("img[src$='teeth3.jpg']")
+        have_selector("img[src$='teeth3.jpg']")
       end
     end
 
@@ -30,7 +30,7 @@ RSpec.describe "Blogs", type: :system do
       it '作成済みの日記一覧が表示される' do
         blog = FactoryBot.create(:blog, content: 'blog_index_test',user: user)
         visit blogs_path
-        expect(page).to have_content blog.content
+        expect(all(".article-area").count).to eq Blog.count
       end
     end
 

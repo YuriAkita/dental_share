@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :review do
+  factory :review do 
     association :user, factory: :user
     clinic_id { 1 }
     reservation_at { '2020/11/01' }

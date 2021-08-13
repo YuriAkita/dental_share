@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).page(params[:page]).per(10)
+    @reviews = @reviews.order(created_at: :desc)
   end
 
   def new

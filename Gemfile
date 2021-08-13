@@ -58,6 +58,7 @@ group :development do
 end
 
 group :test do
+  gem 'select2-rails'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'database_cleaner'

@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   validates :star, presence: true
   validates :orthodontics_type, presence: true
   validates :quote_price, presence: true
-  validates_inclusion_of :quote_price, in:1..200, message: "入力できる金額ではありません。"
+  validates_inclusion_of :quote_price, in:1..200, message: "入力できる金額ではありません。1〜200万円の範囲で入力してください。"
   validate :reservation_at, :date_check
   belongs_to :clinic
   has_many :likes, dependent: :destroy

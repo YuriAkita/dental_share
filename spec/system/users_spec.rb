@@ -11,7 +11,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
         fill_in 'user[email]', with: 'akita_yuri@email.com'
         fill_in 'user[password]', with: 'yuridayo'
         fill_in 'user[password_confirmation]', with: 'yuridayo'
-        select '東京24区内', from: 'user[address]'
+        select '東京23区内', from: 'user[address]'
         select '出っ歯', from: 'user[teeth_type]'
         select 'マウスピース矯正', from: 'user[orthodontics_type]'
         click_button 'commit'
