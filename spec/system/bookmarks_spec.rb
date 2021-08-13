@@ -24,6 +24,20 @@ RSpec.describe "Bookmarks", type: :system do
         expect(page).to have_content 'blog_bookmark_test'
       end
     end
+
+    context '既にブックマーク済の日記をブックマーク解除した場合' do
+      it '日記ブックマーク一覧にブックマークをしていた日記が削除される' do
+        blog = FactoryBot.create(:blog, content: "blog_bookmark_test", user: admin_user)
+        visit blogs_path
+        click_link "blog_index_show-#{blog.id}"
+        click_link "ブックマークする"
+        visit blogs_path
+        click_link "blog_index_show-#{blog.id}"
+        click_link "ブックマーク解除する"
+        visit bookmarks_path
+        expect(page).not_to have_content 'blog_bookmark_test'
+      end
+    end
   end
 
 

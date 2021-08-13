@@ -15,7 +15,7 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '日記を新規作成した場合' do
-      it '日記一覧へ遷移し作成したタスクが表示される' do
+      it '日記一覧へ遷移し作成した日記が表示される' do
         visit new_blog_path
         fill_in 'blog[content]', with: 'test_content'
         attach_file 'blog[images][]', "#{Rails.root}/spec/fixtures/image/teeth3.jpg"
@@ -27,7 +27,7 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '一覧画面に遷移した場合' do
-      it '作成済みのブログ一覧が表示される' do
+      it '作成済みの日記一覧が表示される' do
         blog = FactoryBot.create(:blog, content: 'blog_index_test',user: user)
         visit blogs_path
         expect(page).to have_content blog.content
@@ -121,8 +121,6 @@ RSpec.describe "Blogs", type: :system do
         expect(page).to have_content '出っ歯'
       end
     end
-
-
   end
 
 
