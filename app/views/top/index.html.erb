@@ -3,8 +3,10 @@
     <%= image_tag 'introduce.png', class:"introduce" %>
   </div>
 
+  <% if current_user.nil? %>
   <div class="segment">
     <%= link_to "Log in", new_user_session_path, class:"top-btn" %>
     <%= link_to "Create Account", new_user_registration_path, class:"top-btn" %>
   </div>
+  <% end %>
 </div>

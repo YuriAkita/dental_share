@@ -40,10 +40,10 @@
           <li><%= blog.user.teeth_type %></li>
         </div>
         <li>
-        <%= link_to '詳細', blog_path(blog.id), class:"select-btn" %>
+        <%= link_to '詳細', blog_path(blog.id), class:"select-btn", id:"blog_index_show-#{blog.id}" %>
         <% if blog.user.id == current_user.id %>
-        <%= link_to '編集', edit_blog_path(blog.id), class:"select-btn" %>
-        <%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class:"select-btn" %></li>
+        <%= link_to '編集', edit_blog_path(blog.id), class:"select-btn", id:"blog_index_edit-#{blog.id}" %>
+        <%= link_to '削除', blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？' }, class:"select-btn", id:"blog_index_delete-#{blog.id}" %></li>
         <% end %>
       </div>
     <% end %>

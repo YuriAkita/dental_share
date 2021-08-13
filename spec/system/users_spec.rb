@@ -30,7 +30,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
   describe 'ユーザーログイン機能' do
 
     let!(:user) { FactoryBot.create(:user) }
-    let!(:second_user) { FactoryBot.create(:second_user) }
+    let!(:second_user) { FactoryBot.create(:admin_user) }
 
     context 'ユーザー登録を既にしている場合' do
       it 'ログインができる' do
@@ -67,7 +67,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
   describe '管理画面' do
     let!(:user) { FactoryBot.create(:user) }
-    let!(:second_user) { FactoryBot.create(:second_user) }
+    let!(:admin_user) { FactoryBot.create(:admin_user) }
 
     context '管理ユーザーがログインした場合' do
       it '管理画面にアクセスができる' do
