@@ -11,7 +11,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
         fill_in 'user[email]', with: 'akita_yuri@email.com'
         fill_in 'user[password]', with: 'yuridayo'
         fill_in 'user[password_confirmation]', with: 'yuridayo'
-        select '東京24区内', from: 'user[address]'
+        select '東京23区内', from: 'user[address]'
         select '出っ歯', from: 'user[teeth_type]'
         select 'マウスピース矯正', from: 'user[orthodontics_type]'
         click_button 'commit'
@@ -30,7 +30,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
   describe 'ユーザーログイン機能' do
 
     let!(:user) { FactoryBot.create(:user) }
-    let!(:second_user) { FactoryBot.create(:second_user) }
+    let!(:second_user) { FactoryBot.create(:admin_user) }
 
     context 'ユーザー登録を既にしている場合' do
       it 'ログインができる' do
@@ -67,7 +67,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
   describe '管理画面' do
     let!(:user) { FactoryBot.create(:user) }
-    let!(:second_user) { FactoryBot.create(:second_user) }
+    let!(:admin_user) { FactoryBot.create(:admin_user) }
 
     context '管理ユーザーがログインした場合' do
       it '管理画面にアクセスができる' do
@@ -81,5 +81,22 @@ RSpec.describe 'ログインとログアウト', type: :system do
     end
   end
 
+  describe 'ゲストログイン機能' do
 
+    context 'ログインしていない状態で管理者ゲストログインをした場合' do
+      it 'ログインができる' do
+        visit new_user_session_path
+        click_link '管理者ゲストログイン(閲覧用)'
+        expect(page).to have_content 'ゲスト管理者ユーザーとしてログインしました。'
+      end
+    end
+
+    context 'ログインしていない状態でゲストログインをした場合' do
+      it 'ログインができる' do
+        visit new_user_session_path
+        click_link 'ゲストログイン(閲覧用)'
+        expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+      end
+    end
+  end
 end

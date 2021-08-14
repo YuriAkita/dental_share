@@ -18,13 +18,11 @@ gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
+gem 'image_processing', '~> 1.2'
 
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -60,6 +58,7 @@ group :development do
 end
 
 group :test do
+  gem 'select2-rails'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'database_cleaner'

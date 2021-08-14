@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :クリニック名 %><br>
+    <%= form.label :クリニック名（プルダウンをクリックすると入力欄が表示されるので病院名を入力し選択してください） %><br>
     <%= javascript_pack_tag 'select2_controller' %>
     <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {}, class: 'mySelect2' %>
   </div>
@@ -34,7 +34,7 @@
 
   <div class="field">
     <%= form.label :歯科矯正方法 %><br>
-    <%= form.select :orthodontics_type, Review.orthodontics_types.keys, {:include_blank => true}, class:"pulldown" %>
+    <%= form.select :orthodontics_type, Review.orthodontics_types.keys, {:include_blank => 'どの矯正方法でカウンセリングを受けたのか選択してください'}, class:"pulldown" %>
   </div>
 
   <div class="field">
@@ -44,7 +44,7 @@
 
   <div class="field">
     <%= form.label :スター %><br>
-    <%= form.select :star, Review.stars.keys, {:include_blank => true}, class:"pulldown" %>
+    <%= form.select :star, Review.stars.keys, {:include_blank => '満足度を選択してください'}, class:"pulldown" %>
   </div>
 
   <div class="field">

@@ -11,7 +11,6 @@ class BookmarksController < ApplicationController
   end
 
   def index
-    @bookmarks = current_user.bookmarks
-    @bookmarks = Bookmark.page(params[:page]).per(10)
+    @bookmarks = current_user.bookmarks.page(params[:page]).per(10)
   end
 end

@@ -24,6 +24,10 @@ require 'rspec/rails'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
+FactoryBot::SyntaxRunner.class_eval do
+  include ActionDispatch::TestProcess
+end
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
@@ -39,6 +43,12 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  # ドライバを設定(デフォルトは:rack_test)
+  Capybara.default_driver = :rack_test
+
+  # jsオプション有効時のドライバを設定(デフォルトは:selenium)
+  Capybara.javascript_driver = :selenium
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -64,6 +74,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:suite) do
+    load Rails.root.join('db', 'seeds.rb')
     DatabaseCleaner.strategy = :truncation
   end
   config.before(:all) do
@@ -72,5 +83,9 @@ RSpec.configure do |config|
   config.after(:all) do
     DatabaseCleaner.clean
   end
-  
+
 end
+
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+Capybara.javascript_driver = :selenium_chrome_headless

@@ -37,7 +37,7 @@
         <% end %>
       </div>
       <ul>
-        <% if @user.blogs.nil? %>
+        <% if @user.blogs.blank? %>
           <li>日記開始日：投稿がありません。</li>
         <% else %>
           <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>

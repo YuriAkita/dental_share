@@ -39,15 +39,15 @@
       </li>
       <div class="user_parts">
         <li><%= review.user.name %></li>
-        <li><%= review.user.address %></li>
+        <li class="address"><%= review.user.address %></li>
         <li><%= review.user.teeth_type %></li>
       </div>
       <li>コメント数：<%= review.review_comments.length %>ブックマーク数<%= review.likes.length %></li><br>
       <li>
-        <%= link_to '詳細', review, class:"select-btn" %>
+        <%= link_to '詳細', review, class:"select-btn", id:"review_index_show-#{review.id}" %>
         <% if review.user.id == current_user.id %>
-        <%= link_to '編集', edit_review_path(review), class:"select-btn" %>
-        <%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"select-btn" %>
+        <%= link_to '編集', edit_review_path(review), class:"select-btn", id:"review_index_edit-#{review.id}" %>
+        <%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"select-btn", id:"review_index_delete-#{review.id}" %>
         <% end %>
       </li>
     </div>
