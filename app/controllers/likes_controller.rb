@@ -11,7 +11,6 @@ class LikesController < ApplicationController
   end
 
   def index
-    @likes = current_user.likes
-    @likes = Like.page(params[:page]).per(10)
+    @likes = current_user.likes.page(params[:page]).per(10)
   end
 end

@@ -30,7 +30,7 @@
         <li><%= like.user.teeth_type %></li>
       </div>
       <li>コメント数：<%= like.review.review_comments.length %>ブックマーク数<%= like.review.likes.length %></li><br>
-      <%= link_to '詳細', blog_path(like.review.id), class:"select-btn" %>
+      <%= link_to '詳細', review_path(like.review.id), class:"select-btn" %>
       </div>
     <% end %>
   </div>
