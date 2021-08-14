@@ -23,8 +23,8 @@ RSpec.describe "Likes", type: :system do
       end
     end
 
-    context '既にブックマーク済の日記をブックマーク解除した場合' do
-      it '日記ブックマーク一覧にブックマークをしていた日記が削除される' do
+    context '既にいいね済のレビューをいいね解除した場合' do
+      it 'いいね一覧にいいねをしていたレビュー記事が削除される' do
         visit reviews_path
         click_link "review_index_show-4"
         click_link "お気に入りする"
@@ -32,7 +32,6 @@ RSpec.describe "Likes", type: :system do
         click_link "お気に入り解除する"
         binding.irb
         visit likes_path
-
         expect(page).not_to have_content '海上ビルデンタルクリニック
 カウンセリング'
       end
