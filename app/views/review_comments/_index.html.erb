@@ -7,7 +7,7 @@
         <p><%= comment.content %></p>
         <p><%= l comment.updated_at %></p>
         <% if comment.user.id == current_user.id %>
-        <p><%= link_to "編集", edit_review_review_comment_path(review, comment), remote: true, class:"select-btn" %></p>
+        <p><%= link_to "編集", edit_review_review_comment_path(review, comment), remote: true, class:"select-btn", id:"review_comment_edit-#{comment.id}" %></p>
         <p><%= link_to "削除", review_review_comment_path(comment.review_id, comment.id), method: :delete, remote: true,
                                         data: { confirm: "本当に削除しますか?"}, class:"select-btn" %></p>
         <% end %>
