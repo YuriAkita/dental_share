@@ -14,30 +14,48 @@
   <body>
     <header>
       <div class="header clearfix">
-        <div class="logo-image">
-          <%= image_tag 'icon logo2.png', class:"logo" %>
-        </div>
-        <nav>
-          <ul class="top_menu clearfix">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#"><%= image_tag 'icon logo2.png', class:"logo" %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
             <% if user_signed_in? %>
             <% if current_user.try(:admin?) %>
-              <li><%= link_to "管理者画面", rails_admin_path, class:"menu" %></li>
+              <li class="nav-item"><a class="nav-link" href="#"><%= link_to "管理者画面", rails_admin_path %></a></li>
             <% end %>
-              <li><%= link_to "マイページ", user_path(current_user.id), class:"menu" %></li>
-              <li><%= link_to "日記を投稿する", new_blog_path, class:"menu" %></li>
-              <li><%= link_to "日記一覧", blogs_path, class:"menu" %></li>
-              <li><%= link_to "日記ブックマーク一覧", bookmarks_path, class:"menu" %></li>
-              <li><%= link_to "カウンセリング口コミを投稿する", new_review_path, class:"menu" %></li>
-              <li><%= link_to "カウンセリング口コミ一覧", reviews_path, class:"menu" %></li>
-              <li><%= link_to "カウンセリング口コミいいね一覧", likes_path, class:"menu" %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"menu" %></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">マイページ</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#"><%= link_to "マイページ", user_path(current_user.id) %></a>
+                  <a class="dropdown-item" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">日記</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#"><%= link_to "日記を投稿する", new_blog_path, class: "menu" %></a>
+                  <a class="dropdown-item" href="#"><%= link_to "日記一覧", blogs_path, class: "menu" %></a>
+                  <a class="dropdown-item" href="#"><%= link_to "日記ブックマーク一覧", bookmarks_path, class: "menu" %></a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">カウンセリング口コミ</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#"><%= link_to "カウンセリング口コミを投稿する", new_review_path, class: "menu" %></a>
+                  <a class="dropdown-item" href="#"><%= link_to "日記一覧", blogs_path, class: "menu" %></a>
+                  <a class="dropdown-item" href="#"><%= link_to "日記ブックマーク一覧", bookmarks_path, class: "menu" %></a>
+                </div>
+              </li>
             <% else %>
-              <li><%= link_to "アカウント登録", new_user_registration_path, class:"menu" %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class:"menu" %></li>
-              <li><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class:"menu" %></li>
-              <li><%= link_to '管理者ゲストログイン(閲覧用)', users_admin_guest_sign_in_path, method: :post, class:"menu" %></li>
+              <li class="nav-item"><a class="nav-link" href="#"><%= link_to "アカウント登録", new_user_registration_path, class:"menu" %></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><%= link_to "ログイン", new_user_session_path, class:"menu" %></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class:"menu" %></a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><%= link_to '管理者ゲストログイン', users_admin_guest_sign_in_path, method: :pos, class:"menu" %></a></li>
             <% end %>
-          </ul>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>

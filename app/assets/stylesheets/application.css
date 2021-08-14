@@ -53,19 +53,7 @@ footer {
 }
 
 .introduce {
-  width: 80%;
-}
-
-.logo {
-  float: left;
-  border-radius: 146px;
-  background: #FFFFFF;
-  box-shadow:  6px 6px 12px #ababab,
-}
-
-.top_menu li {
-  float: left;
-  padding: 15px;
+  width: 90%;
 }
 
 ul {
@@ -81,12 +69,11 @@ h1 {
   color: #ff5656;
 }
 
-.menu {
-  text-decoration: none;
-  color: black;
-}
+/* .logo {
+  width: 150px;
+} */
 
-.menu:hover {
+.nav-link:hover {
   text-decoration: none;
   color: #ff5656;
   transition: all .3s;
@@ -96,4 +83,31 @@ h1 {
   content: "";
   display: block;
   clear: both;
+}
+
+.navbar-toggler{
+  border: none;
+}
+.navbar-toggler:active{
+  outline: none;
+}
+button:focus{
+  outline: none;
+}
+
+.menu {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 1rem 1rem;
+  padding-bottom: 1px;
+}
+
+.menu:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.navbar-custom .navbar-text {
+  color: black;
 }
