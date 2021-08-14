@@ -15,6 +15,7 @@ RSpec.describe Blog, type: :model do
       it 'バリデーションが通らない' do
         user = FactoryBot.create(:user)
         blog = Blog.new(user: user, content: "test", images: nil)
+        expect(blog).not_to be_valid
       end
     end
   end

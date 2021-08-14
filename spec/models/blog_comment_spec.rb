@@ -8,6 +8,7 @@ RSpec.describe BlogComment, type: :model do
         user = FactoryBot.create(:user)
         blog = FactoryBot.create(:blog, user: user)
         blog_comment = BlogComment.new(content: "")
+        expect(blog_comment).not_to be_valid
       end
     end
   end
