@@ -16,6 +16,7 @@ RSpec.describe "ReviewComments", type: :system do
       it 'レビュー詳細画面に作成したコメントが表示される' do
         visit reviews_path
         click_link "review_index_show-1"
+        sleep(1)
         fill_in 'review_comment[content]', with: 'test_comment'
         click_button 'コメントを投稿'
         expect(page).to have_content 'test_comment'
@@ -33,6 +34,7 @@ RSpec.describe "ReviewComments", type: :system do
         click_button 'commit'
         visit reviews_path
         click_link "review_index_show-6"
+        sleep(1)
         fill_in 'review_comment[content]', with: 'test_comment'
         click_button 'コメントを投稿'
         (all(".select-btn")[0]).click
