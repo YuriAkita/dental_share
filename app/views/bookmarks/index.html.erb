@@ -17,6 +17,8 @@
       <% if bookmark.blog.user.profile_image.attached? %>
         <li class="user_image">
         <%= image_tag bookmark.blog.user.profile_image, class:"rounded-circle", size: "100x100" %>
+      <% else %>
+        <%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "100x100" %>
       <% end %>
       </li>
       <div class="user_parts">

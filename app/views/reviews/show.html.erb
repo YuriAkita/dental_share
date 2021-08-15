@@ -5,7 +5,9 @@
     <div class="user_profile_image">
     <% if @review.user.profile_image.attached? %>
       <%= image_tag @review.user.profile_image, class:"rounded-circle", size: "200x200" %> <br>
-      <% end %>
+    <% else %>
+      <%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %> <br>
+    <% end %>
     </div>
 
     <div class="user_parts">

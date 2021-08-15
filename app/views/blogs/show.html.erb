@@ -4,6 +4,8 @@
     <div class="user_profile_image">
       <% if @blog.user.profile_image.attached? %>
         <p><%= image_tag @blog.user.profile_image, class:"rounded-circle", size: "200x200" %></p>
+      <% else %>
+        <p><%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %></p>
       <% end %>
     </div>
 
