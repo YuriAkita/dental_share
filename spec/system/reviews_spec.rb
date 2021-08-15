@@ -61,7 +61,6 @@ RSpec.describe "Reviews", type: :system do
       it '選択したレビューが表示される' do
         visit reviews_path
         click_link "review_index_show-1"
-        expect(page).to have_content '2021/08/14'
         expect(page).to have_content 96
         expect(page).to have_content 'インビザラインiGO'
         expect(page).to have_content 'カウンセリングにいってきましたが3Dシュミレーションがすごかった。親知らずがあるので親知らずの相談もしてきました。矯正期間は1年半程度と言われました。'
@@ -70,7 +69,7 @@ RSpec.describe "Reviews", type: :system do
     end
 
     context 'レビューを削除した場合' do
-      it '選択したレビューが表示される' do
+      it '選択したレビューが削除される' do
         visit new_review_path
         fill_in "review[reservation_at]", with: "002020-7-30"
         fill_in "review[quote_price]", with: '10'
@@ -134,7 +133,6 @@ RSpec.describe "Reviews", type: :system do
         select '東京23区内', from: 'q_user_address_eq'
         select 'すきっ歯', from: 'q_user_teeth_type_eq'
         select 'インビザライン', from: 'q_orthodontics_type_eq'
-        binding.irb
         click_button '検索'
         expect(all(".article-area").count).to eq 1
       end
