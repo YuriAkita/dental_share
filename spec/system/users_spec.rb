@@ -34,6 +34,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
     context 'ユーザー登録を既にしている場合' do
       it 'ログインができる' do
+        click_link 'マイページ'
         click_link 'ログアウト'
         visit new_user_session_path
         fill_in 'user[email]', with: 'test1@email.com'
@@ -59,6 +60,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
     context 'ログインユーザーがログアウトした場合' do
       it 'ログアウトができる' do
+        click_link 'マイページ'
         click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end
@@ -86,7 +88,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
     context 'ログインしていない状態で管理者ゲストログインをした場合' do
       it 'ログインができる' do
         visit new_user_session_path
-        click_link '管理者ゲストログイン(閲覧用)'
+        click_link '管理者ゲストログイン'
         expect(page).to have_content 'ゲスト管理者ユーザーとしてログインしました。'
       end
     end
@@ -94,7 +96,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
     context 'ログインしていない状態でゲストログインをした場合' do
       it 'ログインができる' do
         visit new_user_session_path
-        click_link 'ゲストログイン(閲覧用)'
+        click_link 'ゲストログイン'
         expect(page).to have_content 'ゲストユーザーとしてログインしました。'
       end
     end
