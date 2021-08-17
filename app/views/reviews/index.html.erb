@@ -1,59 +1,71 @@
-<br><br><h1>口コミ一覧</h1>
-
 <div class="search_field">
   <%= search_form_for @q, url: reviews_path do |f| %>
-    <%= f.label :"地域別" %>
-    <%= f.select :user_address_eq, User.addresses{|key,value| [User.addresses[key],value]}, {include_blank: true}, class:"pulldown-search" %>
-    <%= f.label :"矯正方法別" %>
-    <%= f.select :orthodontics_type_eq, Review.orthodontics_types{|key,value| [Review.orthodontics_types[key],value]}, {include_blank: true}, class:"pulldown-search" %>
-    <%= f.label :"歯の悩み別" %>
-    <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown-search" %><br><br>
-    <%= f.submit "検索", class:"action-btn" %>
+  <%= f.label :"地域別" %>
+  <%= f.select :user_address_eq, User.addresses{|key,value| [User.addresses[key],value]}, {include_blank: true}, class:"pulldown-search" %>
+  <%= f.label :"矯正方法別" %>
+  <%= f.select :orthodontics_type_eq, Review.orthodontics_types{|key,value| [Review.orthodontics_types[key],value]}, {include_blank: true}, class:"pulldown-search" %>
+  <%= f.label :"歯の悩み別" %>
+  <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown-search" %><br><br>
+  <%= f.submit "検索", class:"action-btn" %>
   <% end %><br><br>
 </div>
 
 <%= link_to 'New Review', new_review_path, class:"red-btn" %>
 
 <div class="article">
-  <div class="row">
-  <% @reviews.each do |review| %>
-    <div class="article-area col-md-3">
-      <li>
-        <% if review.images.attached? %>
-          <% review.images.each do |image| %>
-          <%= image_tag image, size: "200x200" %>
-          <% end %>
-        <% end %>
-      </li>
-      <li class="content_text">クリニック名：<%= review.clinic.name %></li>
-      <li class="content_text">カウンセリング日:<%= l review.reservation_at %></li>
-      <li class="content_text">見積もり金額：<%= review.quote_price %>万円</li>
-      <li class="content_text">矯正方法：<%= review.orthodontics_type %></li>
-      <li class="content_text">カウンセリング内容：<%= review.content %></li>
-      <li class="content_text">スター:<%= review.star %></li>
-      <li><%= l review.updated_at %></li><br>
-      <li class="user_image">
-        <% if review.user.profile_image.attached? %>
-        <%= image_tag review.user.profile_image, class:"rounded-circle", size: "100x100" %>
-        <% else %>
-        <%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "100x100" %>
-        <% end %>
-      </li>
-      <div class="user_parts">
-        <li><%= review.user.name %></li>
-        <li class="address"><%= review.user.address %></li>
-        <li><%= review.user.teeth_type %></li>
+  <h1>口コミ一覧</h1>
+  <div class="uk-grid-match uk-child-width-1-3@m uk-box-shadow-medium" uk-grid>
+    <% @reviews.each do |review| %>
+    <div>
+      <div class="uk-card uk-card-default">
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <% if review.user.profile_image.attached? %>
+              <%= image_tag review.user.profile_image, class:"uk-border-circle", width:"70",height:"70" %>
+              <% else %>
+              <%= image_tag "defalt_profile_image.png", class:"uk-border-circle", width:"70",height:"70" %>
+              <% end %>
+            </div>
+            <div class="uk-width-expand uk-grid-divider" uk-grid>
+              <div class="uk-flex-middle uk-width-auto">
+                <h3 class="uk-card-title uk-margin-remove-bottom"><%= review.user.name %></h3>
+                <p class="uk-text-meta uk-margin-remove-top"><%= review.updated_at.to_date %></p>
+              </div>
+              <div class="uk-text-left">
+                <p class="uk-text-meta uk-margin-remove-top"><span uk-icon="icon: location"></span><%= review.user.address %></p>
+                <p class="uk-text-meta uk-margin-remove-top"><i class="far fa-grimace fa-2x"></i> <%= review.user.teeth_type %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="uk-card-media-top">
+            <% if review.images.attached? %>
+            <% review.images.each do |image| %>
+            <%= image_tag image, class:"card-img-top", style:"height: 400px; width: 537px;" %>
+            <% end %>
+            <% end %>
+          </div>
+          <div class="uk-card-body">
+          <p class="uk-text-left">クリニック名：<%= review.clinic.name %><br>
+            カウンセリング日:<%= l review.reservation_at %><br>
+            見積もり金額：<%= review.quote_price %>万円<br>
+            矯正方法：<%= review.orthodontics_type %><br>
+            カウンセリング内容：<br><%= review.content %><br>
+            スター:<%= review.star %></p>
+          <li class="uk-text-baseline"><span uk-icon="comment"></span>  <%= review.review_comments.length %>  <span uk-icon="heart"></span>  <%= review.likes.length %></li><br>
+          <li>
+          </div>
+          <div class="uk-card-footer">
+            <%= link_to '詳細', review,  id:"review_index_show-#{review.id}", class:"uk-button uk-button-text" %>
+            <% if review.user.id == current_user.id %>
+            <%= link_to '編集', edit_review_path(review),  id:"review_index_edit-#{review.id}", class:"uk-button uk-button-text" %>
+            <%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' },  id:"review_index_delete-#{review.id}", class:"uk-button uk-button-text" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <li>コメント数：<%= review.review_comments.length %>ブックマーク数<%= review.likes.length %></li><br>
-      <li>
-        <%= link_to '詳細', review, class:"select-btn", id:"review_index_show-#{review.id}" %>
-        <% if review.user.id == current_user.id %>
-        <%= link_to '編集', edit_review_path(review), class:"select-btn", id:"review_index_edit-#{review.id}" %>
-        <%= link_to '削除', review, method: :delete, data: { confirm: 'Are you sure?' }, class:"select-btn", id:"review_index_delete-#{review.id}" %>
-        <% end %>
-      </li>
+      <% end %>
     </div>
-  <% end %>
-</div>
-
-<%= paginate @reviews %>
+    <%= paginate @reviews %>
+  </div>
