@@ -15,6 +15,7 @@ RSpec.describe "ReviewComments", type: :system do
     context 'レビュー詳細画面上でコメントを新規作成した場合' do
       it 'レビュー詳細画面に作成したコメントが表示される' do
         visit reviews_path
+        sleep(1)
         click_link "review_index_show-1"
         sleep(1)
         fill_in 'review_comment[content]', with: 'test_comment'
@@ -33,6 +34,7 @@ RSpec.describe "ReviewComments", type: :system do
         select '不満', from: 'review_star'
         click_button 'commit'
         visit reviews_path
+        sleep(1)
         click_link "review_index_show-6"
         sleep(1)
         fill_in 'review_comment[content]', with: 'test_comment'
