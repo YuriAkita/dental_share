@@ -22,7 +22,7 @@ gem 'image_processing', '~> 1.2'
 
 gem 'uglifier'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -58,7 +58,6 @@ group :development do
 end
 
 group :test do
-  gem 'select2-rails'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
@@ -68,7 +67,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'ransack'
-gem 'select2-rails'
 
 gem 'devise'
 gem 'devise-i18n'

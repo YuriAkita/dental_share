@@ -10,11 +10,7 @@
   padding: 50px;
   border-radius: 20px;
   background: #ebf5fc;
-  box-shadow: inset 7px 7px 14px #dfe9ef, inset -7px -7px 14px #f7ffff;
   transition: all .3s;
-  &:focus {
-    box-shadow:  inset 2px 2px 4px #BABECC, inset -2px -2px 4px #FFF;
-  }
 }
 
 .article-area {
@@ -24,7 +20,6 @@
   margin: 20px;
   border-radius: 4px;
   background: #ebf5fc;
-  box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
 }
 
 .article {
@@ -37,15 +32,12 @@
   margin: 5px;
   border-radius: 10px;
   background: #ebf5fc;
-  box-shadow:  5px 5px 10px #d8e1e8, -5px -5px 10px #feffff;
 }
 
 .select-btn:hover {
   color: #ff5656;
   text-decoration: none;
   transition: all .6s;
-  box-shadow: inset 5px 5px 6px #dbe4ea,
-              inset -5px -5px 6px #fbffff;
 }
 
 .user_parts {
@@ -59,8 +51,6 @@
   outline: 0;
   border-radius: 20px;
   background: #ebf5fc;
-  box-shadow: inset 7px 7px 6px #e2ebf2,
-            inset -7px -7px 6px #f4ffff;
 }
 
 .comment-area {
@@ -70,7 +60,6 @@
   margin: 50px;
   border-radius: 200px;
   background: #ebf5fc;
-  box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
 }
 
 .content_text {

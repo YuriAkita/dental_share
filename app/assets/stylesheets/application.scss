@@ -10,12 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= ./bootstrap_import
  *= require select2
- *= require select2-bootstrap
+ *= ./bootstrap_import
  *= require_tree .
  *= require_self
  */
+ @import 'uikit/dist/css/uikit';
+
  html {
    font-size: 62.5%;
    min-height: 100%;
@@ -31,7 +32,7 @@
   font-family: "筑紫A丸ゴシック";
   margin: 0;
   padding: 0;
-  background-image: url("/assets/background3.png");
+  background-image: url("/assets/blue.png");
   background-size: cover;
 }
 
@@ -53,7 +54,7 @@ footer {
 }
 
 .introduce {
-  width: 90%;
+  width: 80%;
 }
 
 ul {
@@ -69,45 +70,12 @@ h1 {
   color: #ff5656;
 }
 
-/* .logo {
-  width: 150px;
-} */
-
-.nav-link:hover {
-  text-decoration: none;
-  color: #ff5656;
-  transition: all .3s;
-}
-
 .clearfix:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.navbar-toggler{
-  border: none;
-}
-.navbar-toggler:active{
-  outline: none;
-}
-button:focus{
-  outline: none;
-}
+.uk-navbar-toggle {
 
-.menu {
-  font-size: 14px;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
-  padding: 1rem 1rem;
-  padding-bottom: 1px;
-}
-
-.menu:hover {
-  text-decoration: none;
-  color: red;
-}
-
-.navbar-custom .navbar-text {
-  color: black;
 }

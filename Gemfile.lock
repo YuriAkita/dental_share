@@ -366,7 +366,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    select2-rails (4.0.13)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -424,7 +423,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.4)
-  bootstrap (~> 4.1.3)
+  bootstrap
   bullet
   byebug
   cancancan
@@ -459,7 +458,6 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   sass-rails (>= 6)
-  select2-rails
   selenium-webdriver
   turbolinks (~> 5)
   tzinfo-data
