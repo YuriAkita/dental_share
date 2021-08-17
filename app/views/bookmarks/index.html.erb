@@ -15,7 +15,7 @@
             </div>
             <div class="uk-width-expand uk-grid-divider" uk-grid>
               <div class="center">
-                <h3 class="uk-card-title uk-margin-remove-bottom"><%= link_to bookmark.blog.user.name, user_path(bookmark.blog.user.id) %></h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom"><%= link_to bookmark.blog.user.name, user_path(bookmark.blog.user.id), class:"uk-button uk-button-text" %></h3>
                 <p class="uk-text-meta uk-margin-remove-top"><%= bookmark.blog.updated_at.to_date %></p>
               </div>
               <div class="uk-text-left">
