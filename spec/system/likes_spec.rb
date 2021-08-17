@@ -16,8 +16,9 @@ RSpec.describe "Likes", type: :system do
     context '自分以外のレビューの詳細画面でいいねをした場合' do
       it 'レビューいいね一覧にいいねをしたレビューが表示される' do
         visit reviews_path
+        sleep(1)
         click_link "review_index_show-3"
-        sleep(2)
+        sleep(1)
         click_link "お気に入りする"
         visit reviews_path
         expect(page).to have_content '医療法人社団有秀会 名執歯科'
@@ -27,11 +28,13 @@ RSpec.describe "Likes", type: :system do
     context '既にいいね済のレビューをいいね解除した場合' do
       it 'いいね一覧にいいねをしていたレビュー記事が削除される' do
         visit reviews_path
+        sleep(1)
         click_link "review_index_show-4"
-        sleep(2)
+        sleep(1)
         click_link "お気に入りする"
+        sleep(1)
         click_link "review_index_show-4"
-        sleep(2)
+        sleep(1)
         click_link "お気に入り解除する"
         visit likes_path
         expect(page).not_to have_content '海上ビルデンタルクリニック

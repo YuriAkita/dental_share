@@ -30,7 +30,7 @@ RSpec.describe "Blogs", type: :system do
       it '作成済みの日記一覧が表示される' do
         blog = FactoryBot.create(:blog, content: 'blog_index_test',user: user)
         visit blogs_path
-        expect(all(".article-area").count).to eq Blog.count
+        expect(all(".uk-card").count).to eq Blog.count
       end
     end
 
