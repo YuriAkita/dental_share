@@ -1,3 +1,4 @@
+<div class="article">
 <div class="search_field">
   <%= search_form_for @q, url: reviews_path do |f| %>
   <%= f.label :"地域別" %>
@@ -12,7 +13,6 @@
 
 <%= link_to 'New Review', new_review_path, class:"create-btn uk-width-1-3@s" %>
 
-<div class="article">
   <h1>口コミ一覧</h1>
   <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
     <% @reviews.each do |review| %>
@@ -48,6 +48,7 @@
         </div>
         <div class="uk-card-body">
           <p class="uk-text-left">クリニック名：<%= review.clinic.name %><br>
+            クリニック住所：<%= review.clinic.address %><br>
             カウンセリング日:<%= l review.reservation_at %><br>
             見積もり金額：<%= review.quote_price %>万円<br>
             矯正方法：<%= review.orthodontics_type %><br>
