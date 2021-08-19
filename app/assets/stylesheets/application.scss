@@ -20,7 +20,7 @@
  html {
    font-size: 68.5%;
    min-height: 100%;
-   margin: 0 auto;
+   margin: 0;
    position: relative;
  }
 
@@ -95,5 +95,6 @@ h1 {
 }
 
 .logo {
-  width: 40%;
+  width: 100%;
+  text-align: left;
 }
