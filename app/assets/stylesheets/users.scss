@@ -59,45 +59,27 @@
 .rounded-circle {
   padding: 15px;
   border-radius: 50%;
-  background: #ebf5fc;
 }
 
-.red-btn {
+$base-color: #5BDECD;
+
+.create-btn {
   font-size: 1.5rem;
-  color: #ebf5fc;
+  color: #FFF;
   border: 0;
   outline: 0;
-  padding: 20px 200px;
-  border-radius: 18px;
-  background: #ff5656;
+  padding: 20px 150px;
+  border-radius: 5px;
+  background: #5BDECD;
   cursor: pointer;
 }
 
-.red-btn:hover {
-  color: #e64848;
+.create-btn:hover {
+  color: #FFF;
   text-decoration: none;
-  background: #ebf5fc;
+  background: darken($base-color, 10%);
   transition: all .3s;
 }
-
-
-  // font-size: 1.5rem;
-  // border-radius: 5px;
-  // padding: 20px 200px;
-  // background: #ff5656;
-  // box-shadow:  6px 6px 17px #c5ced4, -6px -6px 17px #ffffff;
-  // color: white;
-  // text-decoration: none;
-// }
-
-
-
-
-// .red-btn:hover {
-//   text-decoration: none;
-//   color: #e64848;
-//   transition: all .3s;
-// }
 
 .grow_tree {
   text-align: center;

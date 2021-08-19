@@ -15,8 +15,11 @@
     <nav class="uk-navbar uk-navbar-container uk-margin">
       <div class="uk-navbar-left">
         <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav-primary">
-          <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+          <span uk-navbar-toggle-icon></span> <span class="uk-navbar-toggle uk-icon uk-navbar-toggle-icon">Menu</span>
         </a>
+      </div>
+      <div class="uk-navbar-center">
+        <a class="uk-navbar-item uk-logo" href="#"><%= image_tag 'logo.png', class:'logo' %></a>
       </div>
       <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
         <div class="uk-offcanvas-bar uk-flex uk-flex-column">
@@ -66,7 +69,7 @@
     </nav>
   </header>
   <% if notice %>
-  <p class="alert alert-notice"><%= notice %></p>
+  <p class="alert alert-notice" onclick="UIkit.notification({message: '<%= notice %>', status: 'primary'})"></p>
   <% end %>
   <% if alert %>
   <p class="alert alert-error"><%= alert %></p>

@@ -5,12 +5,12 @@
   <%= f.label :"矯正方法別" %>
   <%= f.select :orthodontics_type_eq, Review.orthodontics_types{|key,value| [Review.orthodontics_types[key],value]}, {include_blank: true}, class:"pulldown-search" %>
   <%= f.label :"歯の悩み別" %>
-  <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown-search" %><br><br>
+  <%= f.select :user_teeth_type_eq, User.teeth_types{|key,value| [User.teeth_types[key],value]}, {include_blank: true}, class:"pulldown-search" %>
   <%= f.submit "検索", class:"action-btn" %>
   <% end %><br><br>
 </div>
 
-<%= link_to 'New Review', new_review_path, class:"red-btn" %>
+<%= link_to 'New Review', new_review_path, class:"create-btn" %>
 
 <div class="article">
   <h1>口コミ一覧</h1>

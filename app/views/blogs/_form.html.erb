@@ -9,18 +9,28 @@
       </ul>
     </div>
   <% end %>
+
+<form class="uk-form-horizontal uk-margin-large">
   <div class="blog_images">
     <%= form.label :歯の画像 %><br>
+    <div class="uk-form-controls">
     <%= form.file_field :images, multiple: true %>
+    </div>
   </div>
 
-  <div class="blog_content">
+  <div class="field">
     <%= form.label :日記内容 %><br>
-    <%= form.text_field :content, class:"content-field", placeholder:"日記内容を入力してください。現在の歯の状況や悩んでいることなど。" %>
+    <div class="uk-form-controls">
+    <%= form.text_field :content, class:"uk-textarea uk-width-1-2@m", rows:"5", placeholder:"日記内容を入力してください。現在の歯の状況や悩んでいることなど。" %>
+    </div>
   </div>
 
   <div class="field">
     <%= form.hidden_field :user_id %>
   </div>
-  <%= form.submit "投稿する", class:"action-btn" %>
+  <%= form.submit "投稿する", class:"create-btn" %>
+</form>
 <% end %>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>

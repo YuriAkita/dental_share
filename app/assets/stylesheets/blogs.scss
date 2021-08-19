@@ -3,14 +3,20 @@
   width: 50%;
 }
 
-.content-field {
-  border: 0;
+.pulldown-search {
+  border: 1px solid;
+  border-color: #5B9DDE;
+  border-radius: 10px;
+  padding: 5px;
+  width: 20%;
+}
+
+.pulldown {
+  border: 1px solid #black;
+  width: 50%;
   outline: 0;
   width: 50%;
-  padding: 50px;
-  border-radius: 20px;
-  background: #ebf5fc;
-  transition: all .3s;
+  padding: 5px;
 }
 
 .article-area {
@@ -26,31 +32,8 @@
   padding: 50px 20px 80px 20px;
 }
 
-.select-btn {
-  color: #ff5656;
-  padding: 5px 20px;
-  margin: 5px;
-  border-radius: 10px;
-  background: #ebf5fc;
-}
-
-.select-btn:hover {
-  color: #ff5656;
-  text-decoration: none;
-  transition: all .6s;
-}
-
 .user_parts {
   padding: 10px;
-}
-
-.pulldown-search {
-  width: 20%;
-  padding: 10px 0;
-  border: 0;
-  outline: 0;
-  border-radius: 20px;
-  background: #ebf5fc;
 }
 
 .comment-area {
@@ -66,48 +49,43 @@
   text-align: left;
 }
 
-// .button {
-//   width: 100%;
-//   padding: 20px;
-//   color: white;
-//   background-color: black;
-//   border-radius: 10px;
-//   outline: 0;
-// }
+$button-color: #228bc8;
 
-// section {
-//   max-width: 300px;
-//   margin: 0 auto;
-// }
 .button {
-  display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   width: 100%;
   height: 50px;
-  position: relative;
   background: #228bc8;
   border: 1px solid #228bc8;
   box-sizing: border-box;
   padding: 0 25px 0 40px;
   color: #fff;
-  font-size: 16px;
-  letter-spacing: 0.1em;
-  line-height: 1.3;
-  text-align: left;
   text-decoration: none;
   transition-duration: 0.3s;
 }
-.button:before {
-  content: '';
-  width: 8px;
-  height: 8px;
+.button:hover {
+  text-decoration: none;
+  background: darken($button-color, 5%)
+}
+
+$btn-color: black;
+
+.action-btn {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
   border: 0;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-  transform: rotate(45deg);
-  position: absolute;
-  top: 50%;
-  left: 25px;
-  margin-top: -6px;
+  background-color: lighten($btn-color, 20%);
+}
+
+.action-btn:hover {
+  color: white;
+  background-color: black;
+  transition: all .3s;
+}
+
+.uk-form-controls {
+  margin-bottom: 20px;
 }
