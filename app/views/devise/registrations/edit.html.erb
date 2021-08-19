@@ -1,45 +1,50 @@
-<br><br>
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<div class="outside">
+  <div class="article">
+    <div class="uk-card uk-card-default uk-card-body">
+      <h2><%= t('.title', resource: resource.model_name.human) %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :profile_image %><br />
-    <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+      <div class="uk-form-controls">
+        <%= f.label :profile_image %><br />
+        <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.text_field :name, autofocus: true, autocomplete: "user", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :address %><br>
+        <%= f.select :address, User.addresses.keys, {autofocus: true, autocomplete: "address"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :teeth_type %><br>
+        <%= f.select :teeth_type, User.teeth_types.keys,{autofocus: true, autocomplete: "teeth_type"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :orthodontics_type %><br>
+        <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      
+      <div class="actions">
+        <%= f.submit t('.update'), class:"create-btn uk-width-1-2@m" %>
+      </div>
+      <% end %>
+
+      <h3><%= t('.cancel_my_account') %></h3>
+
+      <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class:"action-btn" %></p>
+
+      <%= link_to t('devise.shared.links.back'), :back %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "user", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.select :address, User.addresses.keys, {autofocus: true, autocomplete: "address"}, class:"pulldown" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :teeth_type %>
-    <%= f.select :teeth_type, User.teeth_types.keys,{autofocus: true, autocomplete: "teeth_type"}, class:"pulldown" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :orthodontics_type %>
-    <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type"}, class:"pulldown" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit t('.update'), class:"action-btn" %>
-  </div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class:"action-btn" %></p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
+</div>
