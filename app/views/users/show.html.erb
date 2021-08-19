@@ -12,6 +12,10 @@
   <%= @user.teeth_type %></li>
   <li class="mypage-font-color">今後したい・現在している矯正方法：
   <%= @user.orthodontics_type %></li>
+  <br>
+  <div class="actions">
+    <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
+  </div>
 </div>
 
 <div class="article">
@@ -45,6 +49,3 @@
     </div>
     </div>
 <br><br>
-<div class="actions">
-  <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"create-btn" %>
-</div>

@@ -73,6 +73,15 @@ $base-color: #5BDECD;
   cursor: pointer;
 }
 
+.profile-btn {
+  color: #FFF;
+  border: 0;
+  outline: 0;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: black;
+}
+
 .create-btn:hover {
   color: #FFF;
   text-decoration: none;
