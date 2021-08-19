@@ -7,9 +7,9 @@
           <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-auto">
               <% if @review.user.profile_image.attached? %>
-                <%= image_tag @review.user.profile_image, class:"uk-border-circle", width:"70",height:"70" %> <br>
+              <%= image_tag @review.user.profile_image, class:"uk-border-circle", width:"70",height:"70" %> <br>
               <% else %>
-                <%= image_tag "defalt_profile_image.png", class:"uk-border-circle", width:"70",height:"70" %> <br>
+              <%= image_tag "defalt_profile_image.png", class:"uk-border-circle", width:"70",height:"70" %> <br>
               <% end %>
             </div>
             <div class="uk-width-expand uk-grid-divider" uk-grid>
@@ -43,20 +43,18 @@
           </p>
           <p>
             <% unless @review.user_id == current_user.id %>
-              <% if @like.present? %>
-                <%= link_to 'いいね解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-              <% else %>
-                <%= link_to 'いいねする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
-              <% end %>
+            <% if @like.present? %>
+            <%= link_to 'いいね解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+            <%= link_to 'いいねする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
+            <% end %>
             <% end %>
           </p>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="article">
   <div class="uk-child-width@m uk-grid-small uk-grid-match" uk-grid>
     <div>
       <div class="uk-card uk-card-default uk-card-body">
@@ -68,8 +66,8 @@
         </div>
       </div>
     </div>
+    <br>
   </div>
-  <br>
 
   <%= link_to 'Edit', edit_review_path(@review) %> |
   <%= link_to 'Back', reviews_path %>
