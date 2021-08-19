@@ -1,26 +1,22 @@
-<br><br>
+<div class="uk-width-1-1 user-back">
+  <h1 class="mypage-font-color"><%= @user.name %>のマイページ</h1>
+  <% if @user.profile_image.attached? %>
+    <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "200x200" %></p>
+  <% else %>
+    <p><%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %></p>
+  <% end %>
+  <h1 class="mypage-font-color"><%= @user.name %></h1>
+  <li class="mypage-font-color">地域：
+  <%= @user.address %></li>
+  <li class="mypage-font-color"> 歯の悩み：
+  <%= @user.teeth_type %></li>
+  <li class="mypage-font-color">今後したい・現在している矯正方法：
+  <%= @user.orthodontics_type %></li>
+</div>
 
-<h1><%= @user.name %>のマイページ</h1>
-
-<div class="user_content row">
-    <div class="user_info col-md-4">
-      <div class="user_profile_image">
-        <% if @user.profile_image.attached? %>
-          <p><%= image_tag @user.profile_image, class:"rounded-circle", size: "200x200" %></p>
-        <% else %>
-          <p><%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %></p>
-        <% end %>
-      </div>
-      <h1 class="user_name"><%= @user.name %></h1>
-      <li>地域<br>
-        <%= @user.address %></li>
-      <li>歯の悩み<br>
-        <%= @user.teeth_type %></li>
-      <li>今後したい・現在している矯正方法<br>
-        <%= @user.orthodontics_type %></li>
-    </div>
-
-    <div class="user_info grow_tree col-md-4">
+<div class="article">
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m">
+    <div class="grow_tree">
       <div class="image">
         <% if @user.blogs.length < 10 %>
           <%= image_tag 'tree1.png', class:"image_resize1" %>
@@ -47,8 +43,8 @@
         <li>日記投稿数：<%= @user.blogs.length %>日間</li>
       </ul>
     </div>
-</div>
-
+    </div>
+<br><br>
 <div class="actions">
-  <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"red-btn" %>
+  <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"create-btn" %>
 </div>
