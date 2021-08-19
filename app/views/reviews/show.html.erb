@@ -1,65 +1,74 @@
-<br><br><h1>カウンセリング口コミ詳細画面</h1>
 <div class="article">
-  <div class="article-area">
-
-    <div class="user_profile_image">
-    <% if @review.user.profile_image.attached? %>
-      <%= image_tag @review.user.profile_image, class:"rounded-circle", size: "200x200" %> <br>
-    <% else %>
-      <%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %> <br>
-    <% end %>
+  <h1>カウンセリング口コミ詳細画面</h1>
+  <div class="uk-flex-center@s" uk-grid>
+    <div>
+      <div class="uk-card uk-card-default uk-box-shadow-medium">
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <% if @review.user.profile_image.attached? %>
+              <%= image_tag @review.user.profile_image, class:"uk-border-circle", width:"70",height:"70" %> <br>
+              <% else %>
+              <%= image_tag "defalt_profile_image.png", class:"uk-border-circle", width:"70",height:"70" %> <br>
+              <% end %>
+            </div>
+            <div class="uk-width-expand uk-grid-divider" uk-grid>
+              <div class="center">
+                <h3 class="uk-card-title uk-margin-remove-bottom"><%= link_to "#{@review.user.name}", user_path(@review.user.id) %></h3>
+                <p class="uk-text-meta uk-margin-remove-top"><%= @review.updated_at.to_date %></p>
+              </div>
+              <div class="uk-text-left">
+                <p class="uk-text-meta uk-margin-remove-top"><span uk-icon="icon: location"></span><%= @review.user.address %></p>
+                <p class="uk-text-meta uk-margin-remove-top"><i class="fas fa-teeth-open fa-2x"></i><%= @review.user.orthodontics_type %></p>
+                <p class="uk-text-meta uk-margin-remove-top"><i class="far fa-grimace fa-2x"></i>　<%= @review.user.teeth_type %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-media-top">
+          <% if @review.images.attached? %>
+          <% @review.images.each do |image| %>
+          <%= image_tag image, class:"card-img-top", style:"height: 400px; width: 537px;" %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="uk-card-body">
+          <p class="uk-text-left">
+            カウンセリング日:<%= l @review.reservation_at %><br>
+            見積もり金額：<%= @review.quote_price %>万円<br>
+            矯正方法：<%= @review.orthodontics_type %><br>
+            カウンセリング内容：<br><%= @review.content %><br>
+            スター:<%= @review.star %>
+            <li class="uk-text-baseline"><span uk-icon="comment"></span>  <%= @review.review_comments.length %>  <span uk-icon="heart"></span>  <%= @review.likes.length %></li><br>
+          </p>
+          <p>
+            <% unless @review.user_id == current_user.id %>
+            <% if @like.present? %>
+            <%= link_to 'いいね解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+            <%= link_to 'いいねする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
+            <% end %>
+            <% end %>
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div class="user_parts">
-      <p><%= link_to "#{@review.user.name}", user_path(@review.user.id) %></p>
-      <p><%= @review.user.address %></p>
-      <p>
-        <strong>歯の悩みタイプ:</strong>
-        <%= @review.user.teeth_type %>
-      </p>
-    </div>
-
-    <div class="review_content">
-      <p>
-        <strong>カウンセリング日:</strong>
-        <%= l @review.reservation_at %>
-      </p>
-      <p>
-        <strong>見積もり金額:</strong>
-        <%= @review.quote_price %>
-      </p>
-      <p>
-        <strong>矯正方法:</strong>
-        <%= @review.orthodontics_type %>
-      </p>
-      <p>
-        <strong>カウンセリング内容:</strong>
-        <%= @review.content %>
-      </p>
-      <p>
-        <strong>満足度:</strong>
-        <%= @review.star %>
-      </p>
-    </div>
-
-    <% unless @review.user_id == current_user.id %>
-      <% if @like.present? %>
-        <%= link_to 'お気に入り解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-      <% else %>
-        <%= link_to 'お気に入りする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
-      <% end %>
-    <% end %>
   </div>
 
-  <div class="article-area">
-  <h1>コメント</h1>
-  <%= @review_comments.count %>件コメント
-  <%= render partial: 'review_comments/form', locals: { review_comment: @review_comment, review: @review } %>
-  <div id="review_comments_area">
-    <%= render partial: 'review_comments/index', locals: { review_comments: @review_comments, review: @review } %>
+  <div class="uk-child-width@m uk-grid-small uk-grid-match" uk-grid>
+    <div>
+      <div class="uk-card uk-card-default uk-card-body">
+        <h1>コメント</h1>
+        <p><%= @review_comments.count %>件コメント</p>
+        <%= render partial: 'review_comments/form', locals: { review_comment: @review_comment, review: @review } %>
+        <div id="review_comments_area">
+          <%= render partial: 'review_comments/index', locals: { review_comments: @review_comments, review: @review } %>
+        </div>
+      </div>
+    </div>
+    <br>
   </div>
 
   <%= link_to 'Edit', edit_review_path(@review) %> |
   <%= link_to 'Back', reviews_path %>
-  </div>
 </div>

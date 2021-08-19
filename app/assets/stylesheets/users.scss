@@ -27,29 +27,25 @@
   color: white;
   text-decoration: none;
   font-size: 2rem;
-  padding: 25px 120px;
-  margin: 0 50px;
+  padding: 25px 50px;
+  margin: 50px 50px;
   border-radius: 36px;
   background: linear-gradient(145deg, #e64848, #ff5656);
-  box-shadow:  12px 12px 24px #d4d4d4,
-               -12px -12px 24px #ffffff;
     &:hover, &:focus {
     color: #d44242;
     border-radius: 36px;
     background: #FF5050;
-    box-shadow: inset 12px 12px 24px #d44242, inset -52px -12px 24px #ff5e5e;
     }
   }
+
+.outline {
+  padding: 30px 0;
+}
 
 .user_info {
   width: 50%;
   text-align: left;
-  font-size: 1.5rem;
-  padding: 40px;
-  margin: 40px;
-  border-radius: 4px;
-  background: #ebf5fc;
-  box-shadow:  6px 6px 12px #dfe9ef, -6px -6px 12px #f7ffff;
+  margin: 10px;
 }
 
 .user_profile_image {
@@ -61,56 +57,37 @@
 }
 
 .rounded-circle {
-  padding: 15px;
-  border-radius: 50%;
-  background: #ebf5fc;
-  box-shadow: inset 5px 5px 9px #dfe9ef, inset -5px -5px 9px #f7ffff;
+  border-radius: 100%;
 }
 
-.red-btn {
+$base-color: #5BDECD;
+
+.create-btn {
   font-size: 1.5rem;
-  color: #ebf5fc;
+  color: #FFF;
   border: 0;
   outline: 0;
-  padding: 20px 200px;
-  border-radius: 18px;
-  background: #ff5656;
-  box-shadow:  15px 15px 30px #ccd5db,
-               -15px -15px 30px #ffffff;
+  padding: 20px 90px;
+  border-radius: 5px;
+  background: #5BDECD;
   cursor: pointer;
 }
 
-.red-btn:hover {
-  color: #e64848;
+.profile-btn {
+  color: #FFF;
+  border: 0;
+  outline: 0;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.create-btn:hover {
+  color: #FFF;
   text-decoration: none;
-  background: #ebf5fc;
+  background: darken($base-color, 10%);
   transition: all .3s;
-  box-shadow:  5px 5px 15px #ccd5db,
-               -5px -5px 15px #ffffff;
 }
-
-.red-btn:active {
-  box-shadow: inset 3px 3px 8px #ccd5db,
-              inset -3px -3px 8px #ffffff;
-}
-
-  // font-size: 1.5rem;
-  // border-radius: 5px;
-  // padding: 20px 200px;
-  // background: #ff5656;
-  // box-shadow:  6px 6px 17px #c5ced4, -6px -6px 17px #ffffff;
-  // color: white;
-  // text-decoration: none;
-// }
-
-
-
-
-// .red-btn:hover {
-//   text-decoration: none;
-//   color: #e64848;
-//   transition: all .3s;
-// }
 
 .grow_tree {
   text-align: center;
@@ -118,4 +95,21 @@
 
 .user_name {
   color: #ff5656;
+}
+
+.user-back {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('mypage3.png');
+  background-size: cover;
+  padding: 50px;
+  width: 100%;
+}
+
+.mypage-font-color {
+  color: white;
+}
+
+.outside {
+  padding: 100px 0;
 }

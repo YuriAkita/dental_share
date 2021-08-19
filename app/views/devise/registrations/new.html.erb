@@ -1,51 +1,55 @@
-<br><br>
-<h2><%= t('.sign_up') %></h2>
+<div class="outside">
+  <div class="article">
+    <div class="uk-card uk-card-default uk-card-body">
+      <h2><%= t('.sign_up') %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :profile_image %>
-    <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+      <div class="uk-form-controls">
+        <%= f.label :profile_image %>
+        <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.text_field :name, autofocus: true, autocomplete: "user", placeholder: "Your name", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <% if @minimum_password_length %>
+        <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password（6文字以上）", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用 Password", class:"uk-input uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :address %><br>
+        <%= f.select :address, User.addresses.keys, {autofocus: true, autocomplete: "address", include_blank: "選択してください"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :teeth_type %><br>
+        <%= f.select :teeth_type, User.teeth_types.keys,{autofocus: true, autocomplete: "teeth_type", include_blank: "選択してください"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      <div class="uk-form-controls">
+        <%= f.label :orthodontics_type %><br>
+        <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type", include_blank: "選択してください"}, class:"uk-select uk-width-1-2@m" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.sign_up'), class:"create-btn uk-width-1-2@m" %>
+      </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "user", placeholder: "Your name", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email Address", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password（6文字以上）", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用 Password", class:"input-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.select :address, User.addresses.keys, {autofocus: true, autocomplete: "address", include_blank: "選択してください"}, class:"pulldown" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :teeth_type %><br>
-    <%= f.select :teeth_type, User.teeth_types.keys,{autofocus: true, autocomplete: "teeth_type", include_blank: "選択してください"}, class:"pulldown" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :orthodontics_type %><br>
-    <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type", include_blank: "選択してください"}, class:"pulldown" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.sign_up'), class:"action-btn" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

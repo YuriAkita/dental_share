@@ -1,51 +1,9 @@
 
 .input-field {
-  border: 0;
-  outline: 0;
   width: 50%;
+  border: 1px solid #e5e5e5;
+  outline: 0;
   padding: 15px;
-  margin: 10px;
-  border-radius: 20px;
-  background: #ebf5fc;
-  box-shadow: inset 7px 7px 14px #dfe9ef, inset -7px -7px 14px #f7ffff;
+  background: #FFF;
   transition: all .3s;
-  &:focus {
-    box-shadow:  inset 2px 2px 4px #BABECC, inset -2px -2px 4px #FFF;
-  }
-}
-
-.pulldown {
-  width: 50%;
-  padding: 10px 0;
-  border: 0;
-  outline: 0;
-  width: 50%;
-  border-radius: 20px;
-  background: #ebf5fc;
-  box-shadow: inset 7px 7px 6px #e2ebf2,
-            inset -7px -7px 6px #f4ffff;
-}
-
-.action-btn {
-  font-size: 1.5rem;
-  color: red;
-  border: 0;
-  outline: 0;
-  padding: 20px;
-  border-radius: 20px;
-  background: #ebf5fc;
-  box-shadow:  15px 15px 30px #ccd5db,
-               -15px -15px 30px #ffffff;
-  cursor: pointer;
-}
-
-.action-btn:hover {
-  box-shadow:  5px 5px 15px #ccd5db,
-               -5px -5px 15px #ffffff;
-}
-
-.action-btn:active {
-  background: #ebf5fc;
-  box-shadow: inset 3px 3px 8px #ccd5db,
-              inset -3px -3px 8px #ffffff;
 }

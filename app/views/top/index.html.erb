@@ -4,8 +4,10 @@
   </div>
 
   <% if current_user.nil? %>
-  <div class="segment">
+  <div class="outline">
     <%= link_to "Log in", new_user_session_path, class:"top-btn" %>
+  </div>
+  <div class="outline">
     <%= link_to "Create Account", new_user_registration_path, class:"top-btn" %>
   </div>
   <% end %>

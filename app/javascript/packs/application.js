@@ -3,6 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 //= require select2
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require_tree .
 
 require("jquery")
 
@@ -14,3 +18,20 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+UIkit.use(Icons);
+
+var path = require('path');
+
+module.exports = {
+    entry: './app/javascript/packs/application.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    }
+};
+
+UIkit.offcanvas(element).show();
+UIkit.offcanvas(element).hide();
