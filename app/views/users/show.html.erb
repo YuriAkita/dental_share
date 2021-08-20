@@ -14,7 +14,11 @@
   <%= @user.orthodontics_type %></li>
   <br>
   <div class="actions">
+    <% if @user.id == current_user.id %>
     <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
+    <% else %>
+    <%= render 'follow_form', user: @user, class:"profile-btn" %>
+    <% end %>
   </div>
 </div>
 

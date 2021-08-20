@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   get 'review_comments/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -13,9 +15,10 @@ Rails.application.routes.draw do
 
   root to: 'top#index'
 
-  resources :users, only: [:show]
+  resources :users, only: %i[show index]
   resources :bookmarks, only: %i[create destroy index]
   resources :likes, only: %i[create destroy index]
+  resources :relationships, only: [:create, :destroy]
 
   resources :reviews do
     resources :review_comments, except: %i[index new show]
