@@ -1,0 +1,39 @@
+<div class="article">
+<% @users.each do |user| %>
+<table class="uk-table uk-table-middle uk-table-divider">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="uk-width-1-6">
+        <% if user.profile_image.attached? %>
+          <%= image_tag user.profile_image, class:"uk-border-circle", size: "70x70" %>
+        <% else %>
+          <%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "70x70" %>
+        <% end %>
+      </td>
+      <td class="uk-width-1-6"><%= link_to user.name, user_path(user.id) %>
+      <td class="uk-width-1-6"><%= user.address %></td>
+      <td class="uk-width-1-6"><%= user.teeth_type %></td>
+      <td class="uk-width-1-6"><%= user.orthodontics_type %></td>
+      <td class="uk-width-1-6">
+        <% unless current_user.following?(user) %>
+          <%= link_to user_relationships_path(user), method: :post do %>
+            <button class="uk-button uk-button-primary">フォロー</button>
+          <% end %>
+        <% else %>
+          <%= link_to user_relationships_path(user), method: :delete do %>
+            <button class="uk-button uk-button-danger">フォロー解除</button>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+</div>

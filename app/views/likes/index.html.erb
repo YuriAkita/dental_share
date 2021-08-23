@@ -26,25 +26,19 @@
             </div>
           </div>
         </div>
-        <div class="uk-card-media-top">
-        <% if like.review.images.attached? %>
-          <% like.review.images.each do |image| %>
-          <%= image_tag image, size: "200x200" %>
-          <% end %>
-        <% end %>
-        </div>
         <div class="uk-card-body">
           <p class="uk-text-left">
             クリニック名：<%= like.review.clinic.name %><br>
+            クニリック住所：<%= like.review.clinic.address %><br>
             カウンセリング日:<%= l like.review.reservation_at %><br>
             見積もり金額：<%= like.review.quote_price %>万円<br>
             矯正方法：<%= like.review.orthodontics_type %><br>
             カウンセリング内容：<br><%= like.review.content %><br>
             スター:<%= like.review.star %></p>
-          <li class="uk-text-baseline"><span uk-icon="comment"></span>  <%= like.review.review_comments.length %>  <span uk-icon="heart"></span>  <%= like.review.likes.length %></li><br>
+          <span uk-icon="comment"></span>  <%= like.review.review_comments.length %>  <span uk-icon="heart"></span>  <%= like.review.likes.length %>
         </div>
         <div class="uk-card-footer">
-          <%= link_to '詳細', review_path(like.review.id), class:"select-btn", class:"uk-button uk-button-text" %>
+          <%= link_to '詳細', review_path(like.review.id), class:"select-btn", class:"uk-button-text" %>
         </div>
       </div>
     </div>

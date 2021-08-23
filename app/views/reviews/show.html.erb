@@ -25,13 +25,6 @@
             </div>
           </div>
         </div>
-        <div class="uk-card-media-top">
-          <% if @review.images.attached? %>
-          <% @review.images.each do |image| %>
-          <%= image_tag image, class:"card-img-top", style:"height: 400px; width: 537px;" %>
-          <% end %>
-          <% end %>
-        </div>
         <div class="uk-card-body">
           <p class="uk-text-left">
             カウンセリング日:<%= l @review.reservation_at %><br>

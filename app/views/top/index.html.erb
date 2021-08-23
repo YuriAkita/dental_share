@@ -2,13 +2,14 @@
   <div class="introduce">
     <%= image_tag 'introduce.png', class:"introduce" %>
   </div>
-
-  <% if current_user.nil? %>
-  <div class="outline">
-    <%= link_to "Log in", new_user_session_path, class:"top-btn" %>
+  <div class="article">
+    <% if current_user.nil? %>
+    <div class="outline">
+      <%= link_to "Log in", new_user_session_path, class:"create-btn" %>
+    </div>
+    <div class="outline">
+      <%= link_to "Create Account", new_user_registration_path, class:"create-btn" %>
+    </div>
+    <% end %>
   </div>
-  <div class="outline">
-    <%= link_to "Create Account", new_user_registration_path, class:"top-btn" %>
-  </div>
-  <% end %>
 </div>
