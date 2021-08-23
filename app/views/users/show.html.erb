@@ -1,13 +1,15 @@
 <div class="uk-width-1-1 user-back">
   <h1 class="mypage-font-color"><%= @user.name %>のマイページ</h1>
+
   <% if @user.profile_image.attached? %>
     <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "200x200" %></p>
   <% else %>
     <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "200x200" %></p>
   <% end %>
+
   <h1 class="mypage-font-color"><%= @user.name %></h1>
-  <li class="mypage-font-color">フォロー：<%= link_to  @user.active_relationships.count, users_path %>
-    フォロワー：<%= link_to @user.passive_relationships.count, users_path %></li>
+  <li class="mypage-font-color">フォロー：<%= link_to  @user.active_relationships.count, followings_user_path(@user) %>
+    フォロワー：<%= link_to @user.passive_relationships.count, followers_user_path(@user) %></li>
   <li class="mypage-font-color">地域：
   <%= @user.address %></li>
   <li class="mypage-font-color"> 歯の悩み：
@@ -15,11 +17,20 @@
   <li class="mypage-font-color">今後したい・現在している矯正方法：
   <%= @user.orthodontics_type %></li>
   <br>
+
   <div class="actions">
     <% if @user.id == current_user.id %>
-    <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
+      <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
     <% else %>
-    <%= render 'follow_form', user: @user, class:"profile-btn" %>
+      <% unless current_user.following?(@user) %>
+        <%= link_to user_relationships_path(@user), method: :post do %>
+          <button class="uk-button uk-button-primary">フォロー</button>
+        <% end %>
+      <% else %>
+        <%= link_to user_relationships_path(@user), method: :delete do %>
+          <button class="uk-button uk-button-danger">フォロー解除</button>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

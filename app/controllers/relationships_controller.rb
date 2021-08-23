@@ -1,18 +1,15 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
-  respond_to? :js
 
   def create
-    @user = User.find(params[:relationship][:followed_id])
-    if current_user.follow(@user)
-      redirect_to user_path(@user.id), notice: "#{@user}さんをフォローしました。"
-    end
+    follower = current_user.active_relationships.build(followed_id: params[:user_id])
+    follower.save
+    redirect_to request.referrer || root_path
   end
 
   def destroy
-    @user = Relationship.find(params[:id]).followed
-    if current_user.unfollow(@user)
-      redirect_to user_path(@user.id), notice: "#{@user}さんをフォローしました。"
-    end
+    follower = current_user.active_relationships.find_by(followed_id: params[:user_id])
+    follower.destroy
+    redirect_to request.referrer || root_path
   end
 end
