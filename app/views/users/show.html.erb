@@ -3,9 +3,11 @@
   <% if @user.profile_image.attached? %>
     <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "200x200" %></p>
   <% else %>
-    <p><%= image_tag "defalt_profile_image.png", class:"rounded-circle", size: "200x200" %></p>
+    <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "200x200" %></p>
   <% end %>
   <h1 class="mypage-font-color"><%= @user.name %></h1>
+  <li class="mypage-font-color">フォロー：<%= link_to  @user.active_relationships.count, users_path %>
+    フォロワー：<%= link_to @user.passive_relationships.count, users_path %></li>
   <li class="mypage-font-color">地域：
   <%= @user.address %></li>
   <li class="mypage-font-color"> 歯の悩み：

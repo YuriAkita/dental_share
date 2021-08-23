@@ -60,16 +60,16 @@
   border-radius: 100%;
 }
 
-$base-color: #5BDECD;
+$base-color: #654CF6;
 
 .create-btn {
   font-size: 1.5rem;
   color: #FFF;
   border: 0;
   outline: 0;
-  padding: 20px 90px;
-  border-radius: 5px;
-  background: #5BDECD;
+  padding: 20px 50px;
+  border-radius: 100px;
+  background: lighten($base-color, 2%);
   cursor: pointer;
 }
 
@@ -85,7 +85,7 @@ $base-color: #5BDECD;
 .create-btn:hover {
   color: #FFF;
   text-decoration: none;
-  background: darken($base-color, 10%);
+  background: #654CF6;
   transition: all .3s;
 }
 

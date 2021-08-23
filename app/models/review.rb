@@ -10,7 +10,6 @@ class Review < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   has_many :review_comments, dependent: :destroy
-  has_many_attached :images, dependent: :destroy
 
   def date_check
     unless reservation_at.nil?

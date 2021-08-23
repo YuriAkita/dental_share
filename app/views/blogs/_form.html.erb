@@ -1,33 +1,36 @@
 <%= form_with(model: @blog, local: true ) do |form| %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-      <ul>
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @blog.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+  <ul>
+    <% @blog.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
+<div class="article">
 <form class="uk-form-horizontal uk-margin-large">
-  <div class="blog_images">
-    <%= form.label :歯の画像 %><br>
-    <div class="uk-form-controls">
-    <%= form.file_field :images, multiple: true %>
-    </div>
+  <div class="uk-form-controls">
+    <p>クリックしてください</p>
+    <label class="select-btn">歯の画像を選択する
+      <%= form.file_field :images, multiple: true %>
+    </label>
   </div>
+  <br>
 
   <div class="field">
     <%= form.label :日記内容 %><br>
     <div class="uk-form-controls">
-    <%= form.text_field :content, class:"uk-textarea uk-width-1-2@m", rows:"5", placeholder:"日記内容を入力してください。現在の歯の状況や悩んでいることなど。" %>
+      <%= form.text_area :content, class:"uk-textarea", rows:"5", placeholder:"日記内容を入力してください。現在の歯の状況や悩んでいることなど。" %>
     </div>
   </div>
 
   <div class="field">
     <%= form.hidden_field :user_id %>
   </div>
-  <%= form.submit "投稿する", class:"create-btn uk-width-1-2@m" %>
+  <%= form.submit "投稿する", class:"create-btn uk-width@m" %>
 </form>
 <% end %>
+</div>
