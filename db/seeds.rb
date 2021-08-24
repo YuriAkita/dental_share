@@ -15,6 +15,7 @@ User.create!(
   address: 1,
   teeth_type: 1,
   orthodontics_type: 1,
+  uid: uid = SecureRandom.uuid
 )
 
 User.create!(
@@ -25,7 +26,8 @@ User.create!(
   address: 2,
   teeth_type: 3,
   orthodontics_type: 7,
-  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman1.png"), filename: "woman1.png")
+  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman1.png"), filename: "woman1.png"),
+  uid: uid = SecureRandom.uuid
 )
 
 User.create!(
@@ -36,7 +38,8 @@ User.create!(
   address: 9,
   teeth_type: 1,
   orthodontics_type: 8,
-  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman2.png"), filename: "woman2.png")
+  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman2.png"), filename: "woman2.png"),
+  uid: uid = SecureRandom.uuid
 )
 
 User.create!(
@@ -47,7 +50,8 @@ User.create!(
   address: 1,
   teeth_type: 2,
   orthodontics_type: 1,
-  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman3.png"), filename: "woman3.png")
+  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman3.png"), filename: "woman3.png"),
+  uid: uid = SecureRandom.uuid
 )
 
 User.create!(
@@ -58,7 +62,8 @@ User.create!(
   address: 1,
   teeth_type: 4,
   orthodontics_type: 7,
-  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman4.jpg"), filename: "woman4.jpg")
+  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman4.jpg"), filename: "woman4.jpg"),
+  uid: uid = SecureRandom.uuid
 )
 
 User.create!(
@@ -68,7 +73,8 @@ User.create!(
   admin: false,
   address: 1,
   teeth_type: 2,
-  orthodontics_type: 2,  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/man1.jpg"), filename: "man1.jpg")
+  orthodontics_type: 2,  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/man1.jpg"), filename: "man1.jpg"),
+  uid: uid = SecureRandom.uuid
 )
 
 Blog.create!(
