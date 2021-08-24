@@ -73,7 +73,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'cancancan'
-gem 'omniauth'
+gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem "aws-sdk-s3", require: false
 

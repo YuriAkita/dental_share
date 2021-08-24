@@ -3,6 +3,8 @@
     <div class="uk-card uk-card-default uk-card-body">
       <h2><%= t('.sign_in') %></h2>
 
+      <%= link_to 'Googleでサインアップする', user_google_omniauth_authorize_path %>
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />

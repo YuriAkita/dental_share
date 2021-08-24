@@ -46,10 +46,10 @@ class User < ApplicationRecord
     user = User.find_by(email: auth.info.email)
     unless user
       user = User.new(email: auth.info.email,
+                      name: auth.info.name,
                       provider: auth.provider,
                       uid:      auth.uid,
-                      password: Devise.friendly_token[0, 20],
-                                   )
+                      password: Devise.friendly_token[0, 20],)
     end
     user.save
     user
