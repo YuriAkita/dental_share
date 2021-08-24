@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[show update edit destroy]
-  before_action :ensure_current_user, only: %i[ edit update destroy ]
+  before_action :ensure_current_user, only: %i[edit update destroy]
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).page(params[:page]).per(10)
@@ -16,12 +16,10 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build(review_params)
     if params[:back]
       render :new
+    elsif @review.save
+      redirect_to reviews_path, notice: '口コミを作成しました！'
     else
-      if @review.save
-        redirect_to reviews_path, notice: "口コミを作成しました！"
-      else
-        render :new
-      end
+      render :new
     end
   end
 
@@ -31,12 +29,11 @@ class ReviewsController < ApplicationController
     @review_comment = @review.review_comments.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @review.update(review_params)
-      redirect_to reviews_path, notice: "口コミを編集しました！"
+      redirect_to reviews_path, notice: '口コミを編集しました！'
     else
       render :edit
     end
@@ -44,24 +41,25 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to reviews_path, notice: "口コミを削除しました！"
+    redirect_to reviews_path, notice: '口コミを削除しました！'
   end
 
   private
+
   def set_review
     @review = Review.find(params[:id])
   end
 
   def review_params
-    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id, :clinic_id, images: [])
+    params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id,
+                                   :clinic_id, images: [])
   end
 
   def ensure_current_user
     @review = Review.find(params[:id])
     if current_user.id != @review.user.id
-      flash[:notice]="権限がありません"
+      flash[:notice] = '権限がありません'
       redirect_to reviews_path
     end
   end
-
 end

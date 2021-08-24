@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'ログインとログアウト', type: :system do
-
   describe 'ユーザ登録' do
-
     context 'ユーザの新規登録をした場合' do
       it 'ユーザの新規作成ができる' do
         visit new_user_registration_path
@@ -22,13 +20,12 @@ RSpec.describe 'ログインとログアウト', type: :system do
     context 'ユーザがログインせずブログ一覧画面に飛ぼうとした場合' do
       it 'ログイン画面に遷移する' do
         visit blogs_path
-        expect(page).to have_link "ログイン"
+        expect(page).to have_link 'ログイン'
       end
     end
   end
 
   describe 'ユーザーログイン機能' do
-
     let!(:user) { FactoryBot.create(:user) }
     let!(:second_user) { FactoryBot.create(:admin_user) }
 
@@ -84,7 +81,6 @@ RSpec.describe 'ログインとログアウト', type: :system do
   end
 
   describe 'ゲストログイン機能' do
-
     context 'ログインしていない状態で管理者ゲストログインをした場合' do
       it 'ログインができる' do
         visit new_user_session_path

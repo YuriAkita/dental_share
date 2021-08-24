@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Likes", type: :system do
+RSpec.describe 'Likes', type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:admin_user) { FactoryBot.create(:admin_user) }
 
   describe 'レビューのいいね機能' do
-
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'test1@email.com'
@@ -17,9 +16,9 @@ RSpec.describe "Likes", type: :system do
       it 'レビューいいね一覧にいいねをしたレビューが表示される' do
         visit reviews_path
         sleep(1)
-        click_link "review_index_show-3"
+        click_link 'review_index_show-3'
         sleep(1)
-        click_link "お気に入りする"
+        click_link 'お気に入りする'
         visit reviews_path
         expect(page).to have_content '医療法人社団有秀会 名執歯科'
       end
@@ -29,13 +28,13 @@ RSpec.describe "Likes", type: :system do
       it 'いいね一覧にいいねをしていたレビュー記事が削除される' do
         visit reviews_path
         sleep(1)
-        click_link "review_index_show-4"
+        click_link 'review_index_show-4'
         sleep(1)
-        click_link "お気に入りする"
+        click_link 'お気に入りする'
         sleep(1)
-        click_link "review_index_show-4"
+        click_link 'review_index_show-4'
         sleep(1)
-        click_link "お気に入り解除する"
+        click_link 'お気に入り解除する'
         visit likes_path
         expect(page).not_to have_content '海上ビルデンタルクリニック
 カウンセリング'

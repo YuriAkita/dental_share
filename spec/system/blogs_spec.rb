@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Blogs", type: :system do
+RSpec.describe 'Blogs', type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:admin_user) { FactoryBot.create(:admin_user) }
   let(:blog) { FactoryBot.create(:blog, user: user) }
 
   describe 'CRUD機能' do
-
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'test1@email.com'
@@ -28,9 +27,9 @@ RSpec.describe "Blogs", type: :system do
 
     context '一覧画面に遷移した場合' do
       it '作成済みの日記一覧が表示される' do
-        blog = FactoryBot.create(:blog, content: 'blog_index_test',user: user)
+        blog = FactoryBot.create(:blog, content: 'blog_index_test', user: user)
         visit blogs_path
-        expect(all(".article-area").count).to eq Blog.count
+        expect(all('.article-area').count).to eq Blog.count
       end
     end
 
@@ -47,7 +46,7 @@ RSpec.describe "Blogs", type: :system do
 
     context '既存の日記を詳細表示した場合' do
       it '選択した詳細内容が反映される' do
-        blog = FactoryBot.create(:blog, content: "blog_show_test", user: user)
+        blog = FactoryBot.create(:blog, content: 'blog_show_test', user: user)
         visit blogs_path
         click_link "blog_index_show-#{blog.id}"
         expect(page).to have_content 'blog_show_test'
@@ -56,7 +55,7 @@ RSpec.describe "Blogs", type: :system do
 
     context '既存の日記を削除した場合' do
       it '削除した内容が削除される' do
-        blog = FactoryBot.create(:blog, content: "blog_delete_test",user: user)
+        blog = FactoryBot.create(:blog, content: 'blog_delete_test', user: user)
         visit blogs_path
         click_link "blog_index_delete-#{blog.id}"
         page.driver.browser.switch_to.alert.accept
@@ -66,7 +65,6 @@ RSpec.describe "Blogs", type: :system do
   end
 
   describe '検索機能' do
-
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'test1@email.com'
@@ -75,9 +73,9 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '地域別で検索をした場合' do
-      it "地域に完全一致する日記が絞り込まれる" do
-        blog = FactoryBot.create(:blog, content: "blog_address_search_test", user: admin_user)
-        blog = FactoryBot.create(:blog, content: "blog_address_search_test", user: user)
+      it '地域に完全一致する日記が絞り込まれる' do
+        blog = FactoryBot.create(:blog, content: 'blog_address_search_test', user: admin_user)
+        blog = FactoryBot.create(:blog, content: 'blog_address_search_test', user: user)
         visit blogs_path
         select '東京23区内', from: 'q_user_address_eq'
         click_button '検索'
@@ -86,9 +84,9 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '矯正方法別で検索をした場合' do
-      it "矯正方法に完全一致する日記が絞り込まれる" do
-        blog = FactoryBot.create(:blog, content: "blog_orthodontics_type_search_test", user: admin_user)
-        blog = FactoryBot.create(:blog, content: "blog_orthodontics_type_search_test", user: user)
+      it '矯正方法に完全一致する日記が絞り込まれる' do
+        blog = FactoryBot.create(:blog, content: 'blog_orthodontics_type_search_test', user: admin_user)
+        blog = FactoryBot.create(:blog, content: 'blog_orthodontics_type_search_test', user: user)
         visit blogs_path
         select 'インビザライン', from: 'q_user_orthodontics_type_eq'
         click_button '検索'
@@ -97,9 +95,9 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '歯の悩み別で検索をした場合' do
-      it "歯の悩み別に完全一致する日記が絞り込まれる" do
-        blog = FactoryBot.create(:blog, content: "blog_steeth_type_earch_test", user: admin_user)
-        blog = FactoryBot.create(:blog, content: "blog_steeth_type_earch_test", user: user)
+      it '歯の悩み別に完全一致する日記が絞り込まれる' do
+        blog = FactoryBot.create(:blog, content: 'blog_steeth_type_earch_test', user: admin_user)
+        blog = FactoryBot.create(:blog, content: 'blog_steeth_type_earch_test', user: user)
         visit blogs_path
         select '出っ歯', from: 'q_user_teeth_type_eq'
         click_button '検索'
@@ -108,9 +106,9 @@ RSpec.describe "Blogs", type: :system do
     end
 
     context '地域別かつ矯正方法別かつ歯の悩み別で検索をした場合' do
-      it "全ての検索条件に完全一致する日記が絞り込まれる" do
-        blog = FactoryBot.create(:blog, content: "blog_all_earch_test", user: admin_user)
-        blog = FactoryBot.create(:blog, content: "blog_all_earch_test", user: user)
+      it '全ての検索条件に完全一致する日記が絞り込まれる' do
+        blog = FactoryBot.create(:blog, content: 'blog_all_earch_test', user: admin_user)
+        blog = FactoryBot.create(:blog, content: 'blog_all_earch_test', user: user)
         visit blogs_path
         select '東京23区内', from: 'q_user_address_eq'
         select 'インビザライン', from: 'q_user_orthodontics_type_eq'
@@ -122,6 +120,4 @@ RSpec.describe "Blogs", type: :system do
       end
     end
   end
-
-
 end
