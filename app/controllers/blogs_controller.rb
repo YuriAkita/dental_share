@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_blog, only: %i[show edit update destroy]
-  before_action :ensure_current_user, only: %i[ edit update destroy ]
+  before_action :ensure_current_user, only: %i[edit update destroy]
 
   def index
     @q = Blog.ransack(params[:q])
@@ -17,17 +17,14 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     if params[:back]
       render :new
+    elsif @blog.save
+      redirect_to blogs_path, notice: 'ブログを作成しました！'
     else
-      if @blog.save
-        redirect_to blogs_path, notice: "ブログを作成しました！"
-      else
-        render :new
-      end
+      render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def show
     @bookmark = current_user.bookmarks.find_by(blog_id: @blog.id)
@@ -37,7 +34,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ブログを編集しました！"
+      redirect_to blogs_path, notice: 'ブログを編集しました！'
     else
       render :edit
     end
@@ -45,7 +42,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"ブログを削除しました！"
+    redirect_to blogs_path, notice: 'ブログを削除しました！'
   end
 
   private
@@ -61,9 +58,8 @@ class BlogsController < ApplicationController
   def ensure_current_user
     @blog = Blog.find(params[:id])
     if current_user.id != @blog.user.id
-      flash[:notice]="権限がありません"
+      flash[:notice] = '権限がありません'
       redirect_to blogs_path
     end
   end
-
 end

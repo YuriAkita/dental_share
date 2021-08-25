@@ -3,38 +3,38 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-gem 'rails', '~> 6.1.4'
+gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
+gem 'rails', '~> 6.1.4'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.7'
+gem 'webpacker', '~> 5.0'
 
 gem 'enum_help'
 gem 'faker'
 
-#画像関係
+# 画像関係
 gem 'carrierwave'
-gem 'mini_magick'
-gem 'mimemagic', '0.3.7'
 gem 'image_processing', '~> 1.2'
+gem 'mimemagic', '0.3.7'
+gem 'mini_magick'
 
-gem 'uglifier'
-gem 'jquery-rails'
 gem 'bootstrap'
+gem 'jquery-rails'
+gem 'uglifier'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # デバック
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
 
-  #Rspec
+  # Rspec
   gem 'rspec-rails'
   # gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
@@ -42,36 +42,38 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 4.1.0'
-  gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'web-console', '>= 4.1.0'
   # gem 'spring'
+  gem 'dotenv-rails'
   gem 'letter_opener_web'
 
   # コード解析
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require:false
-  gem 'rails_best_practices'
   gem 'bullet'
+  gem 'rails_best_practices'
   gem 'reek'
-
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'kaminari'
 gem 'ransack'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'aws-sdk-s3', require: false
+gem 'cancancan'
 gem 'devise'
 gem 'devise-i18n'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2'
 gem 'rails_admin'
-gem 'cancancan'
-gem "aws-sdk-s3", require: false
 
 gem 'faker'

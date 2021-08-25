@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "BlogComments", type: :system do
+RSpec.describe 'BlogComments', type: :system do
   let!(:admin_user) { FactoryBot.create(:admin_user) }
   let!(:user) { FactoryBot.create(:user) }
   let(:blog) { FactoryBot.create(:blog, user: user) }
 
   describe '日記のコメント機能' do
-
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'test1@email.com'
@@ -16,7 +15,7 @@ RSpec.describe "BlogComments", type: :system do
 
     context '日記詳細画面上でコメントを新規作成した場合' do
       it '日記詳細画面に作成したコメントが表示される' do
-        blog = FactoryBot.create(:blog, content: "blog_comment_test", user: user)
+        blog = FactoryBot.create(:blog, content: 'blog_comment_test', user: user)
         visit blogs_path
         click_link "blog_index_show-#{blog.id}"
         fill_in 'blog_comment[content]', with: 'test_comment'
@@ -27,7 +26,7 @@ RSpec.describe "BlogComments", type: :system do
 
     context '日記詳細画面上でコメントを編集した場合' do
       it '日記詳細画面に編集したコメントが表示される' do
-        blog = FactoryBot.create(:blog, content: "blog_bookmark_test", user: user)
+        blog = FactoryBot.create(:blog, content: 'blog_bookmark_test', user: user)
         comment = FactoryBot.create(:blog_comment, blog: blog, user: user)
         visit blogs_path
         click_link "blog_index_show-#{blog.id}"
@@ -41,7 +40,4 @@ RSpec.describe "BlogComments", type: :system do
       end
     end
   end
-
-
-
 end

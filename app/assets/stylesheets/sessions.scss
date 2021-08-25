@@ -7,3 +7,23 @@
   background: #FFF;
   transition: all .3s;
 }
+
+$base-color: #DC436F;
+
+.google-btn {
+  background-color: #DC436F;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.google-btn:hover {
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  background: darken($base-color, 5%)
+}
+
+.btn-field {
+  padding: 15px;
+}

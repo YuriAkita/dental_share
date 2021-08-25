@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   get 'review_comments/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
     passwords: 'users/passwords',
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
 
   if Rails.env.development?

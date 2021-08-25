@@ -2,9 +2,9 @@
   <h1 class="mypage-font-color"><%= @user.name %>のマイページ</h1>
 
   <% if @user.profile_image.attached? %>
-    <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "200x200" %></p>
+    <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "150x150" %></p>
   <% else %>
-    <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "200x200" %></p>
+    <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "150x150" %></p>
   <% end %>
 
   <h1 class="mypage-font-color"><%= @user.name %></h1>

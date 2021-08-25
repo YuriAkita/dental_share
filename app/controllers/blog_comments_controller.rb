@@ -1,6 +1,6 @@
 class BlogCommentsController < ApplicationController
   before_action :authenticate_user!, expect: %i[index]
-  before_action :ensure_current_user, only: %i[ edit update destroy ]
+  before_action :ensure_current_user, only: %i[edit update destroy]
 
   def create
     @blog = Blog.find(params[:blog_id])
@@ -29,15 +29,15 @@ class BlogCommentsController < ApplicationController
     @blog = Blog.find(params[:blog_id])
     @blog_comment = @blog.blog_comments.find(params[:id])
     @blog_comment.user_id = current_user.id
-      respond_to do |format|
-        if @blog_comment.update(blog_comment_params)
-          flash.now[:notice] = 'コメントが編集されました'
-          format.js { render :index }
-        else
-          flash.now[:notice] = 'コメントの編集に失敗しました'
-          format.js { render :edit_error }
-        end
+    respond_to do |format|
+      if @blog_comment.update(blog_comment_params)
+        flash.now[:notice] = 'コメントが編集されました'
+        format.js { render :index }
+      else
+        flash.now[:notice] = 'コメントの編集に失敗しました'
+        format.js { render :edit_error }
       end
+    end
   end
 
   def destroy
@@ -50,6 +50,7 @@ class BlogCommentsController < ApplicationController
   end
 
   private
+
   def blog_comment_params
     params.require(:blog_comment).permit(:blog_id, :user_id, :content)
   end
@@ -57,7 +58,7 @@ class BlogCommentsController < ApplicationController
   def ensure_current_user
     @blog_comment = BlogComment.find(params[:id])
     if current_user.id != @blog_comment.user.id
-      flash[:notice]="権限がありません"
+      flash[:notice] = '権限がありません'
       redirect_to blogs_path
     end
   end
