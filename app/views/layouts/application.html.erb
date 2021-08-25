@@ -69,12 +69,16 @@
       </div>
     </nav>
   </header>
-  <% if notice %>
-  <p class="alert alert-notice" onclick="UIkit.notification({message: '<%= notice %>', status: 'primary'})"></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert-error"><%= alert %></p>
-  <% end %>
+    <% if notice %>
+    <div class="uk-alert-success" uk-alert>
+    <p><%= notice %></p>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div class="uk-alert-danger" uk-alert>
+    <p><%= alert %></p>
+    </div>
+    <% end %>
   <%= yield %>
   google-site-verification: google1b86fa7f0ce97439.html
   <footer>

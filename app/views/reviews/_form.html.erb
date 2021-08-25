@@ -5,19 +5,20 @@
     <h2><%= @review.errors.count %>件のエラーがあります。</h2>
     <ul>
     <% @review.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li class='error-field'><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
 
+<div class="article">
 <form class="uk-form-horizontal uk-margin-large">
 
   <div class="field">
     <%= form.label :クリニック名（プルダウンをクリックすると入力欄が表示されるので病院名を入力し選択してください）, class:"label_space" %>
     <%= javascript_pack_tag 'select2_controller' %>
     <div class="uk-form-controls">
-    <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {}, class: 'mySelect2' %>
+    <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {}, class: 'mySelect2 uk-width-1-2@m' %>
     </div>
   </div>
 
@@ -65,3 +66,4 @@
   </div>
 </form>
 <% end %>
+</div>
