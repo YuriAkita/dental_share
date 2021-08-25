@@ -113,3 +113,22 @@ $base-color: #654CF6;
 .outside {
   padding: 100px 0;
 }
+
+
+input[type=text]:valid,
+input[type=email]:valid,
+textarea:valid {
+	color: #333;
+	border-color: #ccc;
+	background: #fff;
+}
+
+/* 入力エラーのスタイル */
+input[type=text]:required,
+input[type=email]:required,
+input[type=email]:invalid,
+textarea:required {
+	color: #630015;
+	border-color: #c20c33;
+	background-color: #ffd9e1;
+}
