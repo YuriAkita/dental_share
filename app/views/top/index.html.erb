@@ -1,15 +1,50 @@
-<div class="container">
-  <div class="introduce">
-    <%= image_tag 'introduce.png', class:"introduce" %>
-  </div>
-  <div class="article">
-    <% if current_user.nil? %>
-    <div class="outline">
-      <%= link_to "Log in", new_user_session_path, class:"create-btn" %>
+<div class="article">
+  <br>
+  <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top image-top">
+    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; viewport: 0.5;">DANTAL　SHARE</h1>
+        <h3 uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; viewport: 0.5;">都内の歯科矯正口コミシェア・日記投稿サービス<br>口元に自信が欲しいあなたへ<br>病院選びに役立つ！歯科矯正の病院選びをもっと手軽に。あなたの毎日の歯の変化をきちんと記録しよう。</h3>
     </div>
-    <div class="outline">
-      <%= link_to "Create Account", new_user_registration_path, class:"create-btn" %>
-    </div>
-    <% end %>
   </div>
-</div>
+
+  <% if current_user.nil? %>
+  <div uk-grid>
+    <div class="uk-width-1-2@m">
+      <%= link_to "Log in", new_user_session_path, class:"top-btn" %>
+    </div>
+    <div class="uk-width-1-2@m">
+      <%= link_to "Create Account", new_user_registration_path, class:"top-btn" %>
+    </div>
+  </div>
+  <% end %>
+
+  <h2>あなたの歯のお悩みタイプは？</h2>
+  <div uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+    <%= image_tag 'teeth.intro2.png', class:'uk-width-1-2@m' %>
+  </div>
+  <br>
+  <br>
+  <div uk-grid>
+    <div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+      <div class="uk-card uk-card-default uk-card-body introduce-form" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+        <h2 class="top-font">カウンセリングレビュー投稿機能</h2>
+        <h3 class="top-font">いい歯科医院を手軽に見つけたい。何度もカウンセリングに行くのは時間がもったいない。</h3>
+        <h3 class="top-font">歯の悩みが近い人のレビュー投稿をチェックできる</h3>
+        <h3 class="top-font">実際のカウンセリング内容や見積もり内容をチェックしよう！</h3>
+        <%= image_tag 'review.png'%>
+      </div>
+      <div class="uk-card uk-card-default uk-card-body introduce-form" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+        <h2 class="top-font">日記投稿機能</h2>
+        <h3 class="top-font">毎日の歯科矯正ライフを画像付きで登録！</h3>
+        <h3 class="top-font">写真投稿機能で歯の変化を投稿可能</h3>
+        <%= image_tag 'blog.png'%>
+      </div>
+    </div>
+
+    </div>
+    <div class="uk-card uk-card-default uk-card-body introduce-form-tree" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+      <h1 class="top-font"></h1>
+      <h2 class="top-font">日記の投稿数に応じて木が成長していきます</h2>
+      <%= image_tag 'tree-intro.png' %>
+    </div>
+  </div>
