@@ -8,6 +8,7 @@ FactoryBot.define do
     teeth_type { 3 }
     orthodontics_type { 7 }
     admin { 'false' }
+    uid { SecureRandom.uuid }
   end
 
   factory :admin_user, class: User do
@@ -19,5 +20,6 @@ FactoryBot.define do
     teeth_type { 3 }
     orthodontics_type { 5 }
     admin { 'true' }
+    uid { SecureRandom.uuid }
   end
 end

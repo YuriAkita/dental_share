@@ -17,7 +17,7 @@ RSpec.describe 'Blogs', type: :system do
       it '日記一覧へ遷移し作成した日記が表示される' do
         visit new_blog_path
         fill_in 'blog[content]', with: 'test_content'
-        attach_file 'blog[images][]', "#{Rails.root}/spec/fixtures/image/teeth3.jpg"
+        attach_file 'blog[images][]', "#{Rails.root}/spec/fixtures/image/teeth3.jpg", visible: false
         click_button 'commit'
         expect(page).to have_content 'test_content'
         expect(page).to have_content '日記一覧'
@@ -29,7 +29,8 @@ RSpec.describe 'Blogs', type: :system do
       it '作成済みの日記一覧が表示される' do
         blog = FactoryBot.create(:blog, content: 'blog_index_test', user: user)
         visit blogs_path
-        expect(all('.article-area').count).to eq Blog.count
+        expect(all('.uk-grid-match').count).to eq Blog.count
+        expect(page).to have_content 'blog_index_test'
       end
     end
 

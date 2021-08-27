@@ -4,7 +4,8 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %><br />
+  <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %><br />
+  <%= link_to '管理者ゲストログイン', users_admin_guest_sign_in_path, method: :post %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
