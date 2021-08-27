@@ -14,8 +14,11 @@
  *= ./bootstrap_import
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
  @import 'uikit/dist/css/uikit';
+ @import "simple_calendar";
+
 
  html {
    font-size: 68.5%;
@@ -132,4 +135,13 @@ h1 {
   .image-top {
     background-color: #377EF7;
     background-image: url('research.png');
+  }
+
+  .mypage-article {
+    padding: 50px;
+    margin-bottom: 50px;
+  }
+
+  .space {
+    padding: 10px;
   }
