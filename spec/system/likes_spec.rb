@@ -18,7 +18,7 @@ RSpec.describe 'Likes', type: :system do
         sleep(1)
         click_link 'review_index_show-3'
         sleep(1)
-        click_link 'お気に入りする'
+        click_link 'いいねする'
         visit reviews_path
         expect(page).to have_content '医療法人社団有秀会 名執歯科'
       end
@@ -30,11 +30,11 @@ RSpec.describe 'Likes', type: :system do
         sleep(1)
         click_link 'review_index_show-4'
         sleep(1)
-        click_link 'お気に入りする'
+        click_link 'いいねする'
         sleep(1)
         click_link 'review_index_show-4'
         sleep(1)
-        click_link 'お気に入り解除する'
+        click_link 'いいね解除する'
         visit likes_path
         expect(page).not_to have_content '海上ビルデンタルクリニック
 カウンセリング'

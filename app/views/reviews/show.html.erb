@@ -27,11 +27,18 @@
         </div>
         <div class="uk-card-body">
           <p class="uk-text-left">
-            カウンセリング日:<%= l @review.reservation_at %><br>
-            見積もり金額：<%= @review.quote_price %>万円<br>
+            <% @review.star_before_type_cast.times do %>
+            <%= image_tag 'star-on.png', class:"revew-show-star-on-#{@review.user.name}" %>
+            <% end %>
+            <% (5-@review.star_before_type_cast).times do %>
+            <%= image_tag 'star-off.png', class:"revew-show-star-off-#{@review.user.name}" %>
+            <% end %><br>
             矯正方法：<%= @review.orthodontics_type %><br>
+            クリニック名：<%= @review.clinic.name %><br>
+            クリニック住所：<%= @review.clinic.address %><br>
+            カウンセリング日：<%= l @review.reservation_at %><br>
+            見積もり金額：<%= @review.quote_price %>万円<br>
             カウンセリング内容：<br><%= @review.content %><br>
-            スター:<%= @review.star %>
             <li class="uk-text-baseline"><span uk-icon="comment"></span>  <%= @review.review_comments.length %>  <span uk-icon="heart"></span>  <%= @review.likes.length %></li><br>
           </p>
           <p>

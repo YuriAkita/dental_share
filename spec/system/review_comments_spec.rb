@@ -38,7 +38,7 @@ RSpec.describe 'ReviewComments', type: :system do
         sleep(1)
         fill_in 'review_comment[content]', with: 'test_comment'
         click_button 'コメントを投稿'
-        (all('.select-btn')[0]).click
+        find('#review_comment_edit-7').click
         fill_in 'review_comment_content_6', with: 'test_comment_change'
         click_button 'コメントを更新する'
         sleep(1)

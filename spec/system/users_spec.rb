@@ -31,7 +31,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
     context 'ユーザー登録を既にしている場合' do
       it 'ログインができる' do
-        click_link 'マイページ'
+        find('.uk-navbar-right').native.click
         click_link 'ログアウト'
         visit new_user_session_path
         fill_in 'user[email]', with: 'test1@email.com'
@@ -57,7 +57,7 @@ RSpec.describe 'ログインとログアウト', type: :system do
 
     context 'ログインユーザーがログアウトした場合' do
       it 'ログアウトができる' do
-        click_link 'マイページ'
+        find('.uk-navbar-right').native.click
         click_link 'ログアウト'
         expect(page).to have_content 'ログアウトしました'
       end

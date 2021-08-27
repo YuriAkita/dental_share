@@ -16,7 +16,7 @@ RSpec.describe 'Reviews', type: :system do
     context 'レビューを新規作成した場合' do
       it 'レビュー一覧へ画面遷移し作成したレビューが表示される' do
         visit new_review_path
-        fill_in 'review[reservation_at]', with: '002020-7-30'
+        fill_in 'review_reservation_at', with: '002020-7-30'
         fill_in 'review[quote_price]', with: '10'
         select 'インビザライン', from: 'review_orthodontics_type'
         fill_in 'review_content', with: 'review_test'
@@ -27,32 +27,29 @@ RSpec.describe 'Reviews', type: :system do
         expect(page).to have_content 10
         expect(page).to have_content 'インビザライン'
         expect(page).to have_content 'review_test'
-        expect(page).to have_content '不満'
+        expect(all('.revew-index-star-on-test1').count).to eq 1
       end
     end
 
     context 'レビューを編集した場合' do
       it '編集したレビューが表示される' do
         visit new_review_path
-        fill_in 'review[reservation_at]', with: '002020-7-30'
+        fill_in 'review_reservation_at', with: '002020-7-30'
         fill_in 'review[quote_price]', with: '10'
         select 'インビザライン', from: 'review_orthodontics_type'
         fill_in 'review_content', with: 'review_test'
         select '不満', from: 'review_star'
         click_button 'commit'
-        all('.select-btn')[1].click
-        fill_in 'review[reservation_at]', with: '002020-7-30'
-        fill_in 'review[quote_price]', with: '10'
-        select 'インビザライン', from: 'review_orthodontics_type'
-        fill_in 'review_content', with: 'review_edit_test'
-        select '不満', from: 'review_star'
+        click_link('review_index_edit-7').click
+        sleep(1)
+        fill_in 'review_content', with: 'review_test_edit'
         click_button 'commit'
         expect(page).to have_content '花泉歯科医院'
         expect(page).to have_content '2020/07/30'
         expect(page).to have_content 10
         expect(page).to have_content 'インビザライン'
-        expect(page).to have_content 'review_edit_test'
-        expect(page).to have_content '不満'
+        expect(page).to have_content 'review_test_edit'
+        expect(all('.revew-index-star-on-test1').count).to eq 1
       end
     end
 
@@ -60,10 +57,10 @@ RSpec.describe 'Reviews', type: :system do
       it '選択したレビューが表示される' do
         visit reviews_path
         click_link 'review_index_show-1'
+        sleep(1)
         expect(page).to have_content 96
         expect(page).to have_content 'インビザラインiGO'
         expect(page).to have_content 'カウンセリングにいってきましたが3Dシュミレーションがすごかった。親知らずがあるので親知らずの相談もしてきました。矯正期間は1年半程度と言われました。'
-        expect(page).to have_content 'ある程度満足'
       end
     end
 
@@ -76,7 +73,7 @@ RSpec.describe 'Reviews', type: :system do
         fill_in 'review_content', with: 'review_delete_test'
         select '不満', from: 'review_star'
         click_button 'commit'
-        all('.select-btn')[2].click
+        find('#review_index_delete-8').click
         page.driver.browser.switch_to.alert.accept
         expect(page).to_not have_content 'review_delete_test'
       end
@@ -85,7 +82,7 @@ RSpec.describe 'Reviews', type: :system do
     context 'レビューを一覧表示した場合' do
       it 'レビューが表示される' do
         visit reviews_path
-        expect(all('.article-area').count).to eq Review.count
+        expect(all('.uk-card').count).to eq Review.count
       end
     end
   end
@@ -103,7 +100,7 @@ RSpec.describe 'Reviews', type: :system do
         visit reviews_path
         select '東京23区内', from: 'q_user_address_eq'
         click_button '検索'
-        expect(all('.address').count).to eq 3
+        expect(all('.uk-card').count).to eq 3
       end
     end
 
@@ -112,7 +109,7 @@ RSpec.describe 'Reviews', type: :system do
         visit reviews_path
         select 'ワイヤー矯正', from: 'q_orthodontics_type_eq'
         click_button '検索'
-        expect(all('.article-area').count).to eq 1
+        expect(all('.uk-card').count).to eq 1
       end
     end
 
@@ -121,7 +118,7 @@ RSpec.describe 'Reviews', type: :system do
         visit reviews_path
         select '出っ歯', from: 'q_user_teeth_type_eq'
         click_button '検索'
-        expect(all('.article-area').count).to eq 1
+        expect(all('.uk-card').count).to eq 1
       end
     end
 
@@ -132,7 +129,7 @@ RSpec.describe 'Reviews', type: :system do
         select 'すきっ歯', from: 'q_user_teeth_type_eq'
         select 'インビザライン', from: 'q_orthodontics_type_eq'
         click_button '検索'
-        expect(all('.article-area').count).to eq 1
+        expect(all('.uk-card').count).to eq 1
       end
     end
   end
