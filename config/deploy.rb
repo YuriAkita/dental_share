@@ -6,7 +6,7 @@ set :application, 'dental_app'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/YuriAkita/dental_share'
 # deployするブランチ。デフォルトでmainを使用している場合、masterをmainに変更してください。
-set :branch, ENV['BRANCH'] || 'develop'
+set :branch, ENV['BRANCH'] || 'issues/#97'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/achieve'
 # シンボリックリンクをはるフォルダ・ファイル
