@@ -26,14 +26,23 @@ gem 'uglifier'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'mini_racer', platforms: :ruby
+gem 'unicorn'
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # capistranoのツール一式
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
   # デバック
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
-
   # Rspec
   gem 'rspec-rails'
   # gem 'spring-commands-rspec'
