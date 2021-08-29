@@ -37,10 +37,6 @@
   text-align: center;
 }
 
-.actions {
-  padding: 20px 0 80px 0;
-}
-
 .rounded-circle {
   border-radius: 100%;
 }
@@ -85,9 +81,8 @@ $base-color: #654CF6;
 .user-back {
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url('mypage3.png');
+  background-image: image_url('mypage2.png');
   background-size: cover;
-  padding: 50px;
   width: 100%;
 }
 
@@ -116,4 +111,24 @@ textarea:required {
 	color: #630015;
 	border-color: #c20c33;
 	background-color: #ffd9e1;
+}
+
+.uk-card-custom {
+  background: #654CF6;
+}
+
+.border-tree-castam {
+  border-left: solid 50px #DC436F;
+}
+
+.uk-table-hover-castam tbody tr:hover {
+  background-color: #DED8FF;
+}
+
+.uk-table-hover-castam tbody {
+  color: #5224F3;
+}
+
+.uk-table thead {
+  color: white;
 }

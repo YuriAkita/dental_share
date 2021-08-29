@@ -62,7 +62,7 @@ User.create!(
   address: 1,
   teeth_type: 4,
   orthodontics_type: 7,
-  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman4.jpg"), filename: "woman4.jpg"),
+  profile_image:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/woman4.png"), filename: "woman4.png"),
   uid: uid = SecureRandom.uuid
 )
 
@@ -86,12 +86,306 @@ Blog.create!(
 Blog.create!(
   user_id: 2,
   content: "矯正2日目！毎回取り外した時の開放感。口内炎ができて痛い。",
-  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth4.png"), filename: "teeth4.png")
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正3日目！口内炎がまだ痛む",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正4日目！口内炎が治った！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正5日目！だいぶ痛みなおさまってきた",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正6日目！歯を動かしているからなのか、",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正7日目！ご飯を噛むとちょっと痛む",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正8日目！外食ができないのがつらい",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正9日目！外食ができないのがつらい",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正10日目！マウスピース外した時の匂いがやばい（笑）",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正11日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正12日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正13日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正14日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正15日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正16日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正17日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正18日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正19日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正20日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正21日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正22日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正23日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正24日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正25日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正26日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正27日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正28日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正29日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正30日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正31日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正32日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正33日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正34日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正35日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正36日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正37日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正38日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正39日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
+)
+
+Blog.create!(
+  user_id: 2,
+  content: "矯正40日目！",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth5.jpg"), filename: "teeth5.jpg")
 )
 
 Blog.create!(
   user_id: 3,
   content: "今日から2枚目。まあまあの圧迫感。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content:"2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "2枚目。久々に外食。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "超音波洗浄機を買った",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "マウスピース洗うのがめんどくさい",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "歯磨き粉を新しくしてみた。",
+  images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
+)
+
+Blog.create!(
+  user_id: 3,
+  content: "だいぶ慣れてきた",
   images:ActiveStorage::Blob.create_and_upload!(io: File.open("./db/images/teeth.jpg"), filename: "teeth.jpg")
 )
 

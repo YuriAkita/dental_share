@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
+    @this_month_blogs = @user.blogs.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month)
   end
 
   def index
