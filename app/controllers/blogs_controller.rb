@@ -55,4 +55,12 @@ class BlogsController < ApplicationController
   def blog_params
     params.require(:blog).permit(:content, :user_id, images: [])
   end
+
+  def ensure_current_user
+    @blog = Blog.find(params[:id])
+    if current_user.id != @blog.user.id
+      flash[:notice] = '権限がありません'
+      redirect_to blogs_path
+    end
+  end
 end

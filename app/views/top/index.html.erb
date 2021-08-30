@@ -2,7 +2,7 @@
   <br>
   <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top image-top">
     <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; viewport: 0.5;">DANTAL　SHARE</h1>
+        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; viewport: 0.5;">DENTAL　SHARE</h1>
         <h3 uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; viewport: 0.5;">都内の歯科矯正口コミシェア・日記投稿サービス<br>口元に自信が欲しいあなたへ<br>病院選びに役立つ！歯科矯正の病院選びをもっと手軽に。あなたの毎日の歯の変化をきちんと記録しよう。</h3>
     </div>
   </div>
@@ -10,10 +10,10 @@
   <% if current_user.nil? %>
   <div uk-grid>
     <div class="uk-width-1-2@m">
-      <%= link_to "Log in", new_user_session_path, class:"top-btn" %>
+      <%= button_to "Log in", new_user_session_path, class:"uk-width-1-2@m top-button" %>
     </div>
     <div class="uk-width-1-2@m">
-      <%= link_to "Create Account", new_user_registration_path, class:"top-btn" %>
+      <%= button_to "Create Account", new_user_registration_path, class:"uk-width-1-2@m top-button" %>
     </div>
   </div>
   <% end %>
@@ -40,6 +40,7 @@
         <%= image_tag 'blog.png'%>
       </div>
     </div>
+    <br>
 
     </div>
     <div class="uk-card uk-card-default uk-card-body introduce-form-tree" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">

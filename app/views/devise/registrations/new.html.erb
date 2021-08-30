@@ -18,11 +18,12 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="uk-form-controls">
-        <%= f.label :profile_image %>
-        <br>
-        <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
-      </div>
+      <div class="field">
+        <p>クリックしてください</p>
+        <label class="select-btn"><i class="fas fa-camera-retro"></i> プロフィール画像を選択する
+          <%= f.file_field :profile_image, multiple: true, class:'uk-flex-center@s uk-width-1-4@m' %>
+        </label>
+      </div><br><br>
 
       <div class="uk-form-controls">
         <%= f.text_field :name, autofocus: true, autocomplete: "user", placeholder: "Your name", class:"uk-input uk-width-1-2@m" %>
