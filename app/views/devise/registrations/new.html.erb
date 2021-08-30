@@ -4,8 +4,14 @@
       <h2><%= t('.sign_up') %></h2>
 
       <div class="btn-field">
-      <%= link_to user_google_omniauth_authorize_path, class:"google-btn" do %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class:"google-btn" do %>
       <i class="fab fa-google-plus-g"></i> Googleでサインアップする
+      <% end %>
+      </div>
+
+      <div class="btn-field">
+      <%= link_to user_twitter_omniauth_authorize_path, class:"twitter-btn" do %>
+      <i class="fab fa-twitter"></i> Twitterでサインアップする
       <% end %>
       </div>
 
