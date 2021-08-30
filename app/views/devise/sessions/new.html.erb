@@ -12,7 +12,7 @@
       <%= link_to user_twitter_omniauth_authorize_path, class:"twitter-btn" do %>
       <i class="fab fa-twitter"></i> Twitterでログインする
       <% end %>
-      </div>
+      </div><br>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
@@ -30,7 +30,7 @@
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
-      <% end %>
+      <% end %><br>
 
       <div class="actions">
         <%= f.submit t('.sign_in'), class:"create-btn uk-width-1-2@m" %>

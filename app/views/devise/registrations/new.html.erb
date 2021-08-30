@@ -13,7 +13,7 @@
       <%= link_to user_twitter_omniauth_authorize_path, class:"twitter-btn" do %>
       <i class="fab fa-twitter"></i> Twitterでサインアップする
       <% end %>
-      </div>
+      </div><br>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -56,7 +56,7 @@
       <div class="uk-form-controls">
         <%= f.label :orthodontics_type %><br>
         <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type", include_blank: "選択してください"}, class:"uk-select uk-width-1-2@m" %>
-      </div>
+      </div><br>
 
       <div class="actions">
         <%= f.submit t('.sign_up'), class:"create-btn uk-width-1-2@m" %>
