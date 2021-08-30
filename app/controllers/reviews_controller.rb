@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[show update edit destroy]
-  before_action :ensure_current_user, only: %i[edit update destroy]
   def index
     @q = Review.ransack(params[:q])
+    @reviews = Review.all.includes(:user)
     @reviews = @q.result(distinct: true).page(params[:page]).per(6)
     @reviews = @reviews.order(created_at: :desc)
   end
@@ -53,13 +53,5 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:reservation_at, :quote_price, :orthodontics_type, :content, :star, :user_id,
                                    :clinic_id, images: [])
-  end
-
-  def ensure_current_user
-    @review = Review.find(params[:id])
-    if current_user.id != @review.user.id
-      flash[:notice] = '権限がありません'
-      redirect_to reviews_path
-    end
   end
 end
