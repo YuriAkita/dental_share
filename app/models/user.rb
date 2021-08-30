@@ -44,15 +44,13 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
-  def self.find_for_google(auth)
-    user = User.find_by(email: auth.info.email)
-    user ||= User.new(email: auth.info.email,
-                      name: auth.info.name,
-                      provider: auth.provider,
-                      uid: auth.uid,
-                      password: Devise.friendly_token[0, 20])
-    user.save
-    user
+  devise :omniauthable, omniauth_providers: %i[twitter google_oauth2]
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
   end
 
   enum address: { 東京23区内: 1, 東京近郊: 2, 八王子市: 3, 立川市: 4, 武蔵野市: 5, 三鷹市: 6, 青梅市: 7, 府中市: 8, 昭島市: 9, 調布市: 10, 町田市: 11, 小金井市: 12,
