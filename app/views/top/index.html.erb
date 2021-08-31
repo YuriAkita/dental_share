@@ -13,7 +13,7 @@
       <%= button_to "Log in", new_user_session_path, class:"uk-width-1-2@m top-button" %>
     </div>
     <div class="uk-width-1-2@m">
-      <%= button_to "Create Account", new_user_registration_path, class:"uk-width-1-2@m top-button" %>
+      <%= button_to "Create Account", new_user_registration_path, class:"uk-width-1-2@m top-button", method: :get  %>
     </div>
   </div>
   <% end %>
