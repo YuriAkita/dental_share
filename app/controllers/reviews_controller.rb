@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :ensure_current_user, only: %i[edit update destroy]
   def index
     @q = Review.ransack(params[:q])
+    @reviews = Review.all.includes(:user)
     @reviews = @q.result(distinct: true).page(params[:page]).per(6)
     @reviews = @reviews.order(created_at: :desc)
   end

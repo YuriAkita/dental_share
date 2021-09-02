@@ -31,7 +31,7 @@
             </div>
             <div class="uk-width-expand uk-grid-divider uk-child-width-1-2" uk-grid>
               <div class="uk-flex-middle uk-width-auto">
-                <h3 class="uk-card-title uk-margin-remove-bottom"><%= review.user.name %></h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom"><%= link_to review.user.name, user_path(review.user.id), class:"uk-button uk-button-text" %></h3>
                 <p class="uk-text-meta uk-margin-remove-top"><%= review.updated_at.to_date %></p>
               </div>
               <div class="uk-text-left">
