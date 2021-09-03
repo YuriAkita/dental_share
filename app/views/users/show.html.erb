@@ -1,74 +1,107 @@
-<div class="uk-width-1-1 user-back">
+<div class="user-back">
+  <div class="article">
   <h1 class="mypage-font-color"><%= @user.name %>のマイページ</h1>
 
-  <% if @user.profile_image.attached? %>
-  <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "150x150" %></p>
-  <% else %>
-  <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "150x150" %></p>
-  <% end %>
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid  uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
+    <div>
+      <div class="uk-card uk-card-custom uk-card-body">
+        <% if @user.profile_image.attached? %>
+        <p><%= image_tag @user.profile_image, class:"uk-border-circle", size: "150x150" %></p>
+        <% else %>
+        <p><%= image_tag "defalt_profile_image.png", class:"uk-border-circle", size: "150x150" %></p>
+        <% end %>
 
-  <h1 class="mypage-font-color"><%= @user.name %></h1>
-  <li class="mypage-font-color">フォロー：<%= link_to  @user.active_relationships.count, followings_user_path(@user) %>
-  フォロワー：<%= link_to @user.passive_relationships.count, followers_user_path(@user) %></li>
-  <li class="mypage-font-color">地域：
-  <%= @user.address %></li>
-  <li class="mypage-font-color"> 歯の悩み：
-  <%= @user.teeth_type %></li>
-  <li class="mypage-font-color">今後したい・現在している矯正方法：
-  <%= @user.orthodontics_type %></li>
-  <br>
-
-  <div class="actions">
-    <% if @user.id == current_user.id %>
-    <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
-    <% else %>
-    <% unless current_user.following?(@user) %>
-    <%= link_to user_relationships_path(@user), method: :post do %><button class="uk-button uk-button-primary">フォロー</button><% end %>
-    <% else %>
-    <%= link_to user_relationships_path(@user), method: :delete do %><button class="uk-button uk-button-danger">フォロー解除</button><% end %>
-    <% end %>
-    <% end %>
+        <h1 class="mypage-font-color"><%= @user.name %></h1>
+        <li class="mypage-font-color">フォロー：<%= link_to  @user.active_relationships.count, followings_user_path(@user) %>
+        フォロワー：<%= link_to @user.passive_relationships.count, followers_user_path(@user) %></li>
+        <li class="mypage-font-color">地域：
+        <%= @user.address %></li>
+        <li class="mypage-font-color"> 歯の悩み：
+        <%= @user.teeth_type %></li>
+        <li class="mypage-font-color">今後したい・現在している矯正方法：
+        <%= @user.orthodontics_type %></li>
+        <br>
+        <div class="actions">
+          <% if @user.id == current_user.id %>
+          <%= link_to "プロフィールを編集", edit_user_registration_path(@user.id), class:"profile-btn" %>
+          <% else %>
+          <% unless current_user.following?(@user) %>
+          <%= link_to user_relationships_path(@user), method: :post do %><button class="uk-button uk-button-primary">フォロー</button><% end %>
+          <% else %>
+          <%= link_to user_relationships_path(@user), method: :delete do %><button class="uk-button uk-button-danger">フォロー解除</button><% end %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <div>
+    <div class="uk-card uk-card-default border-tree-castam uk-card-body">
+      <div class="grow_tree">
+        <div class="image">
+          <% if @user.blogs.length < 10 %>
+          <%= image_tag 'tree1.png', class:"image_resize1" %>
+          <p>成長するまであと<%= 10 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% elsif @user.blogs.length < 20 %>
+          <%= image_tag 'tree2.png', class:"image_resize2" %>
+          <p>成長するまであと<%= 20 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% elsif @user.blogs.length < 40 %>
+          <%= image_tag 'tree3.png', class:"image_resize3" %>
+          <p>成長するまであと<%= 40 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% elsif @user.blogs.length < 60 %>
+          <%= image_tag 'tree4.png', class:"image_resize4" %>
+          <p>成長するまであと<%= 60 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% elsif @user.blogs.length < 70 %>
+          <%= image_tag 'tree5.png', class:"image_resize5" %>
+          <p>成長するまであと<%= 70 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% elsif @user.blogs.length < 90 %>
+          <%= image_tag 'tree6.png', class:"image_resize6" %>
+          <p>成長するまであと<%= 90 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% else @user.blogs.length < 120 %>
+          <%= image_tag 'tree7.png', class:"image_resize6" %>
+          <p>成長するまであと<%= 120 - (@user.blogs.length)%>日分投稿しましょう</p>
+          <% end %>
+        </div>
+      </div>
+      <ul>
+        <% if @user.blogs.blank? %>
+        <li>日記開始日：投稿がありません。</li>
+        <% else %>
+        <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
+        <% end %>
+        <li>日記投稿数：<%= @user.blogs.length %>日間</li>
+      </ul>
+    </div>
   </div>
 </div>
-<div class="article">
-  <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+
+  <div class="uk-child-width-expand@s uk-text-center" uk-grid uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
     <div>
       <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-card-hover">
-        <div class="grow_tree">
-          <div class="image">
-            <% if @user.blogs.length < 10 %>
-            <%= image_tag 'tree1.png', class:"image_resize1" %>
-            <p>成長するまであと<%= 10 - (@user.blogs.length)%>日分投稿しましょう</p>
-            <% elsif @user.blogs.length < 20 %>
-            <%= image_tag 'tree2.png', class:"image_resize2" %>
-            <% elsif @user.blogs.length < 40 %>
-            <%= image_tag 'tree3.png', class:"image_resize3" %>
-            <% elsif @user.blogs.length < 60 %>
-            <%= image_tag 'tree4.png', class:"image_resize4" %>
-            <% elsif @user.blogs.length < 70 %>
-            <%= image_tag 'tree5.png', class:"image_resize5" %>
-            <% elsif @user.blogs.length < 90 %>
-            <%= image_tag 'tree6.png', class:"image_resize6" %>
-            <% else @user.blogs.length < 120 %>
-            <%= image_tag 'tree7.png', class:"image_resize6" %>
+        <p><%= Date.current.month %>月の日記一覧</p>
+        <table class="uk-table-hover-castam uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>日付</th>
+              <th>content</th>
+              <th>Table Heading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @this_month_blogs.each do |blog| %>
+            <tr>
+              <td><%= l blog.updated_at %></td>
+              <td><%= blog.content %></td>
+              <td><%= link_to "詳細", blog_path(blog.id)%></td>
+            </tr>
             <% end %>
-          </div>
-        </div>
-        <ul>
-          <% if @user.blogs.blank? %>
-          <li>日記開始日：投稿がありません。</li>
-          <% else %>
-          <li>日記開始日：<%= l @user.blogs.first.created_at %>から始めました。</li>
-          <% end %>
-          <li>日記投稿数：<%= @user.blogs.length %>日間</li>
-        </ul>
+          </tbody>
+        </table>
       </div>
     </div>
     <div>
       <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-card-hover">
         <%= month_calendar events: @user.blogs do |date, blogs| %>
         <%= date.day %>
-
         <% blogs.each do |blog| %>
         <div>
           <%= link_to blog do %>
@@ -82,4 +115,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

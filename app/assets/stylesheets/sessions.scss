@@ -27,3 +27,19 @@ $base-color: #DC436F;
 .btn-field {
   padding: 15px;
 }
+
+$twitter-color: #377EF7;
+
+.twitter-btn {
+  background-color: #377EF7;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+.twitter-btn:hover {
+  color: white;
+  text-decoration: none;
+  transition-duration: 0.3s;
+  background: darken($twitter-color, 5%)
+}

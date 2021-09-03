@@ -4,19 +4,26 @@
       <h2><%= t('.sign_up') %></h2>
 
       <div class="btn-field">
-      <%= link_to user_google_omniauth_authorize_path, class:"google-btn" do %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class:"google-btn" do %>
       <i class="fab fa-google-plus-g"></i> Googleでサインアップする
       <% end %>
       </div>
 
+      <div class="btn-field">
+      <%= link_to user_twitter_omniauth_authorize_path, class:"twitter-btn" do %>
+      <i class="fab fa-twitter"></i> Twitterでサインアップする
+      <% end %>
+      </div><br>
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="uk-form-controls">
-        <%= f.label :profile_image %>
-        <br>
-        <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
-      </div>
+      <div class="field">
+        <p>クリックしてください</p>
+        <label class="select-btn"><i class="fas fa-camera-retro"></i> プロフィール画像を選択する
+          <%= f.file_field :profile_image, multiple: true, class:'uk-flex-center@s uk-width-1-4@m' %>
+        </label>
+      </div><br><br>
 
       <div class="uk-form-controls">
         <%= f.text_field :name, autofocus: true, autocomplete: "user", placeholder: "Your name", class:"uk-input uk-width-1-2@m" %>
@@ -50,7 +57,7 @@
       <div class="uk-form-controls">
         <%= f.label :orthodontics_type %><br>
         <%= f.select :orthodontics_type, User.orthodontics_types.keys, {autofocus: true, autocomplete: "orthodontics_type", include_blank: "選択してください"}, class:"uk-select uk-width-1-2@m" %>
-      </div>
+      </div><br>
 
       <div class="actions">
         <%= f.submit t('.sign_up'), class:"create-btn uk-width-1-2@m" %>

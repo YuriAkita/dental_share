@@ -118,6 +118,7 @@ h1 {
 }
 
 .top-btn {
+  border-radius: 100vh;
   color: white;
   text-decoration: none;
   font-size: 2rem;
@@ -131,6 +132,32 @@ h1 {
     background: #FF5050;
     }
   }
+
+$red:red;
+
+.top-button {
+  border: 0;
+  -webkit-writing-mode: horizontal-tb !important;
+  -webkit-appearance: button;
+  border-radius: 36px;
+  color: white;
+  font-size: 2rem;
+  padding: 15px;
+  text-decoration: none;
+  text-align: center;
+  background: lighten($red, 5%);
+  border-radius: 5px;
+  position: relative;
+  line-height: 2.0;
+  top: -30px;
+  &:hover, &:focus {
+  color: white;
+  border-radius: 36px;
+  background: red;
+  transition: all .5s;
+  }
+}
+
 
   .image-top {
     background-color: #377EF7;
