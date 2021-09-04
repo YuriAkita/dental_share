@@ -91,3 +91,4 @@ gem 'faker'
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'net-ssh'

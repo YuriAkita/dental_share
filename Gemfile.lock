@@ -72,7 +72,7 @@ GEM
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.495.0)
+    aws-partitions (1.496.0)
     aws-sdk-core (3.121.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -245,7 +245,6 @@ GEM
       letter_opener (~> 1.0)
       railties (>= 3.2)
     libv8-node (15.14.0.1-arm64-darwin-20)
-    libv8-node (15.14.0.1-x86_64-linux)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -273,8 +272,6 @@ GEM
     net-ssh (6.1.0)
     nio4r (2.5.8)
     nokogiri (1.11.7-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.6)
     oauth2 (1.4.7)
@@ -500,7 +497,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3
@@ -537,6 +533,7 @@ DEPENDENCIES
   mimemagic (= 0.3.7)
   mini_magick
   mini_racer
+  net-ssh
   omniauth (= 1.9.1)
   omniauth-google-oauth2
   omniauth-twitter
