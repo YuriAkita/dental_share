@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
-lock '3.6.0'
+lock '3.16.0'
 # デプロイするアプリケーション名
-set :application, 'dentalshare'
+set :application, 'dental-share-app'
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/YuriAkita/dental_share'
 # deployするブランチ。デフォルトでmainを使用している場合、masterをmainに変更してください。
 set :branch, ENV['BRANCH'] || 'develop'
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/dentalshare'
+set :deploy_to, '/var/www/dental-share-app'
 # シンボリックリンクをはるフォルダ・ファイル
 set :linked_files, %w{.env config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
