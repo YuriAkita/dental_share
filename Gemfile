@@ -33,11 +33,13 @@ gem 'dotenv-rails'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # capistranoのツール一式
-  gem 'capistrano', '3.6.0'
+  gem 'capistrano', '3.16.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
   # デバック
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -88,7 +90,3 @@ gem 'rails_admin'
 gem 'simple_calendar', '~> 2.0'
 
 gem 'faker'
-
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
-gem 'net-ssh'
