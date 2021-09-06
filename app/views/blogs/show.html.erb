@@ -35,13 +35,16 @@
         <div class="uk-card-body">
           <p class="uk-text-left"><%= @blog.content %></p>
           <p>
-            <div id="bookmarks_buttons<%= @blog.id %>">
-              <%= render partial: 'bookmarks/bookmark', locals: { blog: @blog, bookmark: @bookmark} %>
-            </div>
-            <% if @blog.user_id == current_user.id %>
-            <%= link_to '編集', edit_review_path(@blog),  id:"review_index_edit-#{@blog.id}", class:"uk-button uk-button-text" %>
-            <%= link_to '削除', @blog, method: :delete, data: { confirm: 'Are you sure?' },  id:"review_index_delete-#{@blog.id}", class:"uk-button uk-button-text" %>
-            <% end %>
+            <div class="uk-flex uk-flex-right@l">
+              <div class="far fa-comment-alt link-icon">  <%= @blog_comments.length %></div>
+              <div id="bookmarks_buttons<%= @blog.id %>">
+                <%= render partial: 'bookmarks/bookmark', locals: { blog: @blog, bookmark: @bookmark} %>
+              </div>
+              <% if @blog.user_id == current_user.id %>
+              <%= link_to '編集', edit_review_path(@blog),  id:"review_index_edit-#{@blog.id}", class:"uk-button uk-button-text" %>
+              <%= link_to '削除', @blog, method: :delete, data: { confirm: 'Are you sure?' },  id:"review_index_delete-#{@blog.id}", class:"uk-button uk-button-text" %>
+              <% end %>
+            </div
           </p>
         </div>
       </div>

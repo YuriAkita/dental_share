@@ -41,15 +41,15 @@
             カウンセリング内容：<br><%= @review.content %><br>
           </p>
           <p>
-            <div class="uk-flex">
-              <div class="far fa-comment-alt link-icon">  <%= @review.review_comments.length %></div>
+            <div class="uk-flex uk-flex-right@l">
+              <div class="far fa-comment-alt link-icon">  <%= @review_comments.length %></div>
               <div id="likes_buttons<%= @review.id %>">
                 <%= render partial: 'likes/like', locals: { review: @review, like: @like} %>
               </div>
-            </div>
               <% if @review.user_id == current_user.id %>
               <%= link_to '編集', edit_review_path(@review),  id:"review_index_edit-#{@review.id}", class:"uk-button uk-button-text" %>
               <% end %>
+            </div>
           </p>
         </div>
       </div>
