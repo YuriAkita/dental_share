@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% unless @blog.bookmark_user(current_user.id).blank? %>
+    <%= link_to blog_bookmark_path(blog_id: @blog.id, id: @blog.bookmarks[0].id), method: :delete, class:"link-icon", remote: true do %>
+      <i class="fas fa-bookmark"></i>
+      <%= @blog.bookmarks.count %>
+    <% end %>
+  <% else %>
+    <%= link_to blog_bookmarks_path(@blog.id), method: :post, class:"link-icon", remote: true do %>
+      <i class="far fa-bookmark"></i>
+      <%= @blog.bookmarks.count %>
+    <% end %>
+  <% end %>
+<% end %>

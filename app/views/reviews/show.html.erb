@@ -39,19 +39,17 @@
             カウンセリング日：<%= l @review.reservation_at %><br>
             見積もり金額：<%= @review.quote_price %>万円<br>
             カウンセリング内容：<br><%= @review.content %><br>
-            <li class="uk-text-baseline"><span uk-icon="comment"></span>  <%= @review.review_comments.length %>  <span uk-icon="heart"></span>  <%= @review.likes.length %></li><br>
           </p>
           <p>
-            <% unless @review.user_id == current_user.id %>
-            <% if @like.present? %>
-            <%= link_to 'いいね解除する', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>
-            <% else %>
-            <%= link_to 'いいねする', likes_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
-            <% end %>
-            <% end %>
-            <% if @review.user_id == current_user.id %>
-            <%= link_to '編集', edit_review_path(@review),  id:"review_index_edit-#{@review.id}", class:"uk-button uk-button-text" %>
-            <% end %>
+            <div class="uk-flex uk-flex-right@l">
+              <div class="far fa-comment-alt link-icon">  <%= @review_comments.length %></div>
+              <div id="likes_buttons<%= @review.id %>">
+                <%= render partial: 'likes/like', locals: { review: @review, like: @like} %>
+              </div>
+              <% if @review.user_id == current_user.id %>
+              <%= link_to '編集', edit_review_path(@review),  id:"review_index_edit-#{@review.id}", class:"uk-button uk-button-text" %>
+              <% end %>
+            </div>
           </p>
         </div>
       </div>

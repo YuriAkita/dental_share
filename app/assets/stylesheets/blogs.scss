@@ -116,3 +116,13 @@ input[type="file"] {
   border: 0;
   border-radius: 20px;
 }
+
+.link-icon {
+  color: #666;
+}
+
+.link-icon:hover {
+  text-decoration: none;
+  color: #666;
+  display: block;
+}
