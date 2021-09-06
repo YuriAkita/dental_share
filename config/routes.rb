@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
 
-  resources :bookmarks, only: %i[create destroy index]
   resources :likes, only: %i[create destroy index]
 
   resources :reviews do
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   resources :blogs do
+    resources :bookmarks, only: %i[create destroy index]
     resources :blog_comments, except: %i[index new show]
   end
 

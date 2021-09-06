@@ -6,4 +6,8 @@ class Blog < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_users, through: :bookmarks, source: :user
   has_many :blog_comments, dependent: :destroy
+
+  def bookmark_user(user_id)
+    bookmarks.find_by(user_id: user_id)
+  end
 end

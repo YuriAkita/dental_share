@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
               <ul class="uk-nav-sub">
                 <li><a href="#"><%= link_to "日記を投稿する", new_blog_path %></a></li>
                 <li><a href="#"><%= link_to "日記一覧", blogs_path %></a></li>
-                <li><a href="#"><%= link_to "日記ブックマーク一覧", bookmarks_path %></a></li>
+                <li><a href="#"><%= link_to "日記ブックマーク一覧", blog_bookmarks_path(current_user) %></a></li>
               </ul>
             </li>
             <li class="uk-nav-divider"></li>
