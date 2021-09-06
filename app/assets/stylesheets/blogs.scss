@@ -116,3 +116,13 @@ input[type="file"] {
   border: 0;
   border-radius: 20px;
 }
+
+.bookmark-icon {
+  color: black;
+}
+
+.bookmark-icon:hover {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
