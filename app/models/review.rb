@@ -11,6 +11,10 @@ class Review < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   has_many :review_comments, dependent: :destroy
 
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
+
   def date_check
     errors.add(:reservation_at, '未来の日付は入力できません。') if !reservation_at.nil? && reservation_at.future?
   end

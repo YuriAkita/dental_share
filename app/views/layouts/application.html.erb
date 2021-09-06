@@ -47,7 +47,7 @@
               <ul class="uk-nav-sub">
                 <li><a href="#"><%= link_to "カウンセリング口コミを投稿する", new_review_path %></a></li>
                 <li><a href="#"><%= link_to "カウンセリング口コミ一覧", reviews_path %></a></li>
-                <li><a href="#"><%= link_to "カウンセリング口コミいいね一覧", likes_path %></a></li>
+                <li><a href="#"><%= link_to "カウンセリング口コミいいね一覧", review_likes_path(current_user) %></a></li>
               </ul>
             </li>
             <li class="uk-nav-divider"></li>
