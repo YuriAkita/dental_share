@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'top#index'
+  get '/items/index', to: 'items#index'
 
   resources :users, only: %i[show index] do
     resource :relationships, only: [:create, :destroy]
