@@ -15,7 +15,7 @@
 <form class="uk-form-horizontal uk-margin-large">
 
   <div class="field">
-    <%= form.label :クリニック名（プルダウンをクリックすると入力欄が表示されるので病院名を入力し選択してください）, class:"label_space" %>
+    <%= form.label :クリニック名（プルダウンをクリックすると入力欄が表示されるので病院名を入力し選択してください）, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <%= javascript_pack_tag 'select2_controller' %>
     <div class="uk-form-controls">
     <%= form.select :clinic_id, options_for_select(Clinic.all.map{|clinic| [clinic.name, clinic.id]}), {}, class: 'mySelect2 uk-width-1-2@m' %>
@@ -23,35 +23,35 @@
   </div>
 
   <div class="field">
-    <%= form.label :カウンセリング日, class:"label_space" %>
+    <%= form.label :カウンセリング日, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <div class="uk-form-controls">
     <%= form.date_field :reservation_at, class:"input-field uk-width-1-2@m" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :見積もり金額, class:"label_space" %>
+    <%= form.label :見積もり金額, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <div class="uk-form-controls">
     <%= form.number_field :quote_price, class:"uk-input uk-width-1-2@m", placeholder:"金額を入力してください（60万円だったら60と入力）" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :歯科矯正方法, class:"label_space" %>
+    <%= form.label :歯科矯正方法, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <div class="uk-form-controls">
     <%= form.select :orthodontics_type, Review.orthodontics_types.keys, {:include_blank => 'どの矯正方法でカウンセリングを受けたのか選択してください'}, class:"uk-select uk-width-1-2@m" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :カウンセリング内容, class:"label_space" %>
+    <%= form.label :カウンセリング内容, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <div class="uk-form-controls">
     <%= form.text_area :content, class:"uk-textarea uk-width-1-2@m",rows:"5", placeholder:"カウンセリング内容：病院の対応・どうゆう治療を勧められたのか・不安に思っている点で医師に相談した内容など、ご自由にご記入ください。" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :スター, class:"label_space" %>
+    <%= form.label :スター, class:"label_space" %> <span class="uk-label uk-label-danger">必須</span>
     <div class="uk-form-controls">
     <%= form.select :star, Review.stars.keys, {:include_blank => '満足度を選択してください'}, class:"uk-select uk-width-1-2@m" %>
     </div>
