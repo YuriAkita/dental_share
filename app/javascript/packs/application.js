@@ -25,13 +25,13 @@ UIkit.use(Icons);
 
 var path = require('path');
 
-module.exports = {
-    entry: './app/javascript/packs/application.js',
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    }
-};
+// module.exports = {
+//     entry: './app/javascript/packs/application.js',
+//     output: {
+//         filename: 'bundle.js',
+//         path: path.resolve(__dirname, 'dist')
+//     }
+// };
 
-UIkit.offcanvas(element).show();
-UIkit.offcanvas(element).hide();
+// UIkit.offcanvas(element).show();
+// UIkit.offcanvas(element).hide();
